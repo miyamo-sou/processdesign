@@ -1,9 +1,0 @@
-# Fdb version 3
-["dvipdf"] 0 "sample.dvi" "sample.pdf" "sample" 0
-  "sample.dvi" 0 -1 0 "latex"
-  (generated)
-  "sample.pdf"
-["latex"] 1561528282 "c:/Users/miyam/vscode/tex_workspace/sample.tex" "sample.dvi" "sample" 1561528282
-  (generated)
-  "sample.log"
-  "sample.dvi"
