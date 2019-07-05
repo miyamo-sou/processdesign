@@ -1,5 +1,5 @@
-% sample.tex
-\documentclass[a4j]{jsreport}
+\documentclass[a4j]{jsarticle}
+\usepackage[dvipdfmx]{graphicx}
 
 \begin{document}
 
@@ -18,9 +18,39 @@
 
 
 \chapter*{第3章 反応部}
+
+\begin{figure}[h]
+    \includepraphic[scale=1.0]{}
+    \caption{反応部の概略図}
+\end{figure}
+
 \section*{3.1 反応機構}
 \section*{3.2 反応器選定}
+流通式の気液反応器の種類には、拡散に対して不利な順に、気泡塔、気液攪拌槽、充填塔などがある。
+最大反応速度と最大拡散速度の比を表す八田数を事前に試算し、その値によって気液攪拌槽型反応器を選択した。
+\begin{equation}
+    \gamma = \frac{(最大反応速度)}{(最大拡散速度)} = \frac{\sqrt(C_{{\rm B}})}{A}
+\end{equation}
+
 \section*{3.3 設計方程式}
+液相はCSTRとして、気相は鉛直方向のPFRとして設計を行った。
+用いた仮定は以下のようになる。
+\begin{itemize} 
+    \item 気相は水平方向に一様な濃度分布を持つ。\\
+    \item 気相側境膜抵抗は無視できる・\\
+    \item 液相は完全混合状態である。\\
+    \item 窒素、酸素はヘンリー則に従い、その他の物質はラウール則に従う。
+\end{itemize}
+以上の仮定および、蒸発油分を還流する機構を含めて、設計方程式を立式した。\\
+\begin{equation}\nonumber
+    0=F^{{\rm in}}_{{\rm liq},j}-F^{{\rm out}}_{{\rm liq},j} -(1-\beta_j) k_{{\rm L}}a
+    \int^{V_{{\rm tot}}}_0(C_j - C^{{\rm sat}}_j){\rm d}V + r_j V_{{\rm L}}
+\end{equation}
+
+\begin{equation}\nonumber                                                
+    \frac{{\rm d}F_{{\rm gas},j}}{{\rm d}V} = k_{{\rm L}}a(C_j - C^{{\rm sat}}_j)
+\end{equation}
+
 \section*{3.4 反応器設計結果} 
 
 
@@ -32,8 +62,40 @@
 
 \section*{5.1 晶析器設計}
 \subsection*{5.1.1 晶析器選定}
+溶解度の温度依存性が大きいことと、結晶生産量が大きいことから、
+連続式攪拌槽型反応装置を選定した。
 \subsection*{5.1.2 設計方程式}
+以下の仮定を用いた。
+\begin{itemize} 
+    \item 結晶表面拡散は迅速に行われる。\\
+    \item 晶析器内は完全混合状態である。\\
+    \item 二次核発生の影響は無視する。\\
+\end{itemize}
+
+参考文献[]により、以下の実験式および理論式を用いて設計を行った。\\
+一次核発生速度
+\begin{equation}
+    B^0 = k_{{\rm b}}M_{{\rm T}}^j \Delta C^b
+\end{equation}
+結晶成長速度
+\begin{equation}
+    G = k_{{\rm g}}\Delta C^g
+\end{equation}
+結晶成長速度定数
+\begin{equation}
+    k_{{\rm g}} = k_{{\rm g0}} \exp(-\frac{E_{{\rm g}}}{RT})
+\end{equation}
+個数収支式
+\begin{equation}
+    n=n^0 \exp(-\frac{L}{G\tau})
+\end{equation}
+懸濁密度
+\begin{equation}
+    M_{{\rm T}} = c_0-c = 6k_{{\rm v}}\rho_{{\rm c}}n^0(G\tau)^4
+\end{equation}
+
 \subsection*{5.1.3 晶析器設計結果}
+
 
 \section*{5.2 抽出塔設計}
 
