@@ -425,3 +425,5 @@ Temporary Items
 # End of https://www.gitignore.io/api/tex,latex,macos
 
 .latexmkrc
+test.*
+.tex 
