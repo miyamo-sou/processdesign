@@ -1,7 +1,8 @@
-\documentclass[platex, a4j, titlepage]{jsarticle}
+\documentclass[a4j, titlepage]{jsarticle}
 \usepackage[dvipdfmx]{graphicx}
 \usepackage{amsmath}
 
+\bibliographystyle{jplain}
 
 \title{トルエンの空気酸化による安息香酸の製造}
 \author{荊尾太雅 \and 宮本奏汰}
@@ -50,8 +51,6 @@
   u_\mathrm{t} &: \text{気泡の終末速度} \\
   u_\mathrm{G} &: \text{気泡の空塔速度} \\
   V &: \text{体積} \\
-\end{align*}
-\begin{align*}
   \beta &: \text{還流率} \\
   \mu &: \text{粘度} \\
   \mu_\mathrm{L} &: \text{液相粘度} \\
@@ -60,8 +59,6 @@
   \rho_\mathrm{L} &: \text{液相密度} \\
   \rho_\mathrm{g} &: \text{気相密度} \\
   \varDelta\rho &: \text{密度差} \\
-\end{align*}
-\begin{align*}
   Eo &: \text{エトベス数} \\
   Sc &: \text{シュミット数} \\
   Re &: \text{レイノルズ数}
@@ -109,7 +106,7 @@
     \int^{V_{{\mathrm tot}}}_0(C_j - C^{{\mathrm sat}}_j) \diff V + r_j V_{{\mathrm L}}
 \end{equation*}
 \begin{equation*}
-    \frac{{\mathrm d}F_{{\mathrm gas},j}}{\diff V} = k_{{\mathrm L}}a(C_j - C^{{\mathrm sat}}_j)
+    \frac{ \diff F_{{\mathrm gas},j}}{\diff V} = k_{{\mathrm L}}a(C_j - C^{{\mathrm sat}}_j)
 \end{equation*}
 
 \subsection*{3.4 物質移動容量係数の推算}
@@ -203,7 +200,7 @@ Einstin-Stokesの式
 \end{itemize}
 
 % TODO: bibtexに変更する．
-参考文献[]により，以下の実験式および理論式を用いて設計を行った．\\
+参考文献\cite{article1}により，以下の実験式および理論式を用いて設計を行った．\\
 一次核発生速度
 \begin{equation}
     B^0 = k_{{\mathrm b}}M_{{\mathrm T}}^j \Delta C^b
@@ -284,7 +281,7 @@ Einstin-Stokesの式
 私たちのプロセス設計に協力してくださった先生方，先輩方に改めて御礼申し上げます．
 
 \newpage
-\section*{参考文献}
+\bibliography{bibs/refs.bib}
 
 \newpage
 \section*{Appendix}
