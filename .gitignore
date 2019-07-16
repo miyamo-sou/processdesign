@@ -426,4 +426,4 @@ Temporary Items
 
 .latexmkrc
 test.*
-.tex 
+.tex.*
