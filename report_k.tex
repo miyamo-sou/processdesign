@@ -102,11 +102,11 @@
 \end{itemize}
 以上の仮定および，蒸発油分を還流する機構を含めて，設計方程式を立式した．\\
 \begin{equation*}
-    0 = F^{{\mathrm in}}_{{\mathrm liq},j}-F^{{\mathrm out}}_{{\mathrm liq},j} -(1-\beta_j) k_{{\mathrm L}}a
-    \int^{V_{{\mathrm tot}}}_0(C_j - C^{{\mathrm sat}}_j) \diff V + r_j V_{{\mathrm L}}
+    0 = F^\text{in}_{\text{liq},j} - F^\text{out}_{\text{liq},j} - (1-\beta_j) k_\mathrm{L}a
+    \int^{V_\text{tot}}_0(C_j - C^\text{sat}_j) \diff V + r_j V_\mathrm{L}
 \end{equation*}
 \begin{equation*}
-    \frac{ \diff F_{{\mathrm gas},j}}{\diff V} = k_{{\mathrm L}}a(C_j - C^{{\mathrm sat}}_j)
+    \frac{ \diff F_{\text{gas},j}}{\diff V} = k_\mathrm{L}a (C_j - C^\text{sat}_j)
 \end{equation*}
 
 \subsection*{3.4 物質移動容量係数の推算}
@@ -116,61 +116,61 @@
 液相側物質移動係数の相関式\\
 小気泡の場合
 \begin{equation}
-    k_{{\mathrm L}} = 0.31Sc_{{\mathrm L}}^{-2/3}(g \Delta \rho \mu_{{\mathrm L}}/\rho_{{\mathrm L}}^2)^{1/3}
+    k_\mathrm{L} = 0.31Sc_\mathrm{L}^{-2/3}(g \Delta \rho \mu_\mathrm{L}/\rho_\mathrm{L}^2)^{1/3}
 \end{equation}
 大気泡の場合
 \begin{equation}
-    k_{{\mathrm L}} = 0.42Sc_{{\mathrm L}}^{-1/2}(g \Delta \rho \mu_{{\mathrm L}}/\rho_{{\mathrm L}}^2)^{1/3}
+    k_\mathrm{L} = 0.42Sc_\mathrm{L}^{-1/2}(g \Delta \rho \mu_\mathrm{L}/\rho_\mathrm{L}^2)^{1/3}
 \end{equation}
 比表面積の相関式
 \begin{equation}
-    a = 1.44 \left( \frac{P_{{\mathrm V}}^{0.4} \rho_{{\mathrm L}}^{0.2} }{ \sigma^{0.6}} \right) \left( \frac{u_{{\mathrm G}}}{u_{{\mathrm t}}} \right)^{0.5} \left( \frac{P_{{\mathrm T}}}{P_{{\mathrm G}}} \right) \left( \frac{\rho_{{\mathrm G}}}{\rho_{{\mathrm a}}} \right)^{0.16}
+    a = 1.44 \left( \frac{P_\mathrm{V}^{0.4} \rho_\mathrm{L}^{0.2} }{ \sigma^{0.6}} \right) \left( \frac{u_\mathrm{G}}{u_\mathrm{t}} \right)^{0.5} \left( \frac{P_\mathrm{T}}{P_\mathrm{G}} \right) \left( \frac{\rho_\mathrm{G}}{\rho_\mathrm{a}} \right)^{0.16}
 \end{equation}
 
 上記の2式を利用するために用いた相関式を以下に記す．
 
 ガスホールドアップの相関式
 \begin{equation}
-    \varepsilon_{{\mathrm G}} = \left( \frac{u_{{\mathrm G}}\varepsilon_{{\mathrm G}}}{u_{{\mathrm t}}} \right) + 0.000216 \times \left( \frac{P_{{\mathrm V}}^{0.4} \rho_{{\mathrm L}}^{0.2} }{ \sigma^{0.6}} \right) \left( \frac{u_{{\mathrm G}}}{u_{{\mathrm t}}} \right)^{0.5} \left( \frac{P_{{\mathrm T}}}{P_{{\mathrm G}}} \right) \left( \frac{\rho_{{\mathrm G}}}{\rho_{{\mathrm a}}} \right)^{0.16}
+    \varepsilon_{{\mathrm G}} = \left( \frac{u_{{\mathrm G}}\varepsilon_{{\mathrm G}}}{u_{{\mathrm t}}} \right) + 0.000216 \times \left( \frac{P_\mathrm{V}^{0.4} \rho_\mathrm{L}^{0.2} }{ \sigma^{0.6}} \right) \left( \frac{u_\mathrm{G}}{u_\mathrm{t}} \right)^{0.5} \left( \frac{P_\mathrm{T}}{P_\mathrm{G}} \right) \left( \frac{\rho_\mathrm{G}}{\rho_\mathrm{a}} \right)^{0.16}
 \end{equation}
 気泡の体積平均径の相関式
 \begin{equation}
-    d_{{\mathrm vs}} = 4.15 \left( \frac{\sigma^{0.6}}{P_{{\mathrm V}}^{0.4} \rho_{{\mathrm L}}^{0.2}} \right) \left( \frac{P_{{\mathrm G}}}{P_{{\mathrm T}}} \right) \left( \frac{\rho_{{\mathrm a}}}{\rho_{{\mathrm G}}} \right) ^{0.16} \varepsilon_{{\mathrm G}}^{0.5} + 0.0009
-\end{equation}
+    d_\mathrm{vs} = 4.15 \left( \frac{\sigma^{0.6}}{P_\mathrm{V}^{0.4} \rho_\mathrm{L}^{0.2}} \right) \left( \frac{P_\mathrm{G}}{P_\mathrm{T}} \right) \left( \frac{\rho_\mathrm{a}}{\rho_\mathrm{G}} \right) ^{0.16} \varepsilon_\mathrm{G}^{0.5} + 0.0009
+{}\end{equation}
 気泡の終末速度の相関式
 \begin{equation}
-    u_{{\mathrm t}} = \left( \frac{4\Delta \rho g d_{{\mathrm vs}}}{3C_{{\mathrm D}}\rho_{{\mathrm L}}} \right)^{0.5}
+    u_\mathrm{t} = \left( \frac{4\varDelta \rho g d_\mathrm{vs}}{3C_\mathrm{D} \rho_\mathrm{L}} \right)^{0.5}
 \end{equation}
 
 さらに，上記の相関式を利用するために用いた物性値の推算式，および変数の定義式などの諸式を以下に記す．
 
 抗力係数の相関式
 \begin{equation}
-    C_{{\mathrm D}} = {\mathrm max} \left[ \frac{24}{Re}(1+0.15Re^{0.687}), \, \frac{8}{3}\frac{Eo}{Eo+4} \right]
+    C_\mathrm{D} = \max \left[ \frac{24}{Re}(1+0.15Re^{0.687}), \, \frac{8}{3} \frac{Eo}{Eo+4} \right]
 \end{equation}
 拡散係数の推算\\
 wilke-changの式
 \begin{equation}
-    D_{12} = \frac{2.946\times 10^{-11}(\beta M_{{\mathrm r,2}})^{1/2} T} {\mu_2 V_{{\mathrm b,1}}^{0.6}}
+    D_{12} = \frac{2.946\times 10^{-11}(\beta M_{\mathrm{r,2}})^{1/2} T} {\mu_2 V_{\mathrm{b},1}^{0.6}}
 \end{equation}
 Einstin-Stokesの式
 \begin{equation}
-    \frac{D \mu}{T} = {\mathrm const}
+    \frac{D \mu}{T} = \text{const}
 \end{equation}
 
 界面張力の推算\\
 界面張力の温度依存性に関する相関式
 \begin{equation}
-    \sigma \propto \{1-(T/T_{{\mathrm c}}) \}^n
+    \sigma \propto \{ 1-(T/T_\mathrm{c}) \}^n
 \end{equation}
 
 気泡レイノルズ数の定義式
 \begin{equation}
-    Re = \frac{\rho_{{\mathrm L}}u_{{\mathrm t}}d_{{\mathrm vs}}}{\mu_{{\mathrm L}}}
+    Re = \frac{\rho_\mathrm{L}u_\mathrm{t} d_\mathrm{vs}}{\mu_\mathrm{L}}
 \end{equation}
 エトベス数の定義式
 \begin{equation}
-    Eo = \frac{g \Delta \rho d_{{\mathrm vs}}^2}{\sigma}
+    Eo = \frac{g \Delta \rho d_\mathrm{vs}^2}{\sigma}
 \end{equation}
 
 \subsection*{3.5 反応器設計結果}
@@ -203,15 +203,15 @@ Einstin-Stokesの式
 参考文献\cite{article1}により，以下の実験式および理論式を用いて設計を行った．\\
 一次核発生速度
 \begin{equation}
-    B^0 = k_{{\mathrm b}}M_{{\mathrm T}}^j \Delta C^b
+    B^0 = k_\mathrm{b} M_\mathrm{T}^j \Delta C^b
 \end{equation}
 結晶成長速度
 \begin{equation}
-    G = k_{{\mathrm g}}\Delta C^g
+    G = k_\mathrm{g}\Delta C^g
 \end{equation}
 結晶成長速度定数
 \begin{equation}
-    k_{{\mathrm g}} = k_{{\mathrm g0}} \exp \left(-\frac{E_{{\mathrm g}}}{RT} \right)
+    k_\mathrm{g} = k_\mathrm{g0} \exp \left( -\frac{E_\mathrm{g}}{RT} \right)
 \end{equation}
 個数収支式
 \begin{equation}
@@ -219,7 +219,7 @@ Einstin-Stokesの式
 \end{equation}
 懸濁密度
 \begin{equation}
-    M_{{\mathrm T}} = c_0-c = 6k_{{\mathrm v}}\rho_{{\mathrm c}}n^0(G\tau)^4
+    M_\mathrm{T} = c_0-c = 6k_\mathrm{v} \rho_\mathrm{c} n^0 (G\tau)^4
 \end{equation}
 
 \subsection*{5.1.3 晶析器設計結果}
