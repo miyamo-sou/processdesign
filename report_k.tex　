@@ -1,6 +1,8 @@
-\documentclass[a4j, titlepage]{jsarticle}
+\documentclass[a4j]{jsreport}
 \usepackage[dvipdfmx]{graphicx}
+\usepackage{multicol}
 \usepackage{amsmath}
+\usepackage{siunitx}
 
 \bibliographystyle{jplain}
 
@@ -11,94 +13,82 @@
 
 \begin{document}
 % 表紙
-\maketitle
+\begin{titlepage}
+\vspace{5cm}
+\centering
+{\Huge トルエンの空気酸化による安息香酸の製造}\\
+\vspace{2cm}
+\centering
+{\Large 1講座 移動現象論分野}\\
+\vspace{0.5cm}
+\centering
+{\large 荊尾太雅  宮本奏汰}\\
+\vspace{3cm}
+\begin{table}[htbp]
+    \begin{center}
+        \begin{tabular}[htbp]{ll}
+            \multicolumn{2}{l}{{\LARGE keyword}}\\
+            {\Large 空気酸化}&{\Large Air oxidation}\\
+            {\Large 気液反応}&{\Large Gas-liquidreaction}\\
+            {\Large 晶析}&{\Large Crystallization}\\
+            {\Large 多変数全体同時最適化}&{\Large Multi-variable simultaneous optimization}\\
+            {\Large }&{\Large air}\\
+        \end{tabular}
+    \end{center}
+\end{table}
+\end{titlepage}
+
+\pagenumbering{roman}
+\setcounter{tocdepth}{2}
+\tableofcontents
 
 % 本文
-\section*{第1章 緒言}
+\pagenumbering{arabic}
+\chapter{緒言}
 安息香酸は，主としてフェノールの原料となる他，その塩が食品や化粧品などの添加物として広く利用されている．
 2014年には世界全体で 万トンが製造されており，新興国での需要から，2024年には生産量が 万トンとなると見込まれている．
 そこで，私たちは原料として安価なトルエンを使用し，空気酸化することで安息香酸を製造するプロセスを
-設計し，本プロセス設計演習において検討することにした．
+題材とし，本プロセス設計演習において検討することにした．
 
 \newpage
-\section{変数一覧}
-\begin{align*}
-  a &: \text{比界面積} \\
-  B^0 &: \text{一次核発生速度} \\
-  c &: \text{重量濃度} \\
-  C &: \text{モル濃度} \\
-  C_\mathrm{D} &: \text{抗力係数} \\
-  D &: \text{拡散係数} \\
-  d_\mathrm{vs} &: \text{気泡体積平均径} \\
-  E &: \text{活性化エネルギー} \\
-  E_\mathrm{g} &: \text{結晶化過程の活性化エネルギー} \\
-  F &: \text{モル流量} \\
-  g &: \text{重力加速度} \\
-  G &: \text{核成長速度} \\
-  k &: \text{反応速度定数} \\
-  k_\mathrm{b} &: \text{核発生速度定数} \\
-  k_\mathrm{g} &: \text{核成長速度定数} \\
-  k_\mathrm{L} &: \text{液相物質移動係数} \\
-  k_\mathrm{L} a &: \text{液相物質移動容量係数} \\
-  k_\mathrm{v} &: \text{結晶体積形状係数} \\
-  M_\mathrm{T} &: \text{懸濁密度} \\
-  n &: \text{結晶の個数密度} \\
-  P_\mathrm{G} &: \text{攪拌動力} \\
-  P_\mathrm{T} &: \text{} \\
-  r &: \text{反応速度定数} \\
-  T &: \text{温度} \\
-  T_\mathrm{c} &: \text{臨界温度} \\
-  u_\mathrm{t} &: \text{気泡の終末速度} \\
-  u_\mathrm{G} &: \text{気泡の空塔速度} \\
-  V &: \text{体積} \\
-  \beta &: \text{還流率} \\
-  \mu &: \text{粘度} \\
-  \mu_\mathrm{L} &: \text{液相粘度} \\
-  \sigma &: \text{界面張力} \\
-  \rho_\mathrm{a} &: \text{空気密度} \\
-  \rho_\mathrm{L} &: \text{液相密度} \\
-  \rho_\mathrm{g} &: \text{気相密度} \\
-  \varDelta\rho &: \text{密度差} \\
-  Eo &: \text{エトベス数} \\
-  Sc &: \text{シュミット数} \\
-  Re &: \text{レイノルズ数}
-\end{align*}
-
-\newpage
-\section*{第2章 プロセスの概要}
-\subsection*{2.1 プロセスの概要}
+\chapter{プロセスの概要}
+\section{プロセスの概要}
 本設計で対象とするのは，トルエンを空気酸化することにより安息香酸を製造するプロセスである．
 プロセス全体の概略図を以下に示す．
 
-% 改行している意味は何？
-\subsection*{2.2 設計条件}
-生産要求は，99.0wt\%以上の安息香酸を年2万トンとする．
-工場の稼働時間は，1日24時間，年300日とする．
-原料として，純度100\%のトルエンおよび，組成を窒素79mol\%酸素21mol\%とする空気を用いる．
-ただし，原料は25℃，1barで供給されるものとする．
-減価償却期間は7年である．
+\section{設計条件}
+\begin{enumerate}
+    \item 生産要求は，99.0wt\%以上の安息香酸を年2万トンとする．\\
+    \item 工場の稼働時間は，1日24時間，年300日とする．\\
+    \item 原料として，純度100\%のトルエンおよび，組成を窒素79mol\%酸素21mol\%とする空気を用いる．\\
+    \item ただし，原料は25℃，1barで供給されるものとする．\\
+    \item 減価償却期間は7年である．
+\end{enumerate}
 
 \newpage
-\section*{第3章 反応部}
+\chapter{反応部}
 反応部の概略図を以下に示す．
 
-\subsection*{3.1 反応機構}
+\section{反応機構}
 
-\subsection*{3.2 反応器選定}
-流通式の気液反応器の種類には，拡散に対して不利な順に，気泡塔，気液攪拌槽，充填塔などがある．
-最大反応速度と最大拡散速度の比を表す八田数を事前に試算し，その値によって気液攪拌槽型反応器を選択した．
+\section{反応器選定}
+流通式の気液反応器の種類には，拡散速度に対して不利な順に，気泡塔，気液攪拌槽，充填塔などがある．
+最大反応速度と最大拡散速度の比を表す八田数を事前に概算し，
+参考文献\cite{化工便覧}の選定基準に基づき，八田数が0.1より小さいなら気泡塔，
+5より大きければ充填塔，中間域ならば気液攪拌槽を選択した．
+今回は気液攪拌槽型反応器を選択した．実際のプロセスでは気泡塔も選択される．\\
 \begin{equation}
-    \gamma = \frac{(最大反応速度)}{(最大拡散速度)} = \frac{\sqrt{C_{{\mathrm B}}}}{A}
+    \gamma = \frac{\text{(最大反応速度)}}{\text{(最大拡散速度)}} = \frac{(C_\mathrm{B}kD_\mathrm{B})^{1/2}} {k_\mathrm{L}}
 \end{equation}
 
-\subsection*{3.3 設計方程式}
-液相はCSTRとして，気相は鉛直方向のPFRとして設計を行った．
+\section{設計方程式}
+液相は完全混合状態として，気相は鉛直方向に向かう押し出し流れとなっているとして設計を行った．
 用いた仮定は以下のようになる．
 \begin{itemize}
-    \item 気相は水平方向に一様な濃度分布を持つ．\\
-    \item 気相側境膜抵抗は無視できる・\\
-    \item 液相は完全混合状態である．\\
-    \item 窒素，酸素はヘンリー則に従い，その他の物質はラウール則に従う．
+    \item[-] 気相は水平方向に一様な濃度分布を持つ．
+    \item[-] 気相側境膜抵抗は無視できる・
+    \item[-] 液相は完全混合状態である．
+    \item[-] 窒素，酸素はヘンリー則に従い，その他の物質はラウール則に従う．
 \end{itemize}
 以上の仮定および，蒸発油分を還流する機構を含めて，設計方程式を立式した．\\
 \begin{equation*}
@@ -109,7 +99,7 @@
     \frac{ \diff F_{\text{gas},j}}{\diff V} = k_\mathrm{L}a (C_j - C^\text{sat}_j)
 \end{equation*}
 
-\subsection*{3.4 物質移動容量係数の推算}
+\section{物質移動容量係数の推算}
 % TODO: 書式の統一
 物質移動容量係数の推算に用いた各相関式を記す．
 
@@ -173,33 +163,45 @@ Einstin-Stokesの式
     Eo = \frac{g \Delta \rho d_\mathrm{vs}^2}{\sigma}
 \end{equation}
 
-\subsection*{3.5 反応器設計結果}
+\section{反応器設計結果}
 反応部の概略図および物質収支を以下に示す．
 
 \newpage
-\section*{第4章 分離部1}
-\subsection*{4.1 蒸留塔設計}
+\chapter{分離部1}
+\section{蒸留塔設計}
 未反応トルエンのうち99\%以上を回収することを目的とした．
 設計条件を以下に記す．
 
-各蒸留塔圧力の設定値において，反応器体積および晶析体積を操作変数として評価関数の値を最大化し，
-評価関数の最大値同士を比較することにより蒸留塔圧力を決定した．
+設計結果を以下に記す．
+
+蒸留塔圧力を変更し，全体の利益を最大とする点について探索を行った．
+反応器流出液圧力が7barであるため，最適な圧力であることが予想されるが，下記の
+グラフに示されるように，確かに7barで全体の利益が最大化されることを確認している．
 
 \newpage
-\section*{第5章 分離部2}
-\subsection*{5.1 晶析器設計}
-\subsection*{5.1.1 晶析器選定}
+\chapter{分離部2}
+\section{晶析器設計}
+\section{晶析器選定}
 溶解度の温度依存性が大きいことと，目的とする結晶生産量が大きいことから，
-連続式攪拌槽型反応装置を選定した．
-\subsection*{5.1.2 設計方程式}
+連続式攪拌槽型反応装置を選定した．\\
+溶解度の温度依存性の相関式
+\begin{equation}
+    C^*=2.03\times 10^{-5}T^4 +2.03^{-5}\times T^4 + 2.97\times 10^{-4}T^3 + 4.70\times 10^{-2}T^2
+        + 1.43T + 24.71
+\end{equation}
+ただし,$T[\mathrm{^\circ C}]$,$C^*[{\mathrm g/kg-solvent}]$\\
+
+\section{設計方程式}
 以下の仮定を用いた．
 \begin{itemize}
-    \item 結晶表面拡散は迅速に行われる．\\
-    \item 晶析器内は完全混合状態である．\\
-    \item 二次核発生の影響は無視する．
+    \setlength{\parskip}{0pt}
+    \setlength{\itemsep}{2pt}
+    \item[-] 結晶表面拡散は迅速に行われる．
+    \item[-] 晶析器内は完全混合状態である．
+    \item[-] 二次核発生の影響は無視する．
 \end{itemize}
 
-参考文献\cite{article1}により，以下の実験式および理論式を用いて設計を行った．\\
+参考文献\cite{晶析}により，以下の実験式および理論式を用いて設計を行った．\\
 一次核発生速度
 \begin{equation}
     B^0 = k_\mathrm{b} M_\mathrm{T}^j \Delta C^b
@@ -220,43 +222,54 @@ Einstin-Stokesの式
 \begin{equation}
     M_\mathrm{T} = c_0-c = 6k_\mathrm{v} \rho_\mathrm{c} n^0 (G\tau)^4
 \end{equation}
+各パラメータは以下の通りである．
+\begin{align*}
+    &k_\mathrm{g0} = 1.06\times10^7 \, \si{(\micro \meter)/(\gram / \gram-solvent)^{\textit{g}}} \\
+    &B^{\mathrm{0}} = 40.05 \, \si{\kilo \joule / \mole} \\
+    &k_\mathrm{b} = 9.16 \times 10^{12} \, \si{(\# / \cubic \meter \second) / \{ (\gram / \milli \liter)^{\textit{j}} (\gram / \gram-solvent)^{\textit{b}} \} } \\
+    &g = 0.44 \\
+    &j = 1.78 \\
+    &b = 1.2 \\
+    &k_\mathrm{v} = 0.1 \\
+    &\rho_\mathrm{c} = 1.32 \, \si{\gram / \centi \metre \cubed}
+\end{align*}
 
-\subsection*{5.1.3 晶析器設計結果}
-晶析器体積と晶析器内温度を操作変数として，評価関数を最大化する2次元探索を行った．
-以下に探索によって得た図を示す．
-設計結果を以下に記す．
 
-\subsection*{5.2 抽出塔設計}
+\section{晶析器設計結果}
+最適化の結果によって得られた晶析器の設計結果を以下に記す．
+
+\section{抽出塔設計}
 十分に塔内へ液を滞留させることによって安息香酸を水中に飽和させることを目的とした．
 設計仮定を以下に記す．
 設計条件を以下に記す．
 
-\newpage
-\section*{第6章 最適化}
-\subsection*{6.1 方法}
-
-\subsection*{6.2 蒸留塔圧力の最適化}
-
-\subsection*{6.3 晶析器内温度の最適化}
 
 \newpage
-\section*{第7章 物質収支 $\cdot$ 熱収支}
+\chapter{最適化}
+\section{方法}
+
+\section{蒸留塔圧力の最適化}
+
+\section{晶析器内温度の最適化}
+
+\newpage
+\chapter{物質収支 $\cdot$ 熱収支}
 全体のフロー図および流量関係は下図のようになった．
 
 全体の熱量関係は以下のようになった．
 
 \newpage
-\section*{第8章 ヒートインテグレーション}
+\chapter{ヒートインテグレーション}
 流体同士の熱交換を行い，外部流体の利用量を削減した．
 以下に最終的な設計結果におけるTQ線図を示す．
 
 熱交換により，外部熱媒を用いた場合と比較して，
 
 \newpage
-\section*{第9章 経済評価}
+\chapter{経済評価}
 
 \newpage
-\section*{第10章 結言}
+\chapter{結言}
 設計目標を純度99.0wt\%の安息香酸を年2万ton製造するものとして，設計を行った．
 文献値を参考として反応器，および晶析装置を設計した．
 また，リサイクルフローおよび燃焼炉の設置によって原料を有効活用できた．
@@ -269,7 +282,8 @@ Einstin-Stokesの式
 また，燃焼炉ではなく，吸着装置を用いた時の比較検討を行うこと等が挙げられる．
 
 \newpage
-\section*{謝辞}
+\chapter*{謝辞}
+\addcontentsline{toc}{chapter}{謝辞}
 今回のプロセス設計では，様々な方々にお世話になりました．山本教授，谷口准教授を
 はじめとする多くの化学工学の先生方，集中講義を実施してくださった玉川先生に感謝の意を申し上げます．
 \par
@@ -281,6 +295,53 @@ Einstin-Stokesの式
 
 \newpage
 \bibliography{bibs/refs.bib}
+
+\newpage
+\chapter*{変数一覧}
+\addcontentsline{toc}{chapter}{変数一覧}
+\begin{multicols}{2}
+\begin{flushleft}
+  $a : \text{比界面積}$ \\
+  $B^0 : \text{一次核発生速度}$ \\
+  $c : \text{重量濃度}$ \\
+  $C : \text{モル濃度}$ \\
+  $C_\mathrm{D} : \text{抗力係数}$ \\
+  $D : \text{拡散係数}$ \\
+  $d_\mathrm{vs} : \text{気泡体積平均径}$ \\
+  $E : \text{活性化エネルギー}$ \\
+  $E_\mathrm{g} : \text{結晶化過程の活性化エネルギー}$ \\
+  $F : \text{モル流量}$ \\
+  $g : \text{重力加速度}$ \\
+  $G : \text{核成長速度}$ \\
+  $k : \text{反応速度定数}$ \\
+  $k_\mathrm{b} : \text{核発生速度定数}$ \\
+  $k_\mathrm{g} : \text{核成長速度定数}$ \\
+  $k_\mathrm{L} : \text{液相物質移動係数}$ \\
+  $k_\mathrm{L} a : \text{液相物質移動容量係数}$ \\
+  $k_\mathrm{v} : \text{結晶体積形状係数}$ \\
+  $M_\mathrm{T} : \text{懸濁密度}$ \\
+  $n : \text{結晶の個数密度}$ \\
+  $P_\mathrm{G} : \text{攪拌動力}$ \\
+  $P_\mathrm{T} : \text{}$ \\
+  $r : \text{反応速度定数}$ \\
+  $T : \text{温度}$ \\
+  $T_\mathrm{c} : \text{臨界温度}$ \\
+  $u_\mathrm{t} : \text{気泡の終末速度}$ \\
+  $u_\mathrm{G} : \text{気泡の空塔速度}$ \\
+  $V : \text{体積}$ \\
+  $\beta : \text{還流率}$ \\
+  $\mu : \text{粘度}$ \\
+  $\mu_\mathrm{L} : \text{液相粘度}$ \\
+  $\sigma : \text{界面張力}$ \\
+  $\rho_\mathrm{a} : \text{空気密度}$ \\
+  $\rho_\mathrm{L} : \text{液相密度}$ \\
+  $\rho_\mathrm{g} : \text{気相密度}$ \\
+  $\varDelta\rho : \text{密度差}$ \\
+  $Eo : \text{エトベス数}$ \\
+  $Sc : \text{シュミット数}$ \\
+  $Re : \text{レイノルズ数}$
+\end{flushleft}
+\end{multicols}
 
 \newpage
 \section*{Appendix}
