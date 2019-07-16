@@ -5,12 +5,34 @@
 \begin{document}
 
 % 表紙
-\title{トルエンの空気酸化による安息香酸の製造}
-\author{荊尾大雅、宮本奏汰}
-\maketitle
+\begin{titlepage}
+\vspace{5cm}
+\centering
+{\Huge トルエンの空気酸化による安息香酸の製造}\\
+\vspace{2cm}
+\centering
+{\Large 1講座 移動現象論分野}\\
+\vspace{0.5cm}
+\centering
+{\large 荊尾大雅、宮本奏汰}\\
+\vspace{3cm}
+\begin{table}[htbp]
+    \begin{center}
+        \begin{tabular}[htbp]{ll}
+            \multicolumn{2}{l}{{\LARGE keyword}}\\
+            {\Large 空気酸化}&{\Large Air oxidation}\\
+            {\Large 気液反応}&{\Large Gas-liquidreaction}\\
+            {\Large 晶析}&{\Large Crystallization}\\
+            {\Large 多変数全体同時最適化}&{\Large Multi-variable simultaneous optimization}\\
+            {\Large }&{\Large air}\\
+        \end{tabular}
+    \end{center}
+\end{table}
+
+\end{titlepage}
+
 
 \newpage
-
 \pagenumbering{roman}
 \setcounter{tocdepth}{2}
 \tableofcontents
@@ -32,11 +54,13 @@
 プロセス全体の概略図を以下に示す。
 
 \section{設計条件}
-生産要求は、99.0wt\%以上の安息香酸を年2万トンとする。\\
-工場の稼働時間は、1日24時間、年300日とする。\\
-原料として、純度100\%のトルエンおよび、組成を窒素79mol\%酸素21mol\%とする空気を用いる。
-ただし、原料は25℃、1barで供給されるものとする。\\
-減価償却期間は7年である。
+\begin{enumerate}
+    \item 生産要求は、99.0wt\%以上の安息香酸を年2万トンとする。\\
+    \item 工場の稼働時間は、1日24時間、年300日とする。\\
+    \item 原料として、純度100\%のトルエンおよび、組成を窒素79mol\%酸素21mol\%とする空気を用いる。\\
+    \item ただし、原料は25℃、1barで供給されるものとする。\\
+    \item 減価償却期間は7年である。
+\end{enumerate}
 
 \newpage
 \chapter{反応部}
@@ -46,9 +70,11 @@
 
 \section{反応器選定}
 流通式の気液反応器の種類には、拡散速度に対して不利な順に、気泡塔、気液攪拌槽、充填塔などがある。
-最大反応速度と最大拡散速度の比を表す八田数を事前に試算し、八田数が0.1より小さいなら気泡塔、
-5より大きければ充填塔、中間域ならば気液攪拌槽を選択する。
-今回は気液攪拌槽型反応器を選択した。実際のプロセスでは気泡塔も選択される。
+最大反応速度と最大拡散速度の比を表す八田数を事前に概算し、
+参考文献\cite{化工便覧}の選定基準に基づき、八田数が0.1より小さいなら気泡塔、
+5より大きければ充填塔、中間域ならば気液攪拌槽を選択した。
+今回は気液攪拌槽型反応器を選択した。実際のプロセスでは気泡塔も選択される。\\
+八田数の定義式
 \begin{equation}
     \gamma = \frac{(\text{最大反応速度})}{(\text{最大拡散速度})} = \frac{(C_{{\rm B}}kD_{{\rm B}})^{1/2}}{k_{{\rm L}}}
 \end{equation}
@@ -57,9 +83,9 @@
 液相は完全混合状態として、気相は鉛直方向に向かう押し出し流れとなっているとして設計を行った。
 用いた仮定は以下のようになる。
 \begin{itemize} 
-    \item[-] 気相は水平方向に一様な濃度分布を持つ。\\
-    \item[-] 気相側境膜抵抗は無視できる・\\
-    \item[-] 液相は完全混合状態である。\\
+    \item[-] 気相は水平方向に一様な濃度分布を持つ。
+    \item[-] 気相側境膜抵抗は無視できる・
+    \item[-] 液相は完全混合状態である。
     \item[-] 窒素、酸素はヘンリー則に従い、その他の物質はラウール則に従う。
 \end{itemize}
 以上の仮定および、蒸発油分を還流する機構を含めて、設計方程式を立式した。\\
@@ -171,12 +197,12 @@ Einstin-Stokesの式
 \begin{itemize}
     \setlength{\parskip}{0pt}
     \setlength{\itemsep}{2pt} 
-    \item[] 結晶表面拡散は迅速に行われる。\\
-    \item[] 晶析器内は完全混合状態である。\\
-    \item[] 二次核発生の影響は無視する。
+    \item[-] 結晶表面拡散は迅速に行われる。
+    \item[-] 晶析器内は完全混合状態である。
+    \item[-] 二次核発生の影響は無視する。
 \end{itemize}
 
-参考文献により、以下の実験式および理論式を用いて設計を行った。\\
+参考文献\cite{晶析}により、以下の実験式および理論式を用いて設計を行った。\\
 一次核発生速度
 \begin{equation}
     B^0 = k_{{\rm b}}M_{{\rm T}}^j \Delta C^b
@@ -197,16 +223,16 @@ Einstin-Stokesの式
 \begin{equation}
     M_{{\rm T}} = c_0-c = 6k_{{\rm v}}\rho_{{\rm c}}n^0(G\tau)^4
 \end{equation}
-各パラメータは、
+各パラメータは以下の通りである。
 \begin{itemize}
-\item[] $k_{{\rm g0}}\,=\,1.06\times10^7\,{\rm (\mu m)/(g/g-solvent)^g}$\\
-\item[] $B^{{\rm 0}}\,=\,40.05\,{\rm kJ/mol}$\\
-\item[] $k_{{\rm b}}\,=\,9.16\times10^12\,{\rm (\#/ m^3\,s)/\{(g/mL)^{{\it j}}(g/g-solvent)^{{\it b}}\}}$\\
-\item[] $g\,=\,0.44\,$\\
-\item[] $j\,=\,1.78\,$\\
-\item[] $b\,=\,1.2\,$\\
-\item[] $k_{{\rm v}}\,=\,0.1\,$\\
-\item[] $\rho_{{\rm c}}\,=\,1.32\,{\rm g/cm^3}$ 
+    \item[] $k_{{\rm g0}}\,=\,1.06\times10^7\,{\rm (\mu m)/(g/g-solvent)^g}$
+    \item[] $B^{{\rm 0}}\,=\,40.05\,{\rm kJ/mol}$
+    \item[] $k_{{\rm b}}\,=\,9.16\times10^12\,{\rm (\#/ m^3\,s)/\{(g/mL)^{{\it j}}(g/g-solvent)^{{\it b}}\}}$
+    \item[] $g\,=\,0.44\,$
+    \item[] $j\,=\,1.78\,$
+    \item[] $b\,=\,1.2\,$
+    \item[] $k_{{\rm v}}\,=\,0.1\,$
+    \item[] $\rho_{{\rm c}}\,=\,1.32\,{\rm g/cm^3}$ 
 \end{itemize}
 
 \section{晶析器設計結果}
@@ -262,10 +288,12 @@ Einstin-Stokesの式
 私たちのプロセス設計に協力してくださった先生方、先輩方に改めて御礼申し上げます。
 
 \newpage
-\chapter*{参考文献}
 \addcontentsline{toc}{chapter}{参考文献}
-\newpage
-
+\begin{thebibliography}{10}
+    \bibitem{化工便覧} 化学工学便覧・化学工学会・丸善出版
+    \bibitem{晶析} Gary Morris and  Graham Power {\it et al.  Org. Process Res. Dev.} {\bf 19}, 1891-1902, 2015
+    \bibitem{キー} 参考文献の名前・著者N
+\end{thebibliography}
 
 \newpage
 \chapter*{変数一覧}
