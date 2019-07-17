@@ -420,7 +420,7 @@ Einstin-Stokesの式
     \label{総括熱伝達係数}
     \begin{center}
         \begin{tabular}{ccc}\hline
-            流体1        &  流体2       & 総括伝熱係数[\si{\watt \metle^{-1} \second^{-1}}]    \\   \hline
+            流体1        &  流体2       & 総括伝熱係数[\si{\watt\metle^{-1}\second^{-1}}]    \\   \hline
             ガス         &  ガス        &150   \\
             ガス         &   液        &200   \\
             ガス         &  ガス(凝縮)  &500    \\
@@ -522,17 +522,17 @@ Einstin-Stokesの式
 \end{flushleft}
 \end{multicols}
 
+\appendix
 
-\chapter*{Appendix}
+\chapter{コスト推算}
 \addcontentsline{toc}{chapter}{Appendix}
 
-\section*{コスト推算}
-\addcontentsline{toc}{section}{コスト推算}
+\section{コスト推算}
 
 為替レートは\,1\,ドル\,=\,111.73\,円とした。(2019年4月平均)
-\subsection*{ユーティリティコスト}
+\subsection{ユーティリティコスト}
 
-\subsection*{機器コスト}
+\subsection{機器コスト}
 主要機器について、
 \begin{itemize}
     \item[1)]常圧で運転することを想定し、炭素鋼を用いて作成されるとしてメーカー出荷地点での価格を推算
@@ -542,24 +542,24 @@ Einstin-Stokesの式
 という3段階によって機器の建設費を推定する方法を用いた。
 \par
 まず、メーカー船積み出荷価格$C_\mathrm{p}^0$は、機器の特徴サイズ$A$と係数$K_1,\,K_2,\,K_3$を用いて
-\begin{equation}\nonumber
+\begin{equation}
     \log_{10}C_\mathrm{p}^0 = K_1 + K_2\log_{10} A + K_3(\log_{10} A)^2
 \end{equation}
 \par
 直接費や間接費、特殊材料費、操作圧力を考慮すると、各装置に関係するコストは$C_\mathrm{p}^0$の数倍になる。
 すなわち、
-\begin{equation}\nonumber
+\begin{equation}
     C_\mathrm{BM} = F_\mathrm{BM} C_\mathrm{p}^0
 \end{equation}
 $C_\mathrm{BM}$,\,$ F_\mathrm{BM}$はそれぞれベアモジュールコスト、ベアモジュールファクターと呼ぶ。
 係数$F_\mathrm{BM}$に関して、
-\begin{equation}\nonumber
+\begin{equation}
     F_\mathrm{BM} = B_1 + B_2 F_\mathrm{p} F_\mathrm{M}
 \end{equation}
 ここで、$B_1,\, B_2 ,\,F_\mathrm{p},\, F_\mathrm{M}$はそれぞれ圧力、材質に依存しない部分の係数、依存する部分の係数、圧力ファクター、材質ファクターを表す。\\
 $F_\mathrm{p}$に関しては槽型の装置に対して推算式が提示されている。\\
 \begin{center}
-\begin{equation}\nonumber
+\begin{equation}
     F_\mathrm{p,vessel} = 
         \begin{cases}
             \max\{\frac{(P_\mathrm{g}+1)D}{10.71-0.00756(P_\mathrm{g}+1)}+0.5 \,,\, 1\} & (P_\mathrm{g} > -0,5\, \bar) \\
@@ -568,7 +568,7 @@ $F_\mathrm{p}$に関しては槽型の装置に対して推算式が提示され
 \end{equation}
 \end{center}
 槽型以外の装置については、
-\begin{equation}\nonumber
+\begin{equation}
     \log_{10}F_\mathrm{p} = C_1 + C_2\log_{10} P_\mathrm{g} + C_3(\log_{10} P_\mathrm{g})^2
 \end{equation}
 
@@ -584,7 +584,7 @@ $F_\mathrm{p}$に関しては槽型の装置に対して推算式が提示され
     蒸留塔(トレイ)& 面積[\si{\square\metre}] & 2.9949 & 0.4465 & 0.3961 & 1.49 & 1.52 &-&-&-& Ti clad   & 4.8 \\
     抽出塔   & 体積[\si{\cubic\metre}] & 3.4974 & 0.4485 & 0.1074 & 1.49 & 1.52 &-&-&-& Ti            & 9.4 \\
     デカンター&  体積[\si{\cubic\metre}] & 3.4974 & 0.4485 & 0.1074 & 2.25 & 1.82 &-&-&-& CC            & 1   \\
-    燃焼炉   & 燃焼熱量[\si{\kilo \joule}] & 3.068  & 0.6597 & 0.0194 & -    & -    &0&0&0& CC             & 1   \\
+    燃焼炉   & 燃焼熱量[\si{\kilo \watt}] & 3.068  & 0.6597 & 0.0194 & -    & -    &0&0&0& CC             & 1   \\
     ポンプ   & 電力[\si{\kilo\watt}] & 3.8696 & 0.3161 & 0.122  & 1.89 & 1.35 &0&0&0& Ni alloy      & 3.9 \\
     コンプレッサー& 電力[\si{\kilo\watt}] & 2.2897 & 1.3604 & -0.103 & -    & -    &0&0&0& CC            & 1  \\\hline
     \end{tabular}
