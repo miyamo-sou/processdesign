@@ -3,7 +3,7 @@
 \usepackage{multicol}
 \usepackage{amsmath}
 \usepackage{siunitx}
-\usepackage{mhchem}
+\usepackage[version=4]{mhchem}
 \usepackage{url}
 
 
@@ -62,15 +62,16 @@
 \section{プロセスの概要}
 本設計で対象とするのは，トルエンを空気酸化することにより安息香酸を製造するプロセスである．
 プロセス全体の概略図を図\ref{プロセス全体のの概略図}に示す．
-\begin{figure}[h]
+\begin{figure}[htbp]
     \label{プロセス全体のの概略図}
     \begin{center}
-        \includegraphics[scale=0.7]{processOutline.png}
+        \includegraphics[scale=0.5]{processOutline.png}
         \caption{プロセス全体の概略図}
     \end{center}
 \end{figure}
 
 \section{設計条件}
+プロセスを設計するにあたり，以下の6つの条件を設定した．
 \begin{enumerate}
     \item 生産要求は，99.0wt\%以上の安息香酸を年2万トンとする．\\
     \item 工場の稼働時間は，1日24時間，年300日とする．\\
@@ -85,7 +86,7 @@
 \chapter{反応部}
 
 反応部の概略図を図 \ref{反応部設計結果の概略図} に示す．
-\begin{figure}[h]
+\begin{figure}[htbp]
     \label{反応部設計結果の概略図}
     \begin{center}
         \includegraphics[scale=0.7]{ReactionSection.png}
@@ -132,7 +133,7 @@
 
 \section{設計方程式}
 液相は完全混合状態として，気相は鉛直方向に向かう押し出し流れとなっているとして設計を行った．
-用いた仮定は以下のようになる．
+用いた仮定は以下のようである．
 \begin{itemize}
     \item[-] 気相は水平方向に一様な濃度分布を持つ．
     \item[-] 気相側境膜抵抗は無視できる
@@ -217,7 +218,7 @@ Einstin-Stokesの式
 
 \section{反応器設計結果}
 最終結果における反応器の詳細を表\ref{反応器設計結果の表}に示す．
-\begin{table}[h]
+\begin{table}[htbp]
     \label{反応器設計結果の表}
     \caption{反応器設計結果}
     \begin{center}
@@ -246,7 +247,7 @@ Einstin-Stokesの式
 
 \section{反応部設計結果}
 最適化後の最終結果における反応部の物質収支を図\ref{反応部設計結果の図}中に示す．
-\begin{figure}[h]
+\begin{figure}[htbp]
     \label{反応部設計結果の図}
     \begin{center}
         \includegraphics[scale=0.7]{ReactionSectionConclusion.png}
@@ -265,7 +266,7 @@ Einstin-Stokesの式
 反応器流出液圧力が7barであるため，最適な圧力であることが予想される．
 蒸留塔の圧力を変化させ，人件費を除く全体の利益を評価関数としてプロットした
 図\ref{蒸留塔圧力最適化}から，確かに7barで全体の利益が最大化されることを確認した．
-\begin{figure}[h]
+\begin{figure}[htbp]
     \label{蒸留塔圧力最適化}
     \begin{center}
         \includegraphics[scale=0.7]{DistillationPressue.png}
@@ -274,7 +275,7 @@ Einstin-Stokesの式
 \end{figure}
 
 設計結果を表\ref{蒸留塔設計結果}に記す．
-\begin{table}[h]
+\begin{table}[htbp]
     \label{蒸留塔設計結果}
     \caption{蒸留塔設計結果}
     \begin{center}
@@ -294,7 +295,7 @@ Einstin-Stokesの式
 
 \section{分離部1設計結果}
 最適化後の最終結果における分離部1の流量関係を図\ref{分離部1設計結果の図}中に示す．
-\begin{figure}[h]
+\begin{figure}[htbp]
     \label{分離部1設計結果の図}
     \begin{center}
         \includegraphics[scale=0.7]{Separation1Conclusion.png}
@@ -315,7 +316,7 @@ Einstin-Stokesの式
         + 1.43T + 24.71
 \end{equation}
 ただし,温度$T \, [\si{\degreeCelsius}]$, $C^* \, [\si{\gram \per \kilo \solventgram}]$\\
-\begin{figure}[h]
+\begin{figure}[htbp]
     \label{溶解度の温度依存性}
     \begin{center}
         \includegraphics[scale=0.7]{BzAsolvent.png}
@@ -376,7 +377,7 @@ Einstin-Stokesの式
 その他ベンジルアルコール，ベンズアルデヒドの溶解度については無視できると仮定した．
 
 \section{分離部2設計結果}
-\begin{figure}[h]
+\begin{figure}[htbp]
     \label{分離部2設計結果}
     \begin{center}
         \includegraphics[scale=0.7]{Separion2Conclusion.png}
@@ -425,7 +426,7 @@ Einstin-Stokesの式
 \chapter{ヒートインテグレーション}
 流体同士の熱交換を行い，外部流体の利用量を削減した．
 図\ref{TQ線図}に最終的な設計結果におけるTQ線図を示す．
-\begin{figure}[h]
+\begin{figure}[htbp]
     \label{TQ線図}
     \begin{center}
         \includegraphics[scale=0.7]{TQdiagram.png}
