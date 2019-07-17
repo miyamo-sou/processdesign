@@ -1,9 +1,3 @@
-\documentclass[a4j]{jsreport}
-\usepackage[dvipdfmx]{graphicx}
-\usepackage{multicol}
-\usepackage{amsmath}
-\usepackage{siunitx}
-<<<<<<< HEAD
 \usepackage[version=4]{mhchem}
 \usepackage{url}
 
@@ -18,7 +12,6 @@
 
 \begin{document}
 
-=======
 
 \bibliographystyle{jplain}
 
@@ -28,7 +21,7 @@
 \newcommand{\diff}{\mathrm{d}}
 
 \begin{document}
->>>>>>> miyamoto
+
 % 表紙
 \begin{titlepage}
 \vspace{5cm}
@@ -39,38 +32,22 @@
 {\Large 1講座 移動現象論分野}\\
 \vspace{0.5cm}
 \centering
-<<<<<<< HEAD
 {\large 荊尾太雅 , 宮本奏汰}\\
-=======
-{\large 荊尾太雅  宮本奏汰}\\
->>>>>>> miyamoto
 \vspace{3cm}
 \begin{table}[htbp]
     \begin{center}
         \begin{tabular}[htbp]{ll}
-<<<<<<< HEAD
             \multicolumn{2}{c}{{\LARGE keyword}}\\
             {\Large 空気酸化}&{\Large Air oxidation}\\
             {\Large 気液反応}&{\Large Gas-liquid reaction}\\
             {\Large 晶析}&{\Large Crystallization}\\
             {\Large 多変数同時全体最適化}&{\Large Multi-variable simultaneous optimization}\\
-=======
-            \multicolumn{2}{l}{{\LARGE keyword}}\\
-            {\Large 空気酸化}&{\Large Air oxidation}\\
-            {\Large 気液反応}&{\Large Gas-liquidreaction}\\
-            {\Large 晶析}&{\Large Crystallization}\\
-            {\Large 多変数全体同時最適化}&{\Large Multi-variable simultaneous optimization}\\
->>>>>>> miyamoto
             {\Large }&{\Large air}\\
         \end{tabular}
     \end{center}
 \end{table}
 \end{titlepage}
 
-<<<<<<< HEAD
-
-=======
->>>>>>> miyamoto
 \pagenumbering{roman}
 \setcounter{tocdepth}{2}
 \tableofcontents
@@ -80,11 +57,7 @@
 \pagenumbering{arabic}
 \chapter{緒言}
 安息香酸は，主としてフェノールの原料となる他，その塩が食品や化粧品などの添加物として広く利用されている．
-<<<<<<< HEAD
 2014年には世界全体で48万トンが製造されており，新興国での需要から，2024年には生産量が64万トンとなると見込まれている．
-=======
-2014年には世界全体で 万トンが製造されており，新興国での需要から，2024年には生産量が 万トンとなると見込まれている．
->>>>>>> miyamoto
 そこで，私たちは原料として安価なトルエンを使用し，空気酸化することで安息香酸を製造するプロセスを
 題材とし，本プロセス設計演習において検討することにした．
 
@@ -92,7 +65,6 @@
 \chapter{プロセスの概要}
 \section{プロセスの概要}
 本設計で対象とするのは，トルエンを空気酸化することにより安息香酸を製造するプロセスである．
-<<<<<<< HEAD
 プロセス全体の概略図を図\ref{プロセス全体のの概略図}に示す．
 \begin{figure}[htbp]
     \label{プロセス全体のの概略図}
@@ -112,23 +84,10 @@
     \item 減価償却期間は7年である．\\
     \item 圧力損失，熱損失，制御系については考慮しない．\\
     \item HYSISを用いての物性推算はUNIQUAC式によって行った．
-=======
-プロセス全体の概略図を以下に示す．
-
-\section{設計条件}
-\begin{enumerate}
-    \item 生産要求は，99.0wt\%以上の安息香酸を年2万トンとする．\\
-    \item 工場の稼働時間は，1日24時間，年300日とする．\\
-    \item 原料として，純度100\%のトルエンおよび，組成を窒素79mol\%酸素21mol\%とする空気を用いる．\\
-    \item ただし，原料は25℃，1barで供給されるものとする．\\
-    \item 減価償却期間は7年である．
->>>>>>> miyamoto
 \end{enumerate}
 
 \newpage
 \chapter{反応部}
-<<<<<<< HEAD
-
 反応部の概略図を図 \ref{反応部設計結果の概略図} に示す．
 \begin{figure}[htbp]
     \label{反応部設計結果の概略図}
@@ -163,11 +122,6 @@
     \hline
   \end{tabular}
 \end{table}
-=======
-反応部の概略図を以下に示す．
-
-\section{反応機構}
->>>>>>> miyamoto
 
 \section{反応器選定}
 流通式の気液反応器の種類には，拡散速度に対して不利な順に，気泡塔，気液攪拌槽，充填塔などがある．
@@ -175,10 +129,8 @@
 参考文献\cite{化工便覧}の選定基準に基づき，八田数が0.1より小さいなら気泡塔，
 5より大きければ充填塔，中間域ならば気液攪拌槽を選択した．
 今回は気液攪拌槽型反応器を選択した．実際のプロセスでは気泡塔も選択される．\\
-<<<<<<< HEAD
+
 八田数の定義式
-=======
->>>>>>> miyamoto
 \begin{equation}
     \gamma = \frac{\text{(最大反応速度)}}{\text{(最大拡散速度)}} = \frac{(C_\mathrm{B}kD_\mathrm{B})^{1/2}} {k_\mathrm{L}}
 \end{equation}
