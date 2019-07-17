@@ -618,7 +618,9 @@ Einstin-Stokesの式
 \begin{thebibliography}{10}
     \bibitem{化工便覧} 化学工学便覧・化学工学会・丸善出版
     \bibitem{晶析} Gary Morris and  Graham Power \textit{et al.  Org. Process Res. Dev.} \textbf{19}, 1891-1902, 2015
-    \bibitem{キー} 参考文献の名前・著者N
+    \bibitem{酢酸マンガン} 富士フィルム和光純薬(株) https://labchem-wako.fujifilm.com/jp/product/detail/W01W0113-0065.html
+    \bibitem{モリブデン酸アンモニウム} キシダ化学(株) http://www.kishida.co.jp/product/catalog/detail/id/960
+    \bibitem{プロセスデザインコンテスト10} 第10回プロセスデザインコンテスト
 \end{thebibliography}
 
 \newpage
@@ -648,7 +650,7 @@ Einstin-Stokesの式
     $n$:\text{結晶の個数密度}\\
     $P_{\mathrm{G}}$:\text{攪拌動力}\\
     $P_{\mathrm{T}}$:\text{}\\
-    $r$:\text{反応速度定数}\\
+    $r$:\text{反応速度}\\
     $T$:\text{温度}\\
     $T_{\mathrm{c}}$:\text{臨界温度}\\
     $u_{\mathrm{t}}$:\text{気泡の終末速度}\\
@@ -673,6 +675,25 @@ Einstin-Stokesの式
 
 為替レートは\,1\,ドル\,=\,111.73\,円とした．(2019年4月平均)
 \section{ユーティリティコスト}
+用役単価を表\ref{用役単価}に示す。
+\begin{table}[htbp]
+    \caption{用役単価}
+    \label{用役単価}
+    \begin{center}
+        \begin{tabular}{cc}\hline
+        項目                     & 価格                 \\\hline
+        燃料[\$/GJ]          & 1.095                \\
+        触媒[円/g]            & 9.616                \\
+        2.3℃プロピレン冷媒[\$/GJ] & 4.804           \\
+        純水[\$/ton]         & 45                  \\
+        電力[\$/kWh]         & 0.1                 \\\hline
+        \end{tabular}
+    \end{center}
+\end{table}
+触媒であるモリブデン酸マンガンは参考文献\cite{Li2019}によると、材料である酢酸マンガン21\,g\,とモリブデン酸アンモニウム5.04\,g\,を混ぜて作っている。
+各価格について酢酸マンガンは\,500\,g\,-\,3100\,円\,とし参考文献(\cite{酢酸マンガン},2019/7/17確認)、モリブデン酸マンガンは\,500\,g\,-\,11900\,円\,(参考文献(\cite{モリブデン酸アンモニウム}),2019/7/17確認)とした。
+燃料、電力、プロピレン冷媒(内挿値)の価格は参考文献\cite{プロセスデザインコンテスト10}より得た。
+
 \section{機器コスト}
 主要機器について，
 \begin{itemize}
