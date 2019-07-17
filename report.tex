@@ -48,10 +48,13 @@
 \setcounter{tocdepth}{2}
 \tableofcontents
 
+\newpage
+\pagenumbering{arabic}
 
 % 本文
-\pagenumbering{arabic}
 \chapter{緒言}
+
+
 安息香酸は，主としてフェノールの原料となる他，その塩が食品や化粧品などの添加物として広く利用されている．
 2014年には世界全体で48万トンが製造されており，新興国での需要から，2024年には生産量が64万トンとなると見込まれている．
 そこで，私たちは原料として安価なトルエンを使用し，空気酸化することで安息香酸を製造するプロセスを
@@ -95,7 +98,7 @@
 \end{figure}
 
 \section{反応機構}
-今回用いた反応は以下の4つである．
+今回用いた反応は以下の4つである．トルエンは経路によらず最終的に安息香酸へと転化する。
 \begin{center}
 \begin{tabular}{lcrlll}
   \ce{Tol}  & + & \ce{O2}     & \ce{-> Bald + H2O} & $r_1 = k_1 \cdot C_\text{Tol}$  & $\varDelta _\mathrm{r} H_1 = -385.23$ \, \si{\kilo \joule \per \mole} \\
@@ -105,7 +108,7 @@
 \end{tabular}
 \end{center}
 
-ただし，トルエンをTol，ベンジルアルコールをBalc，ベンズアルデヒドをBald，安息香酸をBzAとしている．これらの反応は全て参加反応であり，触媒には，酸化剤であるモリブデン酸マンガン\ce{MnMoO4}を用いることとした．これらの反応の反応速度定数は，表\ref{}のようである\cite{}．
+ただし，トルエンをTol，ベンジルアルコールをBalc，ベンズアルデヒドをBald，安息香酸をBzAとしている．これらの反応は全て酸化反応であり，触媒には，酸化剤であるモリブデン酸マンガン\ce{MnMoO4}を用いることとした．これらの反応の反応速度定数は，表\ref{}のようである\cite{}．
 \begin{table}
   \centering
   \label{}
@@ -120,12 +123,15 @@
   \end{tabular}
 \end{table}
 
+また、酸化反応が激しい場合には燃焼反応によって二酸化炭素まで転化するので、反応器における反応率が高い場合には考慮する必要がある。
+今回の設計結果では単通反応率が0.265と低く、燃焼反応は十分無視できると考えられる。
+
 \section{反応器選定}
 流通式の気液反応器の種類には，拡散速度に対して不利な順に，気泡塔，気液攪拌槽，充填塔などがある．
 最大反応速度と最大拡散速度の比を表す八田数を事前に概算し，参考文献\cite{化工便覧}の選定基準に基づき，八田数が0.1より小さいなら気泡塔，5より大きければ充填塔，中間域ならば気液攪拌槽を選択する．
 今回は気液攪拌槽型反応器を選択した．実際のプロセスでは気泡塔も選択される．
 \par
-反応器内攪拌には6枚羽タービン翼を用い，空気流入による冷却作用が大きいため，ジャケットを取り付け中に熱媒を流している．
+反応器内攪拌には6枚羽根タービン翼を用い，空気流入による冷却作用が大きいため，ジャケットを取り付け中に熱媒を流している．
 また，空気を反応器内に送るスパージャー直径は反応器直径の1/3とした．\\
 \par
 八田数の定義式
@@ -162,10 +168,9 @@
 また，物質移動容量係数が十分大きいと判断し，最適化中の解析に用いる場合には，気相は迅速に平衡状態へ達すると仮定した．
 
 \section{物質移動容量係数の推算}
-物質移動容量係数は，反応装置形状，反応器内部流体の様々な物性，流れの状態に依存する．\\
-今回，物質移動容量係数の推算に用いた各相関式を記す．
-\par
-液相側物質移動係数の相関式\\
+物質移動容量係数は，反応装置形状，反応器内部流体の様々な物性，流れの状態に依存する.攪拌槽型反応器に対し，物質移動容量係数の推算に用いた各相関式を記す．
+\\
+液相側物質移動係数の相関式\cite{化工便覧}\\
 小気泡の場合
 \begin{equation}
     k_\mathrm{L} = 0.31Sc_\mathrm{L}^{-2/3}(g \varDelta \rho \mu_\mathrm{L}/\rho_\mathrm{L}^2)^{1/3}
@@ -174,64 +179,63 @@
 \begin{equation}
     k_\mathrm{L} = 0.42Sc_\mathrm{L}^{-1/2}(g \varDelta \rho \mu_\mathrm{L}/\rho_\mathrm{L}^2)^{1/3}
 \end{equation}
-比表面積の相関式
+比表面積の相関式\cite{化工便覧}
 \begin{equation}
     a = 1.44 \left( \frac{P_\mathrm{V}^{0.4} \rho_\mathrm{L}^{0.2} }{ \sigma^{0.6}} \right) \left( \frac{u_\mathrm{G}}{u_\mathrm{t}} \right)^{0.5} \left( \frac{P_\mathrm{T}}{P_\mathrm{G}} \right) \left( \frac{\rho_\mathrm{G}}{\rho_\mathrm{a}} \right)^{0.16}
 \end{equation}
 
 上記の2式を利用するために用いた相関式を以下に記す．
 
-ガスホールドアップの相関式
+ガスホールドアップの相関式\cite{化工便覧}
 \begin{equation}
     \varepsilon_{{\mathrm G}} = \left( \frac{u_{{\mathrm G}}\varepsilon_{{\mathrm G}}}{u_{{\mathrm t}}} \right) + 0.000216 \times \left( \frac{P_\mathrm{V}^{0.4} \rho_\mathrm{L}^{0.2} }{ \sigma^{0.6}} \right) \left( \frac{u_\mathrm{G}}{u_\mathrm{t}} \right)^{0.5} \left( \frac{P_\mathrm{T}}{P_\mathrm{G}} \right) \left( \frac{\rho_\mathrm{G}}{\rho_\mathrm{a}} \right)^{0.16}
 \end{equation}
-気泡の体積平均径の相関式
+気泡の体積平均径の相関式\cite{化工便覧}
 \begin{equation}
     d_\mathrm{vs} = 4.15 \left( \frac{\sigma^{0.6}}{P_\mathrm{V}^{0.4} \rho_\mathrm{L}^{0.2}} \right) \left( \frac{P_\mathrm{G}}{P_\mathrm{T}} \right) \left( \frac{\rho_\mathrm{a}}{\rho_\mathrm{G}} \right) ^{0.16} \varepsilon_\mathrm{G}^{0.5} + 0.0009
 {}\end{equation}
-気泡の終末速度の相関式
+気泡の終末速度の相関式\cite{化工便覧}
 \begin{equation}
     u_\mathrm{t} = \left( \frac{4\varDelta \rho g d_\mathrm{vs}}{3C_\mathrm{D} \rho_\mathrm{L}} \right)^{0.5}
 \end{equation}
 
 さらに，上記の相関式を利用するために用いた物性値の推算式，および変数の定義式などの諸式を以下に記す．
 
-抗力係数の相関式
+抗力係数の相関式\cite{19952357}
 \begin{equation}
     C_\mathrm{D} = \max \left[ \frac{24}{Re}(1+0.15Re^{0.687}), \, \frac{8}{3} \frac{Eo}{Eo+4} \right]
 \end{equation}
 拡散係数の推算\\
-wilke-changの式
+wilke-changの式\cite{化工便覧}
 \begin{equation}
     D_{12} = \frac{2.946\times 10^{-11}(\beta M_{\mathrm{r,2}})^{1/2} T} {\mu_2 V_{\mathrm{b},1}^{0.6}}
 \end{equation}
-Einstin-Stokesの式
+Einstin-Stokesの式\cite{実験テキスト}
 \begin{equation}
     \frac{D \mu}{T} = \text{const}
 \end{equation}
 
 界面張力の推算\\
-界面張力の温度依存性に関する相関式
+界面張力の温度依存性に関する相関式\cite{化工便覧}
 \begin{equation}
     \sigma \propto \{ 1-(T/T_\mathrm{c}) \}^n
 \end{equation}
 
-気泡レイノルズ数の定義式
+気泡レイノルズ数の定義式\cite{19952357}
 \begin{equation}
     Re = \frac{\rho_\mathrm{L}u_\mathrm{t} d_\mathrm{vs}}{\mu_\mathrm{L}}
 \end{equation}
-エトベス数の定義式
+エトベス数の定義式\cite{19952357}
 \begin{equation}
     Eo = \frac{g \varDelta \rho d_\mathrm{vs}^2}{\sigma}
 \end{equation}
-以上の式を用いる際にデータとして，\\
-参考文献[]からトルエンの標準沸点における分子容積
-参考文献[]からトルエンの界面張力\,$\sigma\,=\,0.81\,\mathrm{ N\,m^{-2}}$とした．
-参考文献[]から会合度を1とした．
-\par
-以上の諸式を用いて物質移動容量係数を推算した．結果は反応器設計結果，表\ref{反応器設計結果の表}に記す．
 
 以上の式を用いる際にデータとして，参考文献[]からトルエンの界面張力$\sigma=0.81 \,\si{\newton \per \square \metre}$とした．
+また、参考文献\cite{化工便覧}からトルエンの標準沸点における分子容積を\si{\cubic\centi\metre \mol^{-1}}とした。
+参考文献\cite{界面張力}からトルエンの界面張力\,$\sigma\,=\,0.81\,\mathrm{ N\,m^{-2}}$とした．
+参考文献\cite{TPP}から会合度を1とした．
+\par
+以上の諸式を用いて物質移動容量係数を推算した．結果は反応器設計結果，表\ref{反応器設計結果の表}に記す．
 
 \section{反応器設計結果}
 最終結果における反応器の詳細を表\ref{反応器設計結果の表}に示す．
@@ -247,6 +251,7 @@ Einstin-Stokesの式
             反応器内温度 \, [\si{\degreeCelsius}] & 170 \\
             反応器体積 \, [\si{\cubic \metre}] & 14.6 \\
             気液総体積 \, [\si{\cubic \metre}] & 8.25 \\
+            単通販能率 \, [\,-\,]           &0.265\\
             ガスホールドアップ \, [\si{-}] & 0.115  \\
             液平均滞留時間 \, [\si{\hour}] & 0.478  \\
             物質移動容量係数 \, [\si{\per \second}] & 0.470  \\
@@ -425,6 +430,14 @@ Einstin-Stokesの式
 \end{figure}
 
 \newpage
+
+\chapter{燃焼部}
+トルエンは人体に有害な物質であり、吸引によって神経系などに深刻な被害を与えることもある。
+東京都の条例には排出基準が厳しく定められており、この基準を満たすため、反応部のコンデンサーで凝縮しなかったトルエンを燃焼させることでその濃度を減じる。
+燃焼炉内ではトルエンが完全燃焼し、二酸化炭素および水へ転化すると仮定し、量論的に燃焼に必要な量と等量の酸素を供給して燃焼炉へと送るものとした。
+燃焼熱は熱媒の作成に使用され、足りない分は燃料を投入して賄っているものと考えた。
+
+
 \chapter{最適化}
 \section{方法}
 最適化を行うにあたり，最適化変数として以下の3つを選択した．
@@ -533,11 +546,16 @@ Einstin-Stokesの式
 \newpage
 \bibliography{bibs/refs.bib}
 \begin{thebibliography}{10}
-    \bibitem{化工便覧} 化学工学便覧・化学工学会・丸善出版
+    \bibitem{化工便覧} 化学工学会・化学工学便覧・丸善出版
     \bibitem{晶析} Gary Morris and  Graham Power \textit{et al.  Org. Process Res. Dev.} \textbf{19}, 1891-1902, 2015
     \bibitem{酢酸マンガン} 富士フィルム和光純薬(株) https://labchem-wako.fujifilm.com/jp/product/detail/W01W0113-0065.html
     \bibitem{モリブデン酸アンモニウム} キシダ化学(株) http://www.kishida.co.jp/product/catalog/detail/id/960
-    \bibitem{プロセスデザインコンテスト10} 第10回プロセスデザインコンテスト
+    \bibitem{プロセスデザインコンテスト10} 化学工学会・SIS部会・情報技術教育分科会, 第10回プロセスデザイン学生コンテスト    
+    \bibitem{講義資料3} 京都大学・プロセス設計講義資料3
+    \bibitem{謎資料} 第6回ソフトウェアツール学生コンテスト http://www.chemeng.titech.ac.jp/~sis_cont/dairokkai.html
+    \bibitem{実験テキスト} 京都大学化学プロセス工学コース 実験テキスト
+    \bibitem{TPP} R.Byron Bird and Warren E. Stewart ,Edwin N. Lightfoot   TransPortPhenomena revised second edition   willy
+    \bibitem{界面張力}
 \end{thebibliography}
 
 \newpage
@@ -588,10 +606,16 @@ Einstin-Stokesの式
 \end{multicols}
 
 \appendix
-
 \chapter{コスト推算}
+為替レートは\,1\,ドル\,=\,111.73\,円とした．(2019年4月平均)\par
 
-為替レートは\,1\,ドル\,=\,111.73\,円とした．(2019年4月平均)
+\section{労務費}
+労務費の推算について補足する。プラントは4直3交代で運転され、1班の人数に関して次の推算式を用いた。
+\begin{equation}
+    (1班の人数) = (6.29 + 0.23 \times (主要機器数))^{0.5}
+\end{equation}
+よって、総運転員数は40人であり、主任などに10人加え、50人に平均1000\,万円の給与を支払うとして労務費を算出した。
+
 \section{ユーティリティコスト}
 用役単価を表\ref{用役単価}に示す。
 \begin{table}[htbp]
@@ -609,10 +633,16 @@ Einstin-Stokesの式
     \end{center}
 \end{table}
 触媒であるモリブデン酸マンガンは参考文献\cite{Li2019}によると、材料である酢酸マンガン21\,g\,とモリブデン酸アンモニウム5.04\,g\,を混ぜて作っている。
-各価格について酢酸マンガンは\,500\,g\,-\,3100\,円\,とし参考文献(\cite{酢酸マンガン},2019/7/17確認)、モリブデン酸マンガンは\,500\,g\,-\,11900\,円\,(参考文献(\cite{モリブデン酸アンモニウム}),2019/7/17確認)とした。
-燃料、電力、プロピレン冷媒(内挿値)の価格は参考文献\cite{プロセスデザインコンテスト10}より得た。
+各価格について酢酸マンガンは\,500\,g\,-\,3100\,円\,とし(参考文献\cite{酢酸マンガン},\,2019/7/17確認)、モリブデン酸マンガンは\,500\,g\,-\,11900\,円\,(参考文献\cite{モリブデン酸アンモニウム},\,2019/7/17確認)とした。
+燃料、プロピレン冷媒(内挿値)の価格は参考文献\cite{プロセスデザインコンテスト10}より得た。
+電力の価格は参考文献\cite{講義資料3}から得た。
 
-\section{機器コスト}
+さらに\cite{講義資料3}から、排水処理費用としてデカンターからパージする純水に1\,tonあたり0.041\,\$かかるとした。
+
+
+
+\section{機器コスト (参考\cite{講義資料3})}
+下記の推算は2001年のデータで行い、2001年のコストインデックス\,394\,と2018年のコストインデックス\,603.1\,を用いて値を修正している。\par
 主要機器について，
 \begin{itemize}
     \item[1)]常圧で運転することを想定し，炭素鋼を用いて作成されるとしてメーカー出荷地点での価格を推算
@@ -637,7 +667,7 @@ $C_\mathrm{BM}$,\,$ F_\mathrm{BM}$はそれぞれベアモジュールコスト�
     F_\mathrm{BM} = B_1 + B_2 F_\mathrm{p} F_\mathrm{M}
 \end{equation}
 ここで，$B_1,\, B_2 ,\,F_\mathrm{p},\, F_\mathrm{M}$はそれぞれ圧力，材質に依存しない部分の係数，依存する部分の係数，圧力ファクター，材質ファクターを表す．\\
-$F_\mathrm{p}$に関しては槽型の装置に対して推算式が提示されている．\\
+$F_\mathrm{p}$に関しては槽型の装置に対して推算式が提示されている．
 \begin{center}
 \begin{equation}
     F_\mathrm{p,vessel} =
@@ -647,7 +677,7 @@ $F_\mathrm{p}$に関しては槽型の装置に対して推算式が提示され
         \end{cases}
 \end{equation}
 \end{center}
-槽型以外の装置については，
+ただし、$P_\mathrm{g}$はゲージ圧\si{[\bar]}である。槽型以外の装置については，次式を用いる。
 \begin{equation}
     \log_{10}F_\mathrm{p} = C_1 + C_2\log_{10} P_\mathrm{g} + C_3(\log_{10} P_\mathrm{g})^2
 \end{equation}
@@ -669,5 +699,11 @@ $F_\mathrm{p}$に関しては槽型の装置に対して推算式が提示され
     コンプレッサー& 電力[\si{\kilo\watt}] & 2.2897 & 1.3604 & -0.103 & -    & -    &0&0&0& CC            & 1  \\\hline
     \end{tabular}
 \end{table}
+データが資料にない機器についてはベアモジュールファクターを\,1\,とした。\par
+熱交換器については、伝熱面積を$A$\si{[\square\metre]}として次の計算式を用いた。(参考\cite{謎資料})
+\begin{equation}
+    \text{(コスト [億円])} = 0.015K\times A^{0.65}
+\end{equation}
+ただし、$K$は定数でありコンデンサーなら\,1\,、リボイラーでは\,2\,とする。
 
 \end{document}
