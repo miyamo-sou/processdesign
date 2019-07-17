@@ -1,3 +1,21 @@
+\documentclass[a4j]{jsreport}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{multicol}
+\usepackage{amsmath}
+\usepackage{siunitx}
+\usepackage[version=4]{mhchem}
+\usepackage{url}
+\usepackage{lscape}
+
+
+\graphicspath{{./figure/}}
+\bibliographystyle{jplain}
+
+
+\newcommand{\diff}{\mathrm{d}}
+\DeclareSIUnit{\solventgram}{\si{\gram}\text{-solvent}}
+
+
 \begin{document}
 
 % 表紙
@@ -26,6 +44,7 @@
 \end{table}
 \end{titlepage}
 
+
 \pagenumbering{roman}
 \setcounter{tocdepth}{2}
 \tableofcontents
@@ -45,15 +64,14 @@
 本設計で対象とするのは，トルエンを空気酸化することにより安息香酸を製造するプロセスである．
 プロセス全体の概略図を図\ref{プロセス全体のの概略図}に示す．
 \begin{figure}[htbp]
-    \label{プロセス全体のの概略図}
     \begin{center}
-        \includegraphics[scale=0.5]{processOutline.png}
+        \includegraphics[scale=0.6]{processOutline.png}
         \caption{プロセス全体の概略図}
+        \label{プロセス全体のの概略図}
     \end{center}
 \end{figure}
 
 \section{設計条件}
-プロセスを設計するにあたり，以下の6つの条件を設定した．
 \begin{enumerate}
     \item 生産要求は，99.0wt\%以上の安息香酸を年2万トンとする．\\
     \item 工場の稼働時間は，1日24時間，年300日とする．\\
@@ -66,12 +84,14 @@
 
 \newpage
 \chapter{反応部}
+トルエンを空気酸化させ，安息香酸に転化させることを目的とする工程である．
 反応部の概略図を図 \ref{反応部設計結果の概略図} に示す．
+反応器にフィードされる液は，原料およびリサイクルによって回収された未反応トルエン，ベンジルアルコール，ベンズアルデヒド，水であり，直前に7 \si{\bar}，170 \si{\degreeCelsius}に加圧された後に反応器へ供給される．また，反応器底部からは空気が1 \si{\bar},25 \si{\degreeCelsius}で供給されており，攪拌されながら上方に向かう．反応器内は加熱によって7 \si{\bar},170 \si{\degreeCelsius}に保たれていて，攪拌によって液中に溶けた酸素と未反応物質は触媒酸化反応を起こす．また，気液間物質移動により，液中のトルエンおよび水が盛んに蒸発する．蒸発したトルエンおよび水を含む空気は反応器からコンデンサーに流入し凝縮される．凝縮したトルエンおよび水はデカンターへ送られ，密度差分離によりトルエンのみを反応器に還流し，水はパージする．また，凝縮しなかったトルエンは，環境安全上の理由からそのまま排出することはできないので，濃度を減少させるため燃焼部へと送られる．反応器からの流出液は次の工程である分離部1へと送られる．
 \begin{figure}[htbp]
-    \label{反応部設計結果の概略図}
     \begin{center}
         \includegraphics[scale=0.7]{ReactionSection.png}
         \caption{反応部概略図}
+        \label{反応部設計結果の概略図}
     \end{center}
 \end{figure}
 
@@ -86,11 +106,11 @@
 \end{tabular}
 \end{center}
 
-ただし，トルエンをTol，ベンジルアルコールをBalc，ベンズアルデヒドをBald，安息香酸をBzAとしている．これらの反応は全て参加反応であり，触媒には，酸化剤であるモリブデン酸マンガン\ce{MnMoO4}を用いることとした．これらの反応の反応速度定数は，表\ref{}のようである\cite{}．
-\begin{table}
+ただし，トルエンをTol，ベンジルアルコールをBalc，ベンズアルデヒドをBald，安息香酸をBzAとしている．これらの反応は全て参加反応であり，触媒には，酸化剤であるモリブデン酸マンガン\ce{MnMoO4}を用いることとした．これらの反応の反応速度定数は，表\ref{反応速度定数}のようである\cite{}．
+\begin{table}[htbp]
   \centering
-  \label{}
-  \caption{}
+  \label{反応速度定数}
+  \caption{各反応式の反応速度定数}
   \begin{tabular}{ccccc}
     \hline
     & $k_1$ & $k_2$ & $k_3$ & $k_4$ \\
@@ -103,26 +123,28 @@
 
 \section{反応器選定}
 流通式の気液反応器の種類には，拡散速度に対して不利な順に，気泡塔，気液攪拌槽，充填塔などがある．
-最大反応速度と最大拡散速度の比を表す八田数を事前に概算し，
-参考文献\cite{化工便覧}の選定基準に基づき，八田数が0.1より小さいなら気泡塔，
-5より大きければ充填塔，中間域ならば気液攪拌槽を選択した．
-今回は気液攪拌槽型反応器を選択した．実際のプロセスでは気泡塔も選択される．\\
-
+最大反応速度と最大拡散速度の比を表す八田数を事前に概算し，参考文献\cite{化工便覧}の選定基準に基づき，八田数が0.1より小さいなら気泡塔，5より大きければ充填塔，中間域ならば気液攪拌槽を選択する．
+今回は気液攪拌槽型反応器を選択した．実際のプロセスでは気泡塔も選択される．
+\par
+反応器内攪拌には6枚羽タービン翼を用い，空気流入による冷却作用が大きいため，ジャケットを取り付け中に熱媒を流している．
+また，空気を反応器内に送るスパージャー直径は反応器直径の1/3とした．\\
+\par
 八田数の定義式
 \begin{equation}
     \gamma = \frac{\text{(最大反応速度)}}{\text{(最大拡散速度)}} = \frac{(C_\mathrm{B}kD_\mathrm{B})^{1/2}} {k_\mathrm{L}}
 \end{equation}
 
 \section{設計方程式}
-液相は完全混合状態として，気相は鉛直方向に向かう押し出し流れとなっているとして設計を行った．
-用いた仮定は以下のようである．
+両相の滞留時間の大きさが十分異なると考えられることから，
+液相は完全混合状態として，気相は鉛直方向に向かう押し出し流れと仮定できると判断した．
+設計時に用いた仮定は以下のようになる．
 \begin{itemize}
     \item[-] 気相は水平方向に一様な濃度分布を持つ．
     \item[-] 気相側境膜抵抗は無視できる
     \item[-] 液相は完全混合状態である．
     \item[-] 窒素，酸素はヘンリー則に従い，その他の物質はラウール則に従う．
 \end{itemize}
-以上の仮定および，蒸発油分を還流する機構を含めて，設計方程式(\ref{液相物質収支式}),(\ref{気相物質収支式})を立式した．\\
+以上の仮定および，蒸発油分を還流する機構を含めて，設計方程式(\ref{液相物質収支式}),(\ref{気相物質収支式}),(\ref{熱収支式})を立式した．\\
 \begin{equation}
     \label{液相物質収支式}
     0 = F^\text{in}_{\text{liq},j} - F^\text{out}_{\text{liq},j} - (1-\beta_j) k_\mathrm{L}a
@@ -132,10 +154,18 @@
     \label{気相物質収支式}
     \frac{ \diff F_{\text{gas},j}}{\diff V} = k_\mathrm{L}a (C_j - C^\text{sat}_j)
 \end{equation}
+\begin{equation}
+    \label{熱収支式}
+    \sum_jF_{j,\mathrm{in}}H_{j,\mathrm{in}}-\sum_jF_{j,\text{out}}H_{j,\text{out}} = UA(T_\mathrm{s}-T)
+\end{equation}
+解析方法としては，まず油分を全還流として近似的に各液相中濃度を決定し，トルエンおよび酸素，窒素について，濃度を仮定して，
+気相の物質収支式をRunge-kutta法によって計算し，各蒸発量が収支式と一致する濃度を求めた．
+また，物質移動容量係数が十分大きいと判断し，最適化中の解析に用いる場合には，気相は迅速に平衡状態へ達すると仮定した．
 
 \section{物質移動容量係数の推算}
-物質移動容量係数の推算に用いた各相関式を記す．
-
+物質移動容量係数は，反応装置形状，反応器内部流体の様々な物性，流れの状態に依存する．\\
+今回，物質移動容量係数の推算に用いた各相関式を記す．
+\par
 液相側物質移動係数の相関式\\
 小気泡の場合
 \begin{equation}
@@ -195,14 +225,20 @@ Einstin-Stokesの式
 \begin{equation}
     Eo = \frac{g \varDelta \rho d_\mathrm{vs}^2}{\sigma}
 \end{equation}
+以上の式を用いる際にデータとして，\\
+参考文献[]からトルエンの標準沸点における分子容積
+参考文献[]からトルエンの界面張力\,$\sigma\,=\,0.81\,\mathrm{ N\,m^{-2}}$とした．
+参考文献[]から会合度を1とした．
+\par
+以上の諸式を用いて物質移動容量係数を推算した．結果は反応器設計結果，表\ref{反応器設計結果の表}に記す．
 
 以上の式を用いる際にデータとして，参考文献[]からトルエンの界面張力$\sigma=0.81 \,\si{\newton \per \square \metre}$とした．
 
 \section{反応器設計結果}
 最終結果における反応器の詳細を表\ref{反応器設計結果の表}に示す．
 \begin{table}[htbp]
-    \label{反応器設計結果の表}
     \caption{反応器設計結果}
+    \label{反応器設計結果の表}
     \begin{center}
         \begin{tabular}{lc}
             \hline
@@ -228,12 +264,12 @@ Einstin-Stokesの式
 \end{table}
 
 \section{反応部設計結果}
-最適化後の最終結果における反応部の物質収支を図\ref{反応部設計結果の図}中に示す．
+最適化後の最終結果における反応部の物質収支を図\ref{反応部設計結果の図}中に示す．最適化方法については最適化の章で述べる．
 \begin{figure}[htbp]
-    \label{反応部設計結果の図}
     \begin{center}
         \includegraphics[scale=0.7]{ReactionSectionConclusion.png}
         \caption{反応部設計結果}
+        \label{反応部設計結果の図}
     \end{center}
 \end{figure}
 
@@ -247,12 +283,12 @@ Einstin-Stokesの式
 蒸留塔圧力を変更し，全体の利益を最大とする点について探索を行った．
 反応器流出液圧力が7barであるため，最適な圧力であることが予想される．
 蒸留塔の圧力を変化させ，人件費を除く全体の利益を評価関数としてプロットした
-図\ref{蒸留塔圧力最適化}から，確かに7barで全体の利益が最大化されることを確認した．
+図\ref{蒸留塔圧力最適化}から，確かに7 \si{\bar}で全体の利益が最大化されることを確認した．
 \begin{figure}[htbp]
-    \label{蒸留塔圧力最適化}
     \begin{center}
         \includegraphics[scale=0.7]{DistillationPressue.png}
         \caption{蒸留塔圧力最適化}
+        \label{蒸留塔圧力最適化}
     \end{center}
 \end{figure}
 
@@ -278,16 +314,17 @@ Einstin-Stokesの式
 \section{分離部1設計結果}
 最適化後の最終結果における分離部1の流量関係を図\ref{分離部1設計結果の図}中に示す．
 \begin{figure}[htbp]
-    \label{分離部1設計結果の図}
     \begin{center}
         \includegraphics[scale=0.7]{Separation1Conclusion.png}
         \caption{分離部1設計結果}
+        \label{分離部1設計結果の図}
     \end{center}
 \end{figure}
 
 
 \newpage
 \chapter{分離部2}
+
 \section{晶析器選定}
 溶解度の温度依存性が大きいことと，目的とする結晶生産量が大きいことから，
 連続式攪拌槽型反応装置を選定した．\\
@@ -298,10 +335,10 @@ Einstin-Stokesの式
 \end{equation}
 ただし,温度$T \, [\si{\degreeCelsius}]$, $C^* \, [\si{\gram \per \kilo \solventgram}]$\\
 \begin{figure}[htbp]
-    \label{溶解度の温度依存性}
     \begin{center}
         \includegraphics[scale=0.7]{BzAsolvent.png}
         \caption{溶解度の温度依存性}
+        \label{溶解度の温度依存性}
     \end{center}
 \end{figure}
 
@@ -350,7 +387,25 @@ Einstin-Stokesの式
 \end{align*}
 
 \section{晶析器設計結果}
-最適化の結果によって得られた晶析器の設計結果を以下に記す．
+最適化の結果によって得られた晶析器の設計結果を表\ref{晶析器設計結果}に記す．
+\begin{table}[htbp]
+    \caption{晶析器設計結果}
+    \label{晶析器設計結果}
+    \begin{center}
+        \begin{tabular}{lc}\hline
+            \multicolumn{1}{c}{項目}       &  値    \\   \hline
+            晶析器体積 \, [\si{\cubic \metre}]                 &7.16    \\
+            晶析器液体積 \, [\si{\cubic \metre}]                &3.58    \\
+            晶析器フィード液温 \, [\si{\degreeCelsius}]   &40.0    \\
+            晶析器内温度 \, [\si{\degreeCelsius}]         &13.3   \\
+            晶析器内圧力 \, [\si{bar}]               &1.00    \\
+            滞留時間 \, [\si{min}]                    &9.71    \\
+            単通結晶収率 \, [\si{-}]               &0.690   \\
+            結晶化可能量基準収率 \, [\si{-}]        &0.902    \\
+            結晶の体積平均径 \, [\si{\micro \metre}]      &3.41     \\ \hline
+        \end{tabular}
+    \end{center}
+\end{table}
 
 \section{抽出塔設計}
 十分に塔内へ液を滞留させることによって安息香酸を水中に飽和させることを目的とした．
@@ -358,14 +413,17 @@ Einstin-Stokesの式
 その他ベンジルアルコール，ベンズアルデヒドの溶解度については無視できると仮定した．
 
 \section{分離部2設計結果}
+分離部2のみの流量関係を簡易的に図\ref{分離部2設計結果}中に示す．
+蒸留塔から送られてきた油液は冷却され，抽出塔内に供給される．晶析器で用いた安息香酸水溶液を加熱し，溶解度を上昇させて抽出塔内に供給する．
+抽出塔内では安息香酸が水中に溶解し，ベンジルアルコール，ベンズアルデヒドおよび触媒は溶解せずに回収され，反応部へ送られる．安息香酸水溶液を晶析器に供給し，製品結晶を得ている．
+
 \begin{figure}[htbp]
-    \label{分離部2設計結果}
     \begin{center}
         \includegraphics[scale=0.7]{Separion2Conclusion.png}
         \caption{分離部2設計結果}
+        \label{分離部2設計結果}
     \end{center}
 \end{figure}
-
 
 \newpage
 \chapter{最適化}
@@ -397,22 +455,132 @@ Einstin-Stokesの式
 
 このよに，評価関数は大きなピークが存在する形になっていることが分かる．これは，最適化方法のセクションでも述べたが，反応器体積，晶析器体積，晶析器温度を変化させると，装置費と用役費がトレードオフの関係となって，コストが変化する．そのため，このようにピークが生じたと考えられる．
 
-
 \newpage
 \chapter{物質収支 $\cdot$ 熱収支}
-全体のフロー図および流量関係は下図のようになった．
+全体のフロー図は図\ref{フロー図}のようになった．
+\begin{figure}[htbp]
+    \begin{center}
+        \includegraphics[scale=0.6]{mat_flow.png}
+        \caption{フロー図}
+        \label{フロー図}
+    \end{center}
+\end{figure}
 
+また，フロー図に記載されているフローの組成および温度，圧力は表\ref{流量関係1}，\ref{流量関係2}，\ref{流量関係3}のようになった．
+\begin{table}[htbp]
+    \caption{流量関係}
+    \label{流量関係1}
+    \begin{center}
+        \begin{tabular}{ccccccccccccccc}
+          \hline
+          [\si{\kilo \mole \per \hour}] & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+          \hline
+          トルエン & 25 & 94.5 & 94.5 & 94.5 & 94.5 & 0 & 69.5 & 69.5 & 69.5 & 69.5 \\
+          ベンジルアルコール & 0 & 7.5 & 18.1 & 18.1 & 18.1 & 0 & 18.1 & 7.5 & 7.5 & 7.5 \\
+          ベンズアルデヒド & 0 & 30.5 & 33.2 & 33.2 & 33.2 & 0 & 33.2 & 30.5 & 30.5 & 30.5 \\
+          安息香酸 & 0 & 0 & 0 & 0 & 0 & 0 & 21.6 & 0 & 0 & 0 \\
+          水 & 0 & 8.2 & 8.2 & 8.2 & 8.2 & 0 & 8.2 & 8.2 & 8.2 & 8.2 \\
+          空気 & 0 & 0 & 0 & 0 & 0 & 260.5 & 0 & 0 & 0 & 0 \\
+          二酸化炭素 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+          \hline
+          合計 & 25 & 140.7 & 154 & 154 & 154 & 260.5 & 150.6 & 115.7 & 115.7 & 115.7 \\
+          \hline
+          温度 \, [\si{\degreeCelsius}] & 25 & 79.9 & 75.56 & 76.04 & 170 & 25 & 170 & 231.5 & 194.8 & 90.88 \\
+          圧力 \, [\si{\bar}] & 1 & 1 & 1 & 7 & 7 & 1 & 7 & 7 & 1 & 1 \\
+          \hline
+        \end{tabular}
+    \end{center}
+\end{table}
+\begin{table}[htbp]
+    \caption{流量関係}
+    \label{流量関係2}
+    \begin{center}
+        \begin{tabular}{ccccccccccccccc}
+          \hline
+          [\si{\kilo \mole \per \hour}] & 11 & 12 & 13 & 14 & 15 & 16 & 17 & 18 & 19 & 20 \\
+          \hline
+          トルエン & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 107.5 \\
+          ベンジルアルコール & 10.6 & 10.6 & 10.6 & 10.6 & 10.6 & 0 & 0 & 0 & 0 & 0 \\
+          ベンズアルデヒド & 2.7 & 2.7 & 2.7 & 2.7 & 2.7 & 0 & 0 & 0 & 0 & 0 \\
+          安息香酸 & 21.6 & 21.6 & 21.6 & 34.6 & 0 & 34.6 & 13 & 13 & 21.6 & 0 \\
+          水 & 0 & 0 & 0 & 1029 & 0 & 1029 & 1029 & 1029 & 0 & 21.6 \\
+          空気 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 228 \\
+          二酸化炭素 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+          \hline
+          合計 & 34.9 & 34.9 & 34.9 & 1076.9 & 13.3 & 1063.6 & 1042 & 1042 & 21.6 & 357.1 \\
+          \hline
+          温度 \, [\si{\degreeCelsius}] & 315.6 & 230.9 & 25 & 25 & 40 & 40 & 13.3 & 40 & 13.3 & 25 \\
+          圧力 \, [\si{\bar}] & 7 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+          \hline
+        \end{tabular}
+    \end{center}
+\end{table}
+\begin{table}[htbp]
+    \caption{流量関係}
+    \label{流量関係3}
+    \begin{center}
+        \begin{tabular}{ccccccccccccccc}
+          \hline
+          [\si{\kilo \mole \per \hour}] & 21 & 22 & 23 & 24 & 25 & 26 & 27 & 28 &  &  \\
+          \hline
+          トルエン & 3.4 & 0 & 3.4 & 0 & 104.1 & 0 & 0 & 0 &  &  \\
+          ベンジルアルコール & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 &  &  \\
+          ベンズアルデヒド & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 &  &  \\
+          安息香酸 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 &  &  \\
+          水 & 2.4 & 0 & 2.4 & 15.8 & 0 & 0 & 0 & 0 &  &  \\
+          空気 & 228 & 39.4 & 267.4 & 237.8 & 1019.2 & 1019.2 & 1000 & 19.2 &  &  \\
+          二酸化炭素 & 0 & 0 & 0 & 23.4 & 0 & 0 & 0 & 0 &  &  \\
+          \hline
+          合計 & 233.8 & 39.4 & 273.2 & 277 & 1123.3 & 1019.2 & 1000 & 19.2 &  &  \\
+          \hline
+          温度 \, [\si{\degreeCelsius}] & 25 & 25 & 25 & 25 & 25 & 25 & 25 & 25 &  &  \\
+          圧力 \, [\si{\bar}] & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 &  &  \\
+          \hline
+        \end{tabular}
+    \end{center}
+\end{table}
+
+\clearpage
 全体の熱量関係は以下のようになった．
 
 \newpage
 \chapter{ヒートインテグレーション}
-流体同士の熱交換を行い，外部流体の利用量を削減した．
+流体同士の熱交換を行い，外部流体の利用量を削減することを目的としてヒートインテグレーションを行った．
+本プロセスにおいては熱交換器は多管型熱交換器として，向流で熱交換を行った．
+熱交換面積を求めるため，以下の式を用いた．
+\begin{equation}
+    Q=UA(\varDelta T)_\mathrm{lm}
+\end{equation}
+ただし$(\varDelta T)_\mathrm{lm}$は温度差の対数平均であり，熱交換によって与熱流体の温度が$T_\mathrm{h1}$から$T_\mathrm{h2}$に変化し，受熱流体の温度が$T_\mathrm{c2}$から$T_\mathrm{c1}$に変化するとき，
+\begin{equation}
+    (\varDelta T)_\mathrm{lm} = \frac{(T_\mathrm{h1} - T_\mathrm{c1}) - (T_\mathrm{h2} - T_\mathrm{c2})}{\ln\{(T_\mathrm{h1} - T_\mathrm{c1}) / (T_\mathrm{h2} - T_\mathrm{c2})\}}
+\end{equation}
+総括熱伝達係数として，両熱交換流体の相状態にのみ依存するとして表\ref{総括熱伝達係数}の値を用いた．
+\begin{table}[htbp]
+    \caption{総括熱伝達係数}
+    \label{総括熱伝達係数}
+    \begin{center}
+        \begin{tabular}{ccc}\hline
+            流体1        &  流体2       & 総括伝熱係数[\si{\watt \per \metre \per \second}]    \\   \hline
+            ガス         &  ガス        &150   \\
+            ガス         &   液        &200   \\
+            ガス         &  ガス(凝縮)  &500    \\
+            ガス         &  液(蒸発)    &500    \\
+            液           &   液          &300   \\
+            液           &  ガス(凝縮)  &1000    \\
+            液           &  液(蒸発)    &1000    \\
+            ガス(凝縮)    &  液(蒸発)  &1500       \\\hline
+        \end{tabular}
+    \end{center}
+\end{table}
+プロセス内の熱交換流体の温度推移と交換熱量を表に示す．．また，用いた外部熱媒の温度と熱量を表に示す．
+
 図\ref{TQ線図}に最終的な設計結果におけるTQ線図を示す．
 \begin{figure}[htbp]
-    \label{TQ線図}
     \begin{center}
         \includegraphics[scale=0.7]{TQdiagram.png}
         \caption{TQ線図}
+        \label{TQ線図}
     \end{center}
 \end{figure}
 
@@ -444,7 +612,7 @@ Einstin-Stokesの式
 \par
 私たちのプロセス設計に協力してくださった先生方，先輩方に改めて御礼申し上げます．
 
-
+\newpage
 \newpage
 \bibliography{bibs/refs.bib}
 \begin{thebibliography}{10}
@@ -453,56 +621,116 @@ Einstin-Stokesの式
     \bibitem{キー} 参考文献の名前・著者N
 \end{thebibliography}
 
-
 \newpage
 \chapter*{変数一覧}
 \addcontentsline{toc}{chapter}{変数一覧}
 \begin{multicols}{2}
 \begin{flushleft}
-  $a : \text{比界面積}$ \\
-  $B^0 : \text{一次核発生速度}$ \\
-  $c : \text{重量濃度}$ \\
-  $C : \text{モル濃度}$ \\
-  $C_\mathrm{D} : \text{抗力係数}$ \\
-  $D : \text{拡散係数}$ \\
-  $d_\mathrm{vs} : \text{気泡体積平均径}$ \\
-  $E : \text{活性化エネルギー}$ \\
-  $E_\mathrm{g} : \text{結晶化過程の活性化エネルギー}$ \\
-  $F : \text{モル流量}$ \\
-  $g : \text{重力加速度}$ \\
-  $G : \text{核成長速度}$ \\
-  $k : \text{反応速度定数}$ \\
-  $k_\mathrm{b} : \text{核発生速度定数}$ \\
-  $k_\mathrm{g} : \text{核成長速度定数}$ \\
-  $k_\mathrm{L} : \text{液相物質移動係数}$ \\
-  $k_\mathrm{L} a : \text{液相物質移動容量係数}$ \\
-  $k_\mathrm{v} : \text{結晶体積形状係数}$ \\
-  $M_\mathrm{T} : \text{懸濁密度}$ \\
-  $n : \text{結晶の個数密度}$ \\
-  $P_\mathrm{G} : \text{攪拌動力}$ \\
-  $P_\mathrm{T} : \text{}$ \\
-  $r : \text{反応速度定数}$ \\
-  $T : \text{温度}$ \\
-  $T_\mathrm{c} : \text{臨界温度}$ \\
-  $u_\mathrm{t} : \text{気泡の終末速度}$ \\
-  $u_\mathrm{G} : \text{気泡の空塔速度}$ \\
-  $V : \text{体積}$ \\
-  $\beta : \text{還流率}$ \\
-  $\mu : \text{粘度}$ \\
-  $\mu_\mathrm{L} : \text{液相粘度}$ \\
-  $\sigma : \text{界面張力}$ \\
-  $\rho_\mathrm{a} : \text{空気密度}$ \\
-  $\rho_\mathrm{L} : \text{液相密度}$ \\
-  $\rho_\mathrm{g} : \text{気相密度}$ \\
-  $\varDelta\rho : \text{密度差}$ \\
-  $Eo : \text{エトベス数}$ \\
-  $Sc : \text{シュミット数}$ \\
-  $Re : \text{レイノルズ数}$
+    $a$:\text{比界面積} \\
+    $B^0$:\text{一次核発生速度}\\
+    $c$:\text{重量濃度}\\
+    $C$:\text{モル濃度}\\
+    $C_{\mathrm{D}}$:\text{抗力係数}\\
+    $D$:\text{拡散係数}\\
+    $d_{\mathrm{vs}}$:\text{気泡体積平均径}\\
+    $E$:\text{活性化エネルギー}\\
+    $E_{\mathrm{g}}$:\text{結晶化過程の活性化エネルギー}\\
+    $F$:\text{モル流量}\\
+    $g$:\text{重力加速度}\\
+    $G$:\text{核成長速度}\\
+    $k$:\text{反応速度定数}\\
+    $k_{\mathrm{b}}$:\text{核発生速度定数}\\
+    $k_{\mathrm{g}}$:\text{核成長速度定数}\\
+    $k_{\mathrm{L}}$:\text{液相物質移動係数}\\
+    $k_{\mathrm{L}}a$:\text{液相物質移動容量係数}\\
+    $k_{\mathrm{v}}$:\text{結晶体積形状係数}\\
+    $M_{\mathrm{T}}$:\text{懸濁密度}\\
+    $n$:\text{結晶の個数密度}\\
+    $P_{\mathrm{G}}$:\text{攪拌動力}\\
+    $P_{\mathrm{T}}$:\text{}\\
+    $r$:\text{反応速度定数}\\
+    $T$:\text{温度}\\
+    $T_{\mathrm{c}}$:\text{臨界温度}\\
+    $u_{\mathrm{t}}$:\text{気泡の終末速度}\\
+    $u_{\mathrm{G}}$:\text{気泡の空塔速度}\\
+    $V$:\text{体積}\\
+    $\beta$:\text{還流率}\\
+    $\mu$:\text{粘度}\\
+    $\mu_{\mathrm{L}}$:\text{液相粘度}\\
+    $\sigma$:\text{界面張力}\\
+    $\rho_{\mathrm{a}}$:\text{空気密度}\\
+    $\rho_{\mathrm{L}}$:\text{液相密度}\\
+    $\rho_{\mathrm{g}}$:\text{気相密度}\\
+    $\Delta\rho$:\text{密度差}\\
+    $Eo$:\text{エトベス数}\\
+    $Sc$:\text{シュミット数}\\
+    $Re$:\text{レイノルズ数}
 \end{flushleft}
 \end{multicols}
 
+\appendix
+\chapter{コスト推算}
 
-\chapter*{Appendix}
-\addcontentsline{toc}{chapter}{Appendix}
+為替レートは\,1\,ドル\,=\,111.73\,円とした．(2019年4月平均)
+\section{ユーティリティコスト}
+\section{機器コスト}
+主要機器について，
+\begin{itemize}
+    \item[1)]常圧で運転することを想定し，炭素鋼を用いて作成されるとしてメーカー出荷地点での価格を推算
+    \item[2)]関連する部分の直接費，間接費を含めた価格の推算
+    \item[3)]圧力や材質利用に関する補正
+\end{itemize}
+という3段階によって機器の建設費を推定する方法を用いた．
+\par
+まず，メーカー船積み出荷価格$C_\mathrm{p}^0$は，機器の特徴サイズ$A$と係数$K_1,\,K_2,\,K_3$を用いて
+\begin{equation}
+    \log_{10}C_\mathrm{p}^0 = K_1 + K_2\log_{10} A + K_3(\log_{10} A)^2
+\end{equation}
+\par
+直接費や間接費，特殊材料費，操作圧力を考慮すると，各装置に関係するコストは$C_\mathrm{p}^0$の数倍になる．
+すなわち，
+\begin{equation}
+    C_\mathrm{BM} = F_\mathrm{BM} C_\mathrm{p}^0
+\end{equation}
+$C_\mathrm{BM}$,\,$ F_\mathrm{BM}$はそれぞれベアモジュールコスト，ベアモジュールファクターと呼ぶ．
+係数$F_\mathrm{BM}$に関して，
+\begin{equation}
+    F_\mathrm{BM} = B_1 + B_2 F_\mathrm{p} F_\mathrm{M}
+\end{equation}
+ここで，$B_1,\, B_2 ,\,F_\mathrm{p},\, F_\mathrm{M}$はそれぞれ圧力，材質に依存しない部分の係数，依存する部分の係数，圧力ファクター，材質ファクターを表す．\\
+$F_\mathrm{p}$に関しては槽型の装置に対して推算式が提示されている．\\
+\begin{center}
+\begin{equation}
+    F_\mathrm{p,vessel} =
+        \begin{cases}
+            \max\{\frac{(P_\mathrm{g}+1)D}{10.71-0.00756(P_\mathrm{g}+1)}+0.5 \,,\, 1\} & (P_\mathrm{g} > -0,5\, \bar) \\
+            1.25 & (P_\mathrm{g} \leq -0,5\, \bar)
+        \end{cases}
+\end{equation}
+\end{center}
+槽型以外の装置については，
+\begin{equation}
+    \log_{10}F_\mathrm{p} = C_1 + C_2\log_{10} P_\mathrm{g} + C_3(\log_{10} P_\mathrm{g})^2
+\end{equation}
+
+各機器のコスト算出に当たって用いた係数を表\ref{BM係数}に示す．
+\begin{table}[htbp]
+    \caption{ベアモジュールファクター算出に用いた係数}
+    \label{BM係数}
+    \scalebox{0.8}{
+    \begin{tabular}{cccccccccccc}\hline
+    &$A$ & $K_1$     & $K_2$     & $K_3$     & $B_1$   & $B_2$   &$C_1$&$C_2$&$C_3$& 材質 & $F_\mathrm{M}$  \\\hline
+    反応器  & 体積[\si{\cubic\metre}]  & 4.5587 & 0.2986 & 0.002  & 1.49 & 1.52 &-&-&-& Ti clad       & 4.8 \\
+    晶析器   & 体積[\si{\cubic\metre}] & 4.5097 & 0.1781 & 0.1344 & 1.49 & 1.52 &-&-&-& Ti alloy clad & 9.4 \\
+    蒸留塔(槽)&  体積[\si{\cubic\metre}]   & 3.4974 & 0.4485 & 0.1074 & 1.49 & 1.52 &-&-&-& Ti clad    & 4.8 \\
+    蒸留塔(トレイ)& 面積[\si{\square\metre}] & 2.9949 & 0.4465 & 0.3961 & 1.49 & 1.52 &-&-&-& Ti clad   & 4.8 \\
+    抽出塔   & 体積[\si{\cubic\metre}] & 3.4974 & 0.4485 & 0.1074 & 1.49 & 1.52 &-&-&-& Ti            & 9.4 \\
+    デカンター&  体積[\si{\cubic\metre}] & 3.4974 & 0.4485 & 0.1074 & 2.25 & 1.82 &-&-&-& CC            & 1   \\
+    燃焼炉   & 燃焼熱量[\si{\kilo \watt}] & 3.068  & 0.6597 & 0.0194 & -    & -    &0&0&0& CC             & 1   \\
+    ポンプ   & 電力[\si{\kilo\watt}] & 3.8696 & 0.3161 & 0.122  & 1.89 & 1.35 &0&0&0& Ni alloy      & 3.9 \\
+    コンプレッサー& 電力[\si{\kilo\watt}] & 2.2897 & 1.3604 & -0.103 & -    & -    &0&0&0& CC            & 1  \\\hline
+    \end{tabular}
+    }
+\end{table}
 
 \end{document}
