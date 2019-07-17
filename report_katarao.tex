@@ -3,6 +3,7 @@
 \usepackage{multicol}
 \usepackage{amsmath}
 \usepackage{siunitx}
+<<<<<<< HEAD
 \usepackage[version=4]{mhchem}
 \usepackage{url}
 
@@ -17,6 +18,17 @@
 
 \begin{document}
 
+=======
+
+\bibliographystyle{jplain}
+
+\title{トルエンの空気酸化による安息香酸の製造}
+\author{荊尾太雅 \and 宮本奏汰}
+
+\newcommand{\diff}{\mathrm{d}}
+
+\begin{document}
+>>>>>>> miyamoto
 % 表紙
 \begin{titlepage}
 \vspace{5cm}
@@ -27,23 +39,38 @@
 {\Large 1講座 移動現象論分野}\\
 \vspace{0.5cm}
 \centering
+<<<<<<< HEAD
 {\large 荊尾太雅 , 宮本奏汰}\\
+=======
+{\large 荊尾太雅  宮本奏汰}\\
+>>>>>>> miyamoto
 \vspace{3cm}
 \begin{table}[htbp]
     \begin{center}
         \begin{tabular}[htbp]{ll}
+<<<<<<< HEAD
             \multicolumn{2}{c}{{\LARGE keyword}}\\
             {\Large 空気酸化}&{\Large Air oxidation}\\
             {\Large 気液反応}&{\Large Gas-liquid reaction}\\
             {\Large 晶析}&{\Large Crystallization}\\
             {\Large 多変数同時全体最適化}&{\Large Multi-variable simultaneous optimization}\\
+=======
+            \multicolumn{2}{l}{{\LARGE keyword}}\\
+            {\Large 空気酸化}&{\Large Air oxidation}\\
+            {\Large 気液反応}&{\Large Gas-liquidreaction}\\
+            {\Large 晶析}&{\Large Crystallization}\\
+            {\Large 多変数全体同時最適化}&{\Large Multi-variable simultaneous optimization}\\
+>>>>>>> miyamoto
             {\Large }&{\Large air}\\
         \end{tabular}
     \end{center}
 \end{table}
 \end{titlepage}
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> miyamoto
 \pagenumbering{roman}
 \setcounter{tocdepth}{2}
 \tableofcontents
@@ -53,7 +80,11 @@
 \pagenumbering{arabic}
 \chapter{緒言}
 安息香酸は，主としてフェノールの原料となる他，その塩が食品や化粧品などの添加物として広く利用されている．
+<<<<<<< HEAD
 2014年には世界全体で48万トンが製造されており，新興国での需要から，2024年には生産量が64万トンとなると見込まれている．
+=======
+2014年には世界全体で 万トンが製造されており，新興国での需要から，2024年には生産量が 万トンとなると見込まれている．
+>>>>>>> miyamoto
 そこで，私たちは原料として安価なトルエンを使用し，空気酸化することで安息香酸を製造するプロセスを
 題材とし，本プロセス設計演習において検討することにした．
 
@@ -61,6 +92,7 @@
 \chapter{プロセスの概要}
 \section{プロセスの概要}
 本設計で対象とするのは，トルエンを空気酸化することにより安息香酸を製造するプロセスである．
+<<<<<<< HEAD
 プロセス全体の概略図を図\ref{プロセス全体のの概略図}に示す．
 \begin{figure}[htbp]
     \label{プロセス全体のの概略図}
@@ -80,10 +112,22 @@
     \item 減価償却期間は7年である．\\
     \item 圧力損失，熱損失，制御系については考慮しない．\\
     \item HYSISを用いての物性推算はUNIQUAC式によって行った．
+=======
+プロセス全体の概略図を以下に示す．
+
+\section{設計条件}
+\begin{enumerate}
+    \item 生産要求は，99.0wt\%以上の安息香酸を年2万トンとする．\\
+    \item 工場の稼働時間は，1日24時間，年300日とする．\\
+    \item 原料として，純度100\%のトルエンおよび，組成を窒素79mol\%酸素21mol\%とする空気を用いる．\\
+    \item ただし，原料は25℃，1barで供給されるものとする．\\
+    \item 減価償却期間は7年である．
+>>>>>>> miyamoto
 \end{enumerate}
 
 \newpage
 \chapter{反応部}
+<<<<<<< HEAD
 
 反応部の概略図を図 \ref{反応部設計結果の概略図} に示す．
 \begin{figure}[htbp]
@@ -119,6 +163,11 @@
     \hline
   \end{tabular}
 \end{table}
+=======
+反応部の概略図を以下に示す．
+
+\section{反応機構}
+>>>>>>> miyamoto
 
 \section{反応器選定}
 流通式の気液反応器の種類には，拡散速度に対して不利な順に，気泡塔，気液攪拌槽，充填塔などがある．
@@ -126,13 +175,17 @@
 参考文献\cite{化工便覧}の選定基準に基づき，八田数が0.1より小さいなら気泡塔，
 5より大きければ充填塔，中間域ならば気液攪拌槽を選択した．
 今回は気液攪拌槽型反応器を選択した．実際のプロセスでは気泡塔も選択される．\\
+<<<<<<< HEAD
 八田数の定義式
+=======
+>>>>>>> miyamoto
 \begin{equation}
     \gamma = \frac{\text{(最大反応速度)}}{\text{(最大拡散速度)}} = \frac{(C_\mathrm{B}kD_\mathrm{B})^{1/2}} {k_\mathrm{L}}
 \end{equation}
 
 \section{設計方程式}
 液相は完全混合状態として，気相は鉛直方向に向かう押し出し流れとなっているとして設計を行った．
+<<<<<<< HEAD
 用いた仮定は以下のようである．
 \begin{itemize}
     \item[-] 気相は水平方向に一様な濃度分布を持つ．
@@ -152,16 +205,44 @@
 \end{equation}
 
 \section{物質移動容量係数の推算}
+=======
+用いた仮定は以下のようになる．
+\begin{itemize}
+    \item[-] 気相は水平方向に一様な濃度分布を持つ．
+    \item[-] 気相側境膜抵抗は無視できる・
+    \item[-] 液相は完全混合状態である．
+    \item[-] 窒素，酸素はヘンリー則に従い，その他の物質はラウール則に従う．
+\end{itemize}
+以上の仮定および，蒸発油分を還流する機構を含めて，設計方程式を立式した．\\
+\begin{equation*}
+    0 = F^\text{in}_{\text{liq},j} - F^\text{out}_{\text{liq},j} - (1-\beta_j) k_\mathrm{L}a
+    \int^{V_\text{tot}}_0(C_j - C^\text{sat}_j) \diff V + r_j V_\mathrm{L}
+\end{equation*}
+\begin{equation*}
+    \frac{ \diff F_{\text{gas},j}}{\diff V} = k_\mathrm{L}a (C_j - C^\text{sat}_j)
+\end{equation*}
+
+\section{物質移動容量係数の推算}
+% TODO: 書式の統一
+>>>>>>> miyamoto
 物質移動容量係数の推算に用いた各相関式を記す．
 
 液相側物質移動係数の相関式\\
 小気泡の場合
 \begin{equation}
+<<<<<<< HEAD
     k_\mathrm{L} = 0.31Sc_\mathrm{L}^{-2/3}(g \varDelta \rho \mu_\mathrm{L}/\rho_\mathrm{L}^2)^{1/3}
 \end{equation}
 大気泡の場合
 \begin{equation}
     k_\mathrm{L} = 0.42Sc_\mathrm{L}^{-1/2}(g \varDelta \rho \mu_\mathrm{L}/\rho_\mathrm{L}^2)^{1/3}
+=======
+    k_\mathrm{L} = 0.31Sc_\mathrm{L}^{-2/3}(g \Delta \rho \mu_\mathrm{L}/\rho_\mathrm{L}^2)^{1/3}
+\end{equation}
+大気泡の場合
+\begin{equation}
+    k_\mathrm{L} = 0.42Sc_\mathrm{L}^{-1/2}(g \Delta \rho \mu_\mathrm{L}/\rho_\mathrm{L}^2)^{1/3}
+>>>>>>> miyamoto
 \end{equation}
 比表面積の相関式
 \begin{equation}
@@ -211,6 +292,7 @@ Einstin-Stokesの式
 \end{equation}
 エトベス数の定義式
 \begin{equation}
+<<<<<<< HEAD
     Eo = \frac{g \varDelta \rho d_\mathrm{vs}^2}{\sigma}
 \end{equation}
 
@@ -255,11 +337,19 @@ Einstin-Stokesの式
     \end{center}
 \end{figure}
 
+=======
+    Eo = \frac{g \Delta \rho d_\mathrm{vs}^2}{\sigma}
+\end{equation}
+
+\section{反応器設計結果}
+反応部の概略図および物質収支を以下に示す．
+>>>>>>> miyamoto
 
 \newpage
 \chapter{分離部1}
 \section{蒸留塔設計}
 未反応トルエンのうち99\%以上を回収することを目的とした．
+<<<<<<< HEAD
 設計条件として，蒸留塔段数を10段，蒸留塔供給段は6段，還流比を1.0とした．
 
 蒸留塔圧力を変更し，全体の利益を最大とする点について探索を行った．
@@ -307,6 +397,19 @@ Einstin-Stokesの式
 \newpage
 \chapter{分離部2}
 
+=======
+設計条件を以下に記す．
+
+設計結果を以下に記す．
+
+蒸留塔圧力を変更し，全体の利益を最大とする点について探索を行った．
+反応器流出液圧力が7barであるため，最適な圧力であることが予想されるが，下記の
+グラフに示されるように，確かに7barで全体の利益が最大化されることを確認している．
+
+\newpage
+\chapter{分離部2}
+\section{晶析器設計}
+>>>>>>> miyamoto
 \section{晶析器選定}
 溶解度の温度依存性が大きいことと，目的とする結晶生産量が大きいことから，
 連続式攪拌槽型反応装置を選定した．\\
@@ -315,6 +418,7 @@ Einstin-Stokesの式
     C^*=2.03\times 10^{-5}T^4 +2.03^{-5}\times T^4 + 2.97\times 10^{-4}T^3 + 4.70\times 10^{-2}T^2
         + 1.43T + 24.71
 \end{equation}
+<<<<<<< HEAD
 ただし,温度$T \, [\si{\degreeCelsius}]$, $C^* \, [\si{\gram \per \kilo \solventgram}]$\\
 \begin{figure}[htbp]
     \label{溶解度の温度依存性}
@@ -324,6 +428,9 @@ Einstin-Stokesの式
     \end{center}
 \end{figure}
 
+=======
+ただし,$T[\mathrm{^\circ C}]$,$C^*[{\mathrm g/kg-solvent}]$\\
+>>>>>>> miyamoto
 
 \section{設計方程式}
 以下の仮定を用いた．
@@ -358,9 +465,15 @@ Einstin-Stokesの式
 \end{equation}
 各パラメータは以下の通りである．
 \begin{align*}
+<<<<<<< HEAD
     &k_\mathrm{g0} = 1.06\times10^7 \, \si{(\micro \meter)/(\gram / \solventgram)^{\textit{g}}} \\
     &B^{\mathrm{0}} = 40.05 \, \si{\kilo \joule / \mole} \\
     &k_\mathrm{b} = 9.16 \times 10^{12} \, \si{(\# / \cubic \meter \second) / \{ (\gram / \milli \liter)^{\textit{j}} (\gram / \solventgram)^{\textit{b}} \} } \\
+=======
+    &k_\mathrm{g0} = 1.06\times10^7 \, \si{(\micro \meter)/(\gram / \gram-solvent)^{\textit{g}}} \\
+    &B^{\mathrm{0}} = 40.05 \, \si{\kilo \joule / \mole} \\
+    &k_\mathrm{b} = 9.16 \times 10^{12} \, \si{(\# / \cubic \meter \second) / \{ (\gram / \milli \liter)^{\textit{j}} (\gram / \gram-solvent)^{\textit{b}} \} } \\
+>>>>>>> miyamoto
     &g = 0.44 \\
     &j = 1.78 \\
     &b = 1.2 \\
@@ -368,11 +481,16 @@ Einstin-Stokesの式
     &\rho_\mathrm{c} = 1.32 \, \si{\gram / \centi \metre \cubed}
 \end{align*}
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> miyamoto
 \section{晶析器設計結果}
 最適化の結果によって得られた晶析器の設計結果を以下に記す．
 
 \section{抽出塔設計}
 十分に塔内へ液を滞留させることによって安息香酸を水中に飽和させることを目的とした．
+<<<<<<< HEAD
 十分なデータを得られなかったため，2時間の装置内滞留によって安息香酸がトルエン溶媒中に飽和し，
 その他ベンジルアルコール，ベンズアルデヒドの溶解度については無視できると仮定した．
 
@@ -384,6 +502,11 @@ Einstin-Stokesの式
         \caption{分離部2設計結果}
     \end{center}
 \end{figure}
+=======
+設計仮定を以下に記す．
+設計条件を以下に記す．
+
+>>>>>>> miyamoto
 
 \newpage
 \chapter{最適化}
@@ -404,6 +527,7 @@ Einstin-Stokesの式
 で表される評価関数の値とした．また，各ヒートマップ上で，評価関数の値が最大となる点をプロットした．さらに，そのプロットがどのように変化するかを見るために，横軸に反応器体積，縦軸に評価関数の値を取り，折れ線グラフを作成した．
 
 \section{最適化結果}
+<<<<<<< HEAD
 評価関数の値が最大となった点での，ヒートマップおよび，評価関数の最大値の変化を表したグラフは図\ref{最適化結果}のようになった．また，作成したgifはgithubにアップしているので，興味のある方はご覧ください．\url{https://github.com/miyamo-sou/processdesign}
 \begin{figure}[htbp]
     \label{最適化結果}
@@ -414,6 +538,9 @@ Einstin-Stokesの式
 \end{figure}
 
 このよに，評価関数は大きなピークが存在する形になっていることが分かる．これは，最適化方法のセクションでも述べたが，反応器体積，晶析器体積，晶析器温度を変化させると，装置費と用役費がトレードオフの関係となって，コストが変化する．そのため，このようにピークが生じたと考えられる．
+=======
+評価関数の値が最大となった点での，ヒートマップおよび，評価関数の最大値の変化を表したグラフは図\ref{}のようになった．
+>>>>>>> miyamoto
 
 
 \newpage
@@ -425,6 +552,7 @@ Einstin-Stokesの式
 \newpage
 \chapter{ヒートインテグレーション}
 流体同士の熱交換を行い，外部流体の利用量を削減した．
+<<<<<<< HEAD
 図\ref{TQ線図}に最終的な設計結果におけるTQ線図を示す．
 \begin{figure}[htbp]
     \label{TQ線図}
@@ -433,6 +561,9 @@ Einstin-Stokesの式
         \caption{TQ線図}
     \end{center}
 \end{figure}
+=======
+以下に最終的な設計結果におけるTQ線図を示す．
+>>>>>>> miyamoto
 
 熱交換により，外部熱媒を用いた場合と比較して，
 
@@ -442,6 +573,7 @@ Einstin-Stokesの式
 \newpage
 \chapter{結言}
 設計目標を純度99.0wt\%の安息香酸を年2万ton製造するものとして，設計を行った．
+<<<<<<< HEAD
 文献値を参考として気液反応器，および晶析装置を設計した．
 リサイクルフローを考えて，物質の有効利用を行った．
 反応器体積，晶析器体積，晶析器内温度を用いたプロセス全体の3変数同時最適化を行った．
@@ -449,6 +581,17 @@ Einstin-Stokesの式
 \par
 残った課題としては，蒸発トルエンのさらなる回収を行うため，燃焼炉ではなく吸着装置を用いることを検討することや，
 各装置についてさらに詳細に設計することが挙げられる．
+=======
+文献値を参考として反応器，および晶析装置を設計した．
+また，リサイクルフローおよび燃焼炉の設置によって原料を有効活用できた．
+最適化については，晶析器内温度および蒸留塔内圧力を順次最適化し，
+プロセス全体について，反応器体積と晶析器体積を用いて最適化することができた．
+本設計では積極的に多変数を用いて最適化を行った．
+これにより，年 億円の利益を得ると見込める設計となった．
+\par
+課題としては，さらに多くの変数を用いた最適化，特に反応器内の条件を変更して行うこと，
+また，燃焼炉ではなく，吸着装置を用いた時の比較検討を行うこと等が挙げられる．
+>>>>>>> miyamoto
 
 \newpage
 \chapter*{謝辞}
@@ -463,6 +606,7 @@ Einstin-Stokesの式
 私たちのプロセス設計に協力してくださった先生方，先輩方に改めて御礼申し上げます．
 
 \newpage
+<<<<<<< HEAD
 \newpage
 \bibliography{bibs/refs.bib}
 \begin{thebibliography}{10}
@@ -470,6 +614,9 @@ Einstin-Stokesの式
     \bibitem{晶析} Gary Morris and  Graham Power \textit{et al.  Org. Process Res. Dev.} \textbf{19}, 1891-1902, 2015
     \bibitem{キー} 参考文献の名前・著者N
 \end{thebibliography}
+=======
+\bibliography{bibs/refs.bib}
+>>>>>>> miyamoto
 
 \newpage
 \chapter*{変数一覧}
@@ -518,8 +665,13 @@ Einstin-Stokesの式
 \end{flushleft}
 \end{multicols}
 
+<<<<<<< HEAD
 
 \chapter*{Appendix}
 \addcontentsline{toc}{chapter}{Appendix}
+=======
+\newpage
+\section*{Appendix}
+>>>>>>> miyamoto
 
 \end{document}
