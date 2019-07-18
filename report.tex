@@ -7,6 +7,8 @@
 \usepackage[version=4]{mhchem}
 \usepackage{url}
 \usepackage{lscape}
+\usepackage{multirow}
+\usepackage{mathtools}
 
 
 \graphicspath{{./figure/}}
@@ -642,30 +644,33 @@ Einstin-Stokesの式\cite{実験テキスト}
 \clearpage
 \chapter{経済評価}
 減価償却を8年とした場合の経済評価は表\ref{経済評価}のようになった．なお，各装置費の推算式は，Appendix Aに示した通りである．
-% \begin{table}[htbp]
-%     \caption{経済評価}
-%     \label{経済評価}
-%     \begin{center}
-%         \begin{tabular}{ccc}
-%           \hline
-%           収入 & 製品 & 安息香酸 & 23.7 & 23.7 \\
-%           \hline
-%           支出 & 原料コスト & トルエン & 10.4 \\
-%           & 装置コスト & 晶析器 & 0.39 & 18.31 \\
-%           & & 反応器 & 0.34 & \\
-%           & & 熱交換器 & 0.33 & \\
-%           & & 抽出塔 & 0.14 & \\
-%           & & コンデンサ & 0.05 & \\
-%           & & 燃焼炉 & 0.05 & \\
-%           & & 蒸留塔 & 0.04 & \\
-%           & & デカンタ & 0.04 & \\
-%           & & ポンプ & 0.02 & \\
-%           & & コンプレッサー & 0.02 & \\
-%           \hline
-%           \hline
-%         \end{tabular}
-%     \end{center}
-% \end{table}
+\begin{table}[htbp]
+    \centering
+    \caption{経済評価 [億円/年]}
+    \label{経済評価}
+    \begin{tabular}{c|c|cc|c}
+      \hline
+      収入 & 製品 & 安息香酸 & 23.7 & 23.7 \\
+      \hline
+      \multirow{14}{*}{支出} & 原料コスト & トルエン & 10.4 & 10.4 \\
+      \cline{2-5}
+      & \multirow{10}{*}{装置コスト} & 晶析器 & 0.39 & \multirow{10}{*}{18.31} \\
+      & & 反応器 & 0.34 & \\
+      & & 熱交換器 & 0.33 & \\
+      & & 抽出塔 & 0.14 & \\
+      & & コンデンサ & 0.05 & \\
+      & & 燃焼炉 & 0.05 & \\
+      & & 蒸留塔 & 0.04 & \\
+      & & デカンタ & 0.04 & \\
+      & & ポンプ & 0.02 & \\
+      & & コンプレッサー & 0.02 & \\
+      \cline{2-5}
+      & \multirow{3}{*}{運転コスト} & 用役コスト & 1.24 & \multirow{3}{*}{6.60} \\
+      & & 触媒 & 0.36 & \\
+      & & 人件費 & 5 & \\
+      \hline
+    \end{tabular}
+\end{table}
 
 
 \clearpage
@@ -824,10 +829,10 @@ $F_\mathrm{p}$に関しては槽型の装置に対して推算式\eqref{槽型�
 \begin{center}
 \begin{equation}
     F_\mathrm{p,vessel} =
-        \begin{cases}
-            \max \left\{\dfrac{(P_\mathrm{g} + 1 )D}{10.71 - 0.00756(P_\mathrm{g} + 1)}+0.5, \, 1 \right\} & (P_\mathrm{g} > -0,5\, \si{\bar}) \\
-            1.25 & (P_\mathrm{g} \leq -0,5\, \si{\bar})
-        \end{cases}
+        \begin{dcases}
+            \max \left\{\dfrac{(P_\mathrm{g} + 1 )D}{10.71 - 0.00756(P_\mathrm{g} + 1)}+0.5 \, , \, 1 \right\} & (P_\mathrm{g} > -0.5\, \si{\bar}) \\
+            1.25 & (P_\mathrm{g} \leq -0.5\, \si{\bar})
+        \end{dcases}
     \label{槽型推算式}
 \end{equation}
 \end{center}
@@ -865,6 +870,6 @@ $F_\mathrm{p}$に関しては槽型の装置に対して推算式\eqref{槽型�
 \begin{equation}
     \text{(コスト [億円])} = 0.015K \times A^{0.65}
 \end{equation}
-ただし，$K$は定数でありコンデンサーなら1，リボイラーでは2とした．
+ただし，$K$は定数でありコンデンサーは1，リボイラーは2とした．
 
 \end{document}
