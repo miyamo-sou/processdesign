@@ -736,16 +736,17 @@ L/D比は2とした．
 今回のプロセス設計では，様々な方々にお世話になりました．山本教授，谷口准教授を
 はじめとする多くの化学工学の先生方，集中講義を実施してくださった玉川先生に感謝の意を申し上げます．
 
-また，1講座の先輩方の協力無しには私たちのプロセス設計は実現できませんでした．
-プロセスの内容や発表に対し，的確なアドバイスをいただきました．
-お忙しい中，原稿やスライドのチェック，発表練習などに協力して頂いたことで，無事に発表を終えることができました．
+また，1講座の先輩方の協力無しには私たちのプロセス設計は完成できませんでした．
+プロセスの内容や発表に対し，的確なアドバイスをしていただきました．
+さらに，お忙しい中，原稿やスライドのチェック，発表練習などに協力して頂いたことで，無事に発表を終えることができました．
 
 私たちのプロセス設計に協力してくださった先生方，先輩方に改めて御礼申し上げます．
 
 
 \clearpage
 \bibliography{bibs/refs.bib}
-\begin{thebibliography}{10}
+\begin{thebibliography}{30}
+    \bibitem{hexa} Hexa Research, 'Benzoic Acid Analysis', 2016 \url{https://www.hexaresearch.com/research-report/benzoic-acid-market}
     \bibitem{化工便覧} 化学工学会・化学工学便覧・丸善出版
     \bibitem{晶析} Gary Morris and  Graham Power \textit{et al.  Org. Process Res. Dev.} \textbf{19}, 1891-1902, 2015
     \bibitem{酢酸マンガン} 富士フィルム和光純薬(株) \url{https://labchem-wako.fujifilm.com/jp/product/detail/W01W0113-0065.html}
@@ -754,10 +755,17 @@ L/D比は2とした．
     \bibitem{講義資料3} 京都大学・プロセス設計講義資料3
     \bibitem{謎資料} 第6回ソフトウェアツール学生コンテスト \url{http://www.chemeng.titech.ac.jp/~sis_cont/dairokkai.html}
     \bibitem{実験テキスト} 京都大学化学プロセス工学コース 実験テキスト
-    \bibitem{TPP} R.Byron Bird and Warren E. Stewart ,Edwin N. Lightfoot   TransPortPhenomena revised second edition   willy
-    \bibitem{界面張力} Jasper, J.J. The surface tension of pure liquid compounds. \textit{J. Phys. Chem. Ref. Data} \textbf{1}, 841–1010, 1972
+    \bibitem{TPP} R.Byron Bird and Warren E. Stewart, Edwin N. Lightfoot TransPortPhenomena revised second edition willy
+    \bibitem{界面張力} Jasper, J.J. The surface tension of pure liquid compounds, \textit{J. Phys. Chem. Ref. Data}, \textbf{1}, 841–1010, 1972
     \bibitem{トルエン排出基準}東京都福祉保健局 \url{http://www.fukushihoken.metro.tokyo.jp/kankyo/kankyo_eisei/jukankyo/indoor/sickhouse_faq/sick_faq_04.html}
-    \bibitem{wilke}Wilke C.R. and P.Chang: \textit{AIChE J.},\textbf{1}, 264, 1955
+    \bibitem{wilke}Wilke C.R. and P.Chang, \textit{AIChE J.},\textbf{1}, 264, 1955
+    \bibitem{article1} Gizli, Ali and Aytimur, Guelin and Alpay, Erden and Atalay, \textit{Chemical Engineering \& Technology}, \textbf{31}, 2008
+    \bibitem{article2}Versteeg, G and L. Alsters, P and A. A. Hoorn, J, \textit{International Journal of Chemical Reactor Engineering}, \textbf{3}, 01, 2005
+    \bibitem{HOORN2005187}J.A.A. Hoorn and J. Van Soolingen and G.F. Versteeg, \textit{Chemical Engineering Research and Design}, \textbf{83}, 187-195, 2005
+    \bibitem{Li2019}Li, Wang and Zhang, Qingjun and Zeng, Aiwu, \textit{Transactions of Tianjin University}, \textbf{25}, 52-65, 2019",
+    \bibitem{doi:10.1021/ie070040c}Tang and Liang, Bin, \textit{Industrial \& Engineering Chemistry Research}, \textbf{46}, 6442-6448, 2007
+    \bibitem{doi:10.1002/aic.690470708}Ståhl, Marie and Åslund, Bengt L. and Rasmuson, Åke, \textit{AIChE Journal}, \textbf{47}, 1544-1560, 2001
+    \bibitem{19952357}冨山 明男 and 片岡 勲 and 坂口 忠司 気泡の抗力係数に関する研究 : 第1報,静止液中単一気泡の抗力係数 \textit{日本機械学会論文集 B編}, \textbf{61}, 2357-2364, 1995
   \end{thebibliography}
 
 
@@ -766,45 +774,45 @@ L/D比は2とした．
 \addcontentsline{toc}{chapter}{変数一覧}
 \begin{multicols}{2}
 \begin{flushleft}
-    $a$:比界面積 \\
-    $B^0$:一次核発生速度 \\
-    $c$:重量濃度 \\
-    $C$:モル濃度 \\
-    $C_\mathrm{D}$:抗力係数 \\
-    $D$:拡散係数 \\
-    $d_\mathrm{vs}$:気泡体積平均径 \\
-    $E$:活性化エネルギー \\
-    $E_\mathrm{g}$:結晶化過程の活性化エネルギー \\
-    $F$:モル流量 \\
-    $g$:重力加速度 \\
-    $G$:核成長速度 \\
-    $k$:反応速度定数 \\
-    $k_\mathrm{b}$:核発生速度定数 \\
-    $k_\mathrm{g}$:核成長速度定数 \\
-    $k_\mathrm{L}$:液相物質移動係数 \\
-    $k_\mathrm{L}a$:液相物質移動容量係数 \\
-    $k_\mathrm{v}$:結晶体積形状係数 \\
-    $M_\mathrm{T}$:懸濁密度 \\
-    $n$:結晶の個数密度 \\
-    $P_\mathrm{G}$:攪拌動力 \\
-    $P_\mathrm{T}$: \\
-    $r$:反応速度 \\
-    $T$:温度 \\
-    $T_\mathrm{c}$:臨界温度 \\
-    $u_\mathrm{t}$:気泡の終末速度 \\
-    $u_\mathrm{G}$:気泡の空塔速度 \\
-    $V$:体積 \\
-    $\beta$:還流率 \\
-    $\mu$:粘度 \\
-    $\mu_\mathrm{L}$:液相粘度 \\
-    $\sigma$:界面張力 \\
-    $\rho_\mathrm{a}$:空気密度 \\
-    $\rho_\mathrm{L}$:液相密度 \\
-    $\rho_\mathrm{g}$:気相密度 \\
-    $\varDelta\rho$:密度差 \\
-    $Eo$:エトベス数 \\
-    $Sc$:シュミット数 \\
-    $Re$:レイノルズ数
+    $a$: 比界面積 \\
+    $B^0$: 一次核発生速度 \\
+    $c$: 重量濃度 \\
+    $C$: モル濃度 \\
+    $C_\mathrm{D}$: 抗力係数 \\
+    $D$: 拡散係数 \\
+    $d_\mathrm{vs}$: 気泡体積平均径 \\
+    $E$: 活性化エネルギー \\
+    $E_\mathrm{g}$: 結晶化過程の活性化エネルギー \\
+    $F$: モル流量 \\
+    $g$: 重力加速度 \\
+    $G$: 核成長速度 \\
+    $k$: 反応速度定数 \\
+    $k_\mathrm{b}$: 核発生速度定数 \\
+    $k_\mathrm{g}$: 核成長速度定数 \\
+    $k_\mathrm{L}$: 液相物質移動係数 \\
+    $k_\mathrm{L}a$: 液相物質移動容量係数 \\
+    $k_\mathrm{v}$: 結晶体積形状係数 \\
+    $M_\mathrm{T}$: 懸濁密度 \\
+    $n$: 結晶の個数密度 \\
+    $P_\mathrm{G}$: 攪拌動力 \\
+    $P_\mathrm{T}$: 流入時の気相流の総エネルギー\\
+    $r$: 反応速度 \\
+    $T$: 温度 \\
+    $T_\mathrm{c}$: 臨界温度 \\
+    $u_\mathrm{t}$: 気泡の終末速度 \\
+    $u_\mathrm{G}$: 気泡の空塔速度 \\
+    $V$: 体積 \\
+    $\beta$: 還流率 \\
+    $\mu$: 粘度 \\
+    $\mu_\mathrm{L}$: 液相粘度 \\
+    $\sigma$: 界面張力 \\
+    $\rho_\mathrm{a}$: 空気密度 \\
+    $\rho_\mathrm{L}$: 液相密度 \\
+    $\rho_\mathrm{g}$: 気相密度 \\
+    $\varDelta\rho$: 密度差 \\
+    $Eo$: エトベス数 \\
+    $Sc$: シュミット数 \\
+    $Re$: レイノルズ数
 \end{flushleft}
 \end{multicols}
 
