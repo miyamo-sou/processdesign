@@ -424,7 +424,7 @@ Temporary Items
 
 # End of https://www.gitignore.io/api/tex,latex,macos
 
-*.pdf
+
 .latexmkrc
 test.*
 cp_tex.sh
