@@ -9,15 +9,34 @@
 \usepackage{lscape}
 \usepackage{multirow}
 \usepackage{mathtools}
-
+\usepackage[top=30truemm,bottom=30truemm,left=25truemm,right=25truemm]{geometry}
+\usepackage{listings,jlisting}
 
 \graphicspath{{./figure/}}
-\bibliographystyle{jplain}
+\bibliographystyle{junsrt}
 
 
 \newcommand{\diff}{\mathrm{d}}
 \DeclareSIUnit{\solventgram}{\si{\gram}\text{-solvent}}
 
+\lstset{
+  basicstyle={\ttfamily},
+  identifierstyle={\small},
+  commentstyle={\smallitshape},
+  keywordstyle={\small\bfseries},
+  ndkeywordstyle={\small},
+  stringstyle={\small\ttfamily},
+  frame={tb},
+  breaklines=true,
+  columns=[l]{fullflexible},
+  numbers=left,
+  xrightmargin=0zw,
+  xleftmargin=3zw,
+  numberstyle={\scriptsize},
+  stepnumber=1,
+  numbersep=1zw,
+  lineskip=-0.5ex
+}
 
 \begin{document}
 
@@ -35,7 +54,7 @@
 \vspace{3cm}
 \begin{table}[htbp]
     \begin{center}
-        \begin{tabular}[htbp]{ll}
+        \begin{tabular}[htbp]{cc}
             \multicolumn{2}{c}{{\LARGE keyword}} \\
             {\Large 空気酸化}&{\Large Air oxidation} \\
             {\Large 気液反応}&{\Large Gas-liquid reaction} \\
@@ -59,7 +78,7 @@
 
 \chapter{緒言}
 安息香酸は，主としてフェノールの原料となる他，その塩が食品や化粧品などの添加物として広く利用されている．
-2014年には世界全体で48万トンが製造されており，新興国での需要から，2024年には生産量が64万トンとなると見込まれている\cite{}．
+2014年には世界全体で48万トンが製造されており，新興国での需要の増加から，2024年には生産量が64万トンとなることが見込まれている\cite{}．
 そこで，安価なトルエンを原料として用いて安息香酸を製造するプロセスを検討することにした．
 
 
@@ -78,9 +97,9 @@
 \section{設計条件}
 プロセスを設計するにあたり，以下の条件を設定した．
 \begin{enumerate}
-  \item 生産要求は，99.0wt\%以上の安息香酸を年2万トンとする．\\
+  \item 生産要求は，99.0\,wt\%以上の安息香酸を年2万トンとする．\\
   \item 工場の稼働時間は，1日24時間，年300日とする．\\
-  \item 原料として，純度100\%のトルエンおよび，組成を窒素79\,mol\%酸素21\,mol\%とする空気を用いる．
+  \item 原料として，純度100\,\%のトルエンおよび，組成を窒素79\,mol\%酸素21\,mol\%とする空気を用いる．
            ただし，両原料は25\,\si{degreeCelsius}，1\,\si{\bar}で供給されるものとする．\\
   \item 減価償却期間は8年とする．\\
   \item 圧力損失，熱損失，制御系については考慮しない．\\
@@ -92,7 +111,7 @@
 \chapter{反応部}
 トルエンを空気酸化させ，安息香酸に転化させることを目的とする工程である．
 反応部の概略図を図 \ref{反応部設計結果の概略図} に示す．
-反応器にフィードされる液は，原料およびリサイクルによって回収された未反応トルエン，ベンジルアルコール，ベンズアルデヒド，水であり，反応器入り口において7 \si{\bar}，170 \si{\degreeCelsius}に加熱および加圧され，反応器に供給される．また，反応器底部からは空気が1\,\si{\bar}，25\,\si{\degreeCelsius}で供給されており，攪拌されながら反応器上方に向かう．反応器内は外部熱煤によって加熱され，7\,\si{\bar}，170\,\si{\degreeCelsius}に保たれており，攪拌によって液中に溶けた酸素と未反応物質は触媒酸化反応を起こす．また，気液間物質移動により，液中のトルエンおよび水が盛んに蒸発するが，蒸発したトルエンおよび水を含む空気は反応器からコンデンサーに流入し凝縮される．凝縮したトルエンおよび水はデカンターへ送られ，密度差分離によりトルエンのみを反応器に還流し，水はパージする．また，凝縮しなかったトルエンは，環境安全上の理由からそのまま排出することはできないので，濃度を減少させるために燃焼部へと送られる．反応器からの流出液は次の工程である分離部1へと送られる．
+反応器にフィードされる液は，原料およびリサイクルによって回収された未反応トルエン，ベンジルアルコール，ベンズアルデヒド，水であり，反応器入り口において7\,\si{\bar}，170\,\si{\degreeCelsius}に加熱および加圧され，反応器に供給される．また，反応器底部からは空気が1\,\si{\bar}，25\,\si{\degreeCelsius}で供給されており，攪拌されながら反応器上方に向かう．反応器内は外部熱煤によって加熱され，7\,\si{\bar}，170\,\si{\degreeCelsius}に保たれており，攪拌によって液中に溶けた酸素と未反応物質は触媒酸化反応を起こす．また，気液間物質移動により，液中のトルエンおよび水が盛んに蒸発するが，蒸発したトルエンおよび水を含む空気は反応器からコンデンサーに流入し凝縮される．凝縮したトルエンおよび水はデカンターへ送られ，密度差分離によりトルエンのみを反応器に還流し，水はパージする．また，凝縮しなかったトルエンは，環境安全上の理由からそのまま排出することはできないので，濃度を減少させるために燃焼部へと送られる．反応器からの流出液は次の工程である分離部1へと送られる．
 \begin{figure}[htbp]
   \centering
   \includegraphics[scale=0.7]{ReactionSection.png}
@@ -101,7 +120,7 @@
 \end{figure}
 
 \section{反応機構}
-今回用いた反応は以下の4つである．トルエンは経路によらず最終的に安息香酸へと転化する．
+今回用いた反応を以下に示す．それぞれの反応速度式および，298\,\si{\kelvin}における反応エンタルピーも示している．トルエンは経路によらず最終的に安息香酸へと転化する．
 \begin{center}
 \begin{tabular}{lcrlll}
   \ce{Tol} & + & \ce{O2} & \ce{-> Bald + H2O} & $r_1 = k_1 \cdot C_\text{Tol}$ & $\varDelta _\mathrm{r} H_1 = -385.23$ \, \si{\kilo \joule \per \mole} \\
@@ -173,15 +192,7 @@
 \section{物質移動容量係数の推算}
 物質移動容量係数は，反応装置形状，反応器内部流体の様々な物性，流れの状態に依存する.攪拌槽型反応器に対し，物質移動容量係数の推算に用いた各相関式を記す．
 
-\noindent 液相側物質移動係数の相関式\cite{化工便覧}\\
-% \item[] 小気泡の場合
-% \begin{equation}
-%     k_\mathrm{L} = 0.31Sc_\mathrm{L}^{-2/3}(g \varDelta \rho \mu_\mathrm{L}/\rho_\mathrm{L}^2)^{1/3}
-% \end{equation}
-% \item[] 大気泡の場合
-% \begin{equation}
-%     k_\mathrm{L} = 0.42Sc_\mathrm{L}^{-1/2}(g \varDelta \rho \mu_\mathrm{L}/\rho_\mathrm{L}^2)^{1/3}
-% \end{equation}
+\noindent 液相側物質移動係数の相関式\cite{化工便覧}
 \begin{align}
   \text{小気泡の場合 : }　&k_\mathrm{L} = 0.31Sc_\mathrm{L}^{-2/3}(g \varDelta \rho \mu_\mathrm{L}/\rho_\mathrm{L}^2)^{1/3} \\
   \text{大気泡の場合 : }　&k_\mathrm{L} = 0.42Sc_\mathrm{L}^{-1/2}(g \varDelta \rho \mu_\mathrm{L}/\rho_\mathrm{L}^2)^{1/3}
@@ -248,7 +259,8 @@ Einstin-Stokesの式\cite{実験テキスト}
 以上の諸式を用いて物質移動容量係数を推算した．結果は反応器設計結果で示す．
 
 \section{反応器設計結果}
-最終結果における反応器の詳細を表\ref{反応器設計結果の表}に示す．
+最終結果における反応器の詳細を表\ref{反応器設計結果の表}に示す．ただし，反応器内温度は，外部熱煤を用いることで，
+170\,\si{\degreeCelsius}に保たれているとした．
 \begin{table}[htbp]
   \centering
   \caption{反応器設計結果}
@@ -362,11 +374,11 @@ Einstin-Stokesの式\cite{実験テキスト}
 参考文献\cite{晶析}により，以下の実験式および理論式を用いて設計を行った．\\
 一次核発生速度
 \begin{equation}
-    B^0 = k_\mathrm{b} M_\mathrm{T}^j \Delta C^b
+    B^0 = k_\mathrm{b} M_\mathrm{T}^j \varDelta C^b
 \end{equation}
 結晶成長速度
 \begin{equation}
-    G = k_\mathrm{g}\Delta C^g
+    G = k_\mathrm{g} \varDelta C^g
 \end{equation}
 結晶成長速度定数
 \begin{equation}
@@ -628,22 +640,37 @@ Einstin-Stokesの式\cite{実験テキスト}
     \hline
   \end{tabular}
 \end{table}
-プロセス内の熱交換流体の温度推移と交換熱量を表に示す．また，用いた外部熱媒の温度と熱量を表に示す．
+
+以下に，用いた外部熱媒の温度と熱量を表\ref{外部熱煤}に示す．
+\begin{table}
+  \centering
+  \caption{用いた外部熱煤}
+  \label{用いた外部熱煤}
+  \begin{tabular}{ccc}
+    \hline
+    熱煤 & 温度 [\si{\degreeCelsius}] & 交換熱量 [\si{\kilo \joule \per \hour}] \\
+    \hline
+    熱煤1 & 330.0 & 11735.8 \\
+    熱煤2 & 55.0 & 1085.7 \\
+    熱煤3 & 2.3 & 1761.1 \\
+    \hline
+  \end{tabular}
+\end{table}
 
 図\ref{TQ線図}に最終的な設計結果におけるTQ線図を示す．
 \begin{figure}[htbp]
   \centering
-  \includegraphics[scale=0.7]{TQdiagram.png}
+  \includegraphics[scale=0.7]{TQ.png}
   \caption{TQ線図}
   \label{TQ線図}
 \end{figure}
 
-熱交換により，外部熱媒を用いた場合と比較して，
-
+ヒートインテグレーションを行うことで，必要な外部熱煤の費用は3.6億\,円から1.2億\,円にまで削減することができた．
 
 \clearpage
 \chapter{経済評価}
 減価償却を8年とした場合の経済評価は表\ref{経済評価}のようになった．なお，各装置費の推算式は，Appendix Aに示した通りである．
+また，トルエンは500\,\$/\si{\tonne}，安息香酸は1013\,\$/\si{\tonne}とした．
 \begin{table}[htbp]
     \centering
     \caption{経済評価 [億円/年]}
@@ -675,11 +702,12 @@ Einstin-Stokesの式\cite{実験テキスト}
 
 \clearpage
 \chapter{結言}
-設計目標を純度99.0 wt\%の安息香酸を年2万ton製造するものとして，設計を行った．
+設計目標を純度99.0\,wt\%の安息香酸を年2万ton製造するものとして，設計を行った．
 文献値を参考として気液反応器，および晶析装置を設計した．
-リサイクルフローを考えて，原料の有効利用を行った．
-反応器体積，晶析器体積，晶析器内温度を用いたプロセス全体の3変数同時最適化を行った．
-これにより，年 億円の利益を得ると見込める設計となった．
+リサイクルフローを考えて，原料を有効に利用すル事ができた．
+プロセスを最適化するにあたり，反応器体積，晶析器体積，晶析器内温度の3変数を同時に最適化することができた．
+結果として，より精度のよい最適化を行うことが可能となった．
+これにより，年間5.39億円の利益を見込める設計を行うことができた．
 
 残った課題としては，蒸発トルエンのさらなる回収を行うため，燃焼炉ではなく吸着装置を用いることを検討することや，
 各装置についてさらに詳細に設計することが挙げられる．
@@ -754,7 +782,7 @@ Einstin-Stokesの式\cite{実験テキスト}
     $\rho_\mathrm{a}$:空気密度 \\
     $\rho_\mathrm{L}$:液相密度 \\
     $\rho_\mathrm{g}$:気相密度 \\
-    $\Delta\rho$:密度差 \\
+    $\varDelta\rho$:密度差 \\
     $Eo$:エトベス数 \\
     $Sc$:シュミット数 \\
     $Re$:レイノルズ数
@@ -792,7 +820,7 @@ Einstin-Stokesの式\cite{実験テキスト}
   \end{tabular}
 \end{table}
 触媒であるモリブデン酸マンガンは参考文献\cite{Li2019}によると，材料である酢酸マンガン21\,gとモリブデン酸アンモニウム5.04\,gを混ぜて作っている．
-各価格について酢酸マンガンは500\,g\,-\,3100\,円とし(\cite{酢酸マンガン},\,2019/7/17確認)，モリブデン酸マンガンは500\,g\,-\,11900\,円(\cite{モリブデン酸アンモニウム},\,2019/7/17確認)とした．
+各価格について酢酸マンガンは500\,g\,-\,3100\,円とし(\cite{酢酸マンガン}，\,2019/7/17確認)，モリブデン酸マンガンは500\,g\,-\,11900\,円(\cite{モリブデン酸アンモニウム}，\,2019/7/17確認)とした．
 燃料，プロピレン冷媒(内挿値)の価格は参考文献\cite{プロセスデザインコンテスト10}より得た．
 電力の価格は参考文献\cite{講義資料3}から得た．
 
@@ -871,5 +899,2703 @@ $F_\mathrm{p}$に関しては槽型の装置に対して推算式\eqref{槽型�
     \text{(コスト [億円])} = 0.015K \times A^{0.65}
 \end{equation}
 ただし，$K$は定数でありコンデンサーは1，リボイラーは2とした．
+
+\chapter{プログラム}
+\section{python}
+\begin{lstlisting}[caption=気液反応器の解析]
+#%%
+
+
+#気液反応器の解析をします．特に断りがなければSI単位です
+#FlowNO; 0=反応器への流入液,1=反応器からの流出液,2=反応器への流入空気,
+#          3=反応からデカンターへの蒸気
+#          4=反応器への還流油分,5=デカンターからの流出空気，
+#          6=デカンターに入れる冷却水,7=デカンターからの流出水
+#ComponentNO; 0=Tol,1=Bol,2=Bal,3=Bac,4=H2O,5=N2,6=O2
+
+import math as mt
+import numpy as np
+import matplotlib.pyplot as plt
+import openpyxl as px
+
+
+
+
+#------------------外部入力値----------------------------------------------------
+#結果出力用ファイル設定(ソースファイルディレクトリ)
+conclusionbookname = "conclusion.xlsx"
+
+#   0. 外部入力条件を受けとります
+#液相体積
+VL = 0.020
+#流入液体積[m3/s]
+v0 = 0.020/3600.
+#反応器体積
+DHrate = 1.0
+#全圧
+Prea = 7.0e+5
+#温度
+Trea = 150. + 273.15
+#流入液モル分率
+x0 = np.array([0.9, 0., 0., 0., 0.1, 0., 0.])
+#流入液全モル量[mol/s]
+F0all = 0.005
+
+
+#------------------------------------------------------------------------------
+#   1   入力
+#   1-1 計算に用いる物性パラメータを入力します
+#自然定数
+pi = mt.pi
+Rgas = 8.314
+gra = 9.81
+
+#アレニウス型反応速度式のパラメータ
+#頻度因子[s-1]
+A = np.array([mt.exp(20.634), mt.exp(17.928), mt.exp(15.4), mt.exp(19.698)])
+A = A / 3600.
+#活性化エネルギー
+E = np.array([81.389, 69.53, 56.987, 71.442])
+E = E * 1000.
+#反応速度定数[s-1]
+k = np.array([A[i] * mt.exp(-E[i] / (Rgas * Trea)) for i in range(4)])
+
+
+# 物性値(HYSIS 150℃)
+rhoL = 738.6
+muL = 0.1781 / 1000.
+rhoG = 5.74
+
+#物性値(推算)
+#気相から液相への拡散係数   wilke-changの式とアインシュタイン-ストークスの式によって計算
+DL = 0.0001 * 0.000000074 * ((1. * 92.141) ** 0.5 * 293.15)
+      / (0.579 * (29.9 ** 0.6))
+DL = (Trea / 293.15) * ((0.579 / 1000.) / muL) * DL
+
+
+#表面張力   温度依存性の表式でデータを換算
+sig = 0.0221 * ((591.7 - Trea) / (591.7 - 353.15)) ** 1.24
+
+
+#   1-2 反応器の装置条件を決めます
+#液相部高さ #反応器直径，断面積
+Drea = (VL / (pi * DHrate)) ** (1 / 3)
+hL = Drea * DHrate
+Area = pi * (Drea ** 2)
+#ノズル直径，断面積
+Dnoz = Drea / 1.5
+Anoz = pi * (Dnoz ** 2)
+
+
+#   1-3 反応器の運転条件を決めます
+#空間時間
+tau = VL / v0
+#体積当たり撹拌動力
+Pv = 2000.
+#反応器への空気体積流量
+QG = (50. / 1000. / 3600.) * (VL / 0.00025) ** 0.8
+#デカンター内温度
+Tdec = 50. + 273.15
+#気体の空塔速度
+uG = QG / Area
+#気体の投入線速度
+u = QG / Anoz
+#撹拌動力
+PG = Pv * VL
+#気体の流入運動エネルギー
+PK = 0.5 * QG * rhoG * u ** 2
+#気体の流入位置エネルギー
+Pg = QG * rhoL * gra * hL
+#総エネルギー
+PT = PG + PK + Pg
+
+
+#   1-3 マテリアルフローに必要な変数を入力します
+
+T2 = 20. + 273.15
+
+#各フローのモル分率
+#x0
+x1 = np.array(np.zeros(7))
+y2 = np.array([0, 0, 0, 0, 0, 0.79, 0.21])
+y3 = np.array(np.zeros(7))
+y4 = np.array([1., 0, 0, 0, 0, 0, 0])
+y5 = np.array([0., 0., 0., 0., 0., 0., 0.])
+y6 = np.array([0., 0., 0., 0., 1., 0., 0.])
+y7 = np.array([0, 0, 0, 0, 1., 0, 0])
+
+
+#各フローのモル流量
+F0 = np.array(x0 * F0all)
+F1 = np.array([0.] * 7)
+F2 = np.array([0., 0., 0., 0., 0., ((Prea * 0.79) / (Rgas * T2)), \
+    ((Prea * 0.21) / (Rgas * T2))])
+F2 = np.array(F2 * QG)
+F3 = np.array([0.] * 7)
+F4 = np.array([0.] * 7)
+F5 = np.array([0.] * 7)
+F6 = np.array([0.] * 7)
+F7 = np.array([0.] * 7)
+
+#各フローのモル濃度
+C0 = np.array(F0 / v0)
+C1 = np.array([0.] * 7)
+
+#------------------------------------------------------------------------------
+#   2   kLaの推算を行います
+
+
+#体積平均気泡径と終末速度に関して逐次代入計算を行います．
+#気泡径と終末速度の初期値です．
+dvs = 0.
+ut = 0.
+dvsnew = 0.003
+epsG = 0.
+Eo = 0.
+Re = 0.
+
+#Eoはエトベス数，Reは気泡レイノルズ数，CDは抗力係数
+while abs((dvs - dvsnew) / dvsnew) > 0.00001:
+    dvs = dvsnew
+    #定義
+    Eo = gra * (rhoL - rhoG) * dvs / sig
+
+    utnew = 0.15
+    while abs(((ut - utnew) / utnew)) > 0.00001:
+        ut = utnew
+        #定義
+        Re = dvs * ut * rhoL / muL
+        #抗力係数の相関
+        CD = max((24 / Re * (1 + 0.15 * Re ** 0.687)), (8 / 3 * Eo / (Eo + 4)))
+        #気泡の運動方程式
+        utnew = (4 / 3 / CD * (1 - rhoG / rhoL) * gra * dvs) ** 0.5
+
+
+    ut = utnew
+    #ガスホールドアップの相関式(二次方程式)
+    Const1 = -(uG / ut) ** 0.5
+    Const2 = -0.000216 * (Pv ** 0.4 * rhoL ** 0.2 / sig ** 0.6)
+              * ((uG / ut) ** 0.5) * (PT / PG)
+    epsG = (0.5 * (-Const1 + mt.sqrt(Const1 ** 2 - 4 * Const2))) ** 2
+    #気泡径の相関
+    dvsnew = 4.15 * (sig ** 0.6 / (Pv ** 0.4 * rhoL ** 0.2))
+              * (PG / PT) * epsG ** 0.5 + 0.0009
+dvs = dvsnew
+
+
+#反応器内物質高さ，体積(液相+気相)
+htot = hL / (1 - epsG)
+Vtot = htot * Area
+#体積当たり比表面積aの相関
+a = 1.44 * ((Pv ** 0.4 * rhoL ** 0.2) / sig ** 0.6)
+    * (PT / PG) * (uG / ut) ** 0.5
+
+#液相側物質移動係数kLの相関
+#気泡径0.6mm以下の時
+if dvs <= 0.0006:
+    kL = 0.31 * ((muL / (rhoL * DL)) ** (-2 / 3)) * ((gra * (rhoL - rhoG)
+        * muL / (rhoL ** 2)) ** (1 / 3))
+
+#気泡系0.6mm以上2.5mm以下の時
+elif 0.0006 < dvs <= 0.0025:
+    x = (dvs - 0.0006) / (0.0025 - 0.0006)
+    kL = (1 - x) * 0.31 * ((muL / (rhoL * DL)) ** (-2 / 3))
+        * ((gra * (rhoL - rhoG) * muL / (rhoL ** 2)) ** (1 / 3)) + x
+        * (0.42 * ((muL / (rhoL * DL)) ** (-0.5)) * ((gra * (rhoL - rhoG)
+        * muL / (rhoL ** 2)) ** (1 / 3)))
+
+#気泡径2.5mm以上の時
+else:
+    kL = 0.42 * ((muL / (rhoL * DL)) ** (-0.5)) *
+        ((gra * (rhoL - rhoG) * muL / (rhoL ** 2)) ** (1 / 3))
+
+#液相物質移動容量係数kLa
+kLa = kL * a
+
+#------------------------------------------------------------------------------
+#   3   液相の油分について，蒸発の影響を無視小，CSTRモデルと仮定して反応器内濃度を求めます
+
+#tol
+C1[0] = C0[0] / (1 + (k[0] + k[1]) * tau)
+#Bol
+C1[1] = (C0[1] + k[0] * tau * C1[0]) / (1 + k[2] * tau)
+#Bal
+C1[2] = (C0[2] + (k[1] * C1[0] + k[2] * C1[1]) * tau) / (1 + k[3] * tau)
+#Bac
+C1[3] = C0[3] + k[3] * tau * C1[2]
+
+#各反応の反応量
+Rr = np.array([k[0] * C1[0], k[1] * C1[0], k[2] * C1[1], k[3] * C1[2]])
+Rr = Rr * VL
+#各成分の反応量
+RR = np.array([-(Rr[0] + Rr[1]), Rr[0] - Rr[2], Rr[1] + Rr[2] - Rr[3], \
+      Rr[3], Rr[1] + Rr[2], 0., \
+      -(0.5 * Rr[0] + Rr[1] + 0.5 * Rr[2] + 0.5 * Rr[3])])
+print(C0)
+print(C1)
+print(RR)
+
+
+#%%
+#------------------------------------------------------------------------------
+#   4   気相について，RK4法を用いて蒸発量を推算します
+#   4-first 計算に用いる関数を定義
+
+def Gaseq(Fgas):
+# 気相側の物質収支式
+
+    def Csatcalc(yg):
+        # 平衡濃度Csatを求める関数
+        Cs = np.array([0.] * 7)
+        xe = np.array([0.] * 7)
+
+        #tol,H2O=ラウール則,N2,O2=ヘンリー則で計算，残りは蒸発しないとする
+        xe[0] = Prea * yg[0] / 10 ** (Aant[0] - Bant[0] / (Trea + Cant[0]))
+        xe[1] = x1[1]
+        xe[2] = x1[2]
+        xe[3] = x1[3]
+        xe[4] = Prea * yg[4] / mt.exp(Aant[4] - Bant[4] / (Trea + Cant[4]))
+        xe[5] = Prea * yg[5] / HenryN2
+        xe[6] = Prea * yg[6] / HenryO2
+
+        Cs = sum(C1) * xe
+        return (Cs)
+
+    # 定義
+    Csat = np.array([0.] * 7)
+    dFgdz = np.array([0.] * 7)
+    ygas = np.array([0.] * 7)
+
+    #気相モル分率yを求め，平衡濃度Csatを算出
+    ygas = Molefraction(Fgas)
+    Csat = Csatcalc(ygas)
+
+    #収支式の計算
+    const = kLa * pi * Drea ** 2
+    dFgdz = np.array(-const * (Csat - C1))
+
+    return (dFgdz)
+
+
+def Molefraction(Flow):
+    fraction = np.array(Flow / sum(Flow))
+    return (fraction)
+
+
+#   4-1 計算に用いる気液平衡データを入力
+
+#アントワン定数 10** or exp(A-B/(T+C))
+#tol=10** #H2O=exp
+Aant = np.array([4.54436 + 5.0, 0., 0., 0., 23.1964, 0., 0.])
+Bant = np.array([1738.123, 0., 0., 0., 3816.44, 0., 0.])
+Cant = np.array([0.394, 0., 0., 0., -46.13, 0., 0.])
+
+#ヘンリー定数 pall*y=Henry*x
+HenryN2 = 187000000.
+HenryO2 = 114000000.
+
+
+#   4-2 rk4法を用いて気相の物質収支式を解き，全体の物質収支と照らし合わせて収束させる
+
+#窒素濃度の初期値．これは蒸発も溶解もしないように収束させる
+C1[5] = 0.5
+#水と酸素の初期値．これらは反応生成量，消費量が蒸発(溶解)量と等しくなるように収束させる
+C1[4] = 10.
+C1[6] = 0.5
+
+#誤差評価関数初期値
+eps = 1000.
+
+#ステップ数
+step = 50
+#刻み幅
+h = htot / step
+
+j = 0
+while eps >= 0.001 and j <= 100:
+    j = j + 1
+    x1 = Molefraction(C1)
+    #計算用
+    Fg = F2.copy()
+
+    for i in range(0, step - 1):
+
+        kk1 = np.array(h * Gaseq(Fg))
+        kk2 = np.array(h * Gaseq(Fg + kk1 / 2.))
+        kk3 = np.array(h * Gaseq(Fg + kk2 / 2.))
+        kk4 = np.array(h * Gaseq(Fg + kk3))
+
+        Fg += (kk1 + 2. * (kk2 + kk3) + kk4) / 6.
+    next
+
+    #結果
+    F3 = Fg.copy()
+
+    #誤差を求める
+    epslist = np.array([((F3[4] - RR[4]) / RR[4]) ** 2, \
+            ((F2[5] - F3[5]) / F2[5]) ** 2, \
+            (((F3[6] - F2[6]) - RR[6]) / RR[6]) ** 2])
+    eps = sum(epslist)
+
+    print(eps)
+
+    #値の改善
+
+    C1[4] += - (F3[4] - RR[4])
+    C1[5] += (F2[5] - F3[5])
+    C1[6] += - ((F3[6] - F2[6]) - RR[6])
+
+
+#   4-3 収束時の分布を取得
+
+#------------------------------------------------------------------------------
+#   5   デカンター周りの各流量を求め，液相の反応に対して蒸発の影響が無視できるか確認する
+#   5-1 各流量を算出する．
+#F5について，デカンターでTdecまで蒸気F3が冷やされ，水とトルエンが飽和状態まで凝縮する．
+y3 = Molefraction(F3)
+F5 = F3.copy()
+y5sat = np.array([10 ** (Aant[0] - Bant[0] / (Tdec + Cant[0])) / Prea, 0, \
+        0, 0, mt.exp(Aant[4] - Bant[4] / (Tdec + Cant[4])) / Prea, 0, 0])
+F5[0] = y5sat[0] / (1 - y5sat[0] - y5sat[4]) * (F5[5] + F5[6])
+F5[4] = y5sat[4] / (1 - y5sat[0] - y5sat[4]) * (F5[5] + F5[6])
+y5 = Molefraction(F5)
+
+
+#溶解度が低いため，デカンターにおける分離効率は近似的に100%とする
+F4[0] = F3[0] - F5[0]
+
+#冷却のため投入する水量F6を計算する
+
+
+#F7を計算
+F7[4] = F6[4] + F3[4] - F5[4]
+
+
+#   6   結果を出力する
+
+wb = px.load_workbook(conclusionbookname)
+ws = wb.active
+
+for i in range(7):
+    ws.cell(row=i + 2, column=2).value = F2[i]
+    ws.cell(row=i + 2, column=3).value = F3[i]
+    ws.cell(row=i + 2, column=4).value = F4[i]
+    ws.cell(row=i + 2, column=5).value = F5[i]
+
+    ws.cell(row=i + 10, column=1).value = x1[i]
+    ws.cell(row=i + 10, column=2).value = y2[i]
+    ws.cell(row=i + 10, column=3).value = y3[i]
+    ws.cell(row=i + 10, column=4).value = y4[i]
+    ws.cell(row=i + 10, column=5).value = y5[i]
+
+wb.save(filename=conclusionbookname)
+\end{lstlisting}
+
+迅速に気相が平衡に達すると仮定した場合の上記プログラムは以下のようになり，実際の解析では
+こちらを用いた．
+\begin{lstlisting}[caption=気液反応器の解析(迅速に平衡)]
+  # 気液反応器の解析をします．特に断りがなければSI単位です
+
+  # FlowNO     :  0=反応器への流入液, 1=反応器からの流出液,   2=反応器への流入空気,
+  #               3=反応からデカンターへの蒸気
+  #               4=反応器への還流油分,   5=デカンターからの流出空気，
+  #               6=デカンターに入れる冷却水, 7=デカンターからの流出水
+  # ComponentNO:  0=Tol,  1=Bol,  2=Bal,  3=Bac,  4=H2O,  5=N2,   6=O2
+  # ver_slim   :  迅速な平衡の仮定から各流量を求めるslimなprogramです
+  import math
+  import numpy as np
+  import xlwings as xw
+
+  def main():
+
+      # #-----------------Excel シートからdataを取得------------------------------
+      wb = xw.Book.caller()
+      F0_input = wb.sheets[0].range((43, 4), (43, 10)).value
+                                                          # 反応器入口成分別モル流量
+      P_input = wb.sheets[0].range('D3').value            # 反応器圧力
+      VL_input = wb.sheets[0].range('D4').value           # 反応器体積
+      T_input = wb.sheets[0].range('D5').value            # 反応器温度
+      T_decanter = wb.sheets[0].range('D7').value         # デカンタ温度
+      v0_input = wb.sheets[0].range('N43').value          # 反応器入口体積流量
+      topRow = 46
+      # -----------------------------------------------------------------------
+
+      # 流れのクラスと流れに関係するメソッド
+      class Flow:
+
+          # 中身
+          def __init__(self):
+              # モル流量，モル分率，濃度，平衡での気液モル分率，温度を持っています
+              self.MolerFlow = np.array([0.]*7)
+              self.Fraction = np.array([0.]*7)
+              self.Concentration = np.array([0.]*7)
+              self.EquilibriumGasFraction = np.array([0.]*7)
+              self.EquilibriumLiquidFraction = np.array([0.]*7)
+              self.MolerEnthalpy = np.array([0.]*7)
+              self.Enthalpy = np.array([0.]*7)
+              self.EnthalpyTotal = 0.0
+              self.Temp = 0.0
+
+          # アントワン定数 10** or exp(A-B/(T+C))
+          # tol=10**  H2O=exp
+          antoineA = np.array([4.54436 + 5.0, 0., 0., 0., 23.1964, 0., 0.])
+          antoineB = np.array([1738.123, 0., 0., 0., 3816.44, 0., 0.])
+          antoineC = np.array([0.394, 0., 0., 0., -46.13, 0., 0.])
+
+          # ヘンリー定数 pall*y=Henry*x
+          HenryN2 = 187000000.
+          HenryO2 = 114000000.
+
+          # 標準モル生成エンタルピー
+          LiquidDeltafEnthalpy = np.array([12.4  ,-94.1  ,-87.0  ,-385.2 \
+                                      ,-285.83   ,0.         ,0.  ])
+          GasDeltafEnthalpy    = np.array([50.4  ,154.9  ,-36.8  ,-290.4 \
+                                      ,-241.818  ,0.         ,0.  ])
+
+          # 熱容量係数
+          GasheatcapacityA = np.array([-24.356   , 0.    , 0.    ,-51.295 \
+                                      ,32.244    ,28.107     ,24.234   ])
+          GasheatcapacityB = np.array([0.513     , 0.    , 0.    , 0.629  \
+                                      ,1.92e-3   ,-3.68e-6   ,4.84e-3  ])
+          GasheatcapacityC = np.array([-2.77e-5  , 0.    , 0.    , -4.24e-5 \
+                                      ,1.06e-5   ,1.75e-5    ,-2.08e-5 ])
+          GasheatcapacityD = np.array([4.91e-8   , 0.    , 0.    , 1.06e-7 \
+                                      ,-3.60e-9  ,-1.07e-8   ,2.93e-10])
+          # 熱容量係数
+          LiqheatcapacityA = np.array([157.09    , 0.    , 0.    ,0. \
+                                      ,75.375    , 0.    , 0.       ])
+          LiqheatcapacityB = np.array([0.        , 0.    , 0.    ,0. \
+                                      ,0.        , 0.    , 0.       ])
+          LiqheatcapacityC = np.array([0.        , 0.    , 0.    ,0. \
+                                      ,0.        , 0.    , 0.       ])
+          LiqheatcapacityD = np.array([0.        , 0.    , 0.    ,0. \
+                                      ,0.        , 0.    , 0.       ])
+
+
+          # モル流量からモル分率を求めるメソッド
+          def FractionCalc(self):
+              FlowSum = np.sum(self.MolerFlow)
+              self.Fraction = self.MolerFlow/FlowSum
+
+          # 濃度からモル分率を求めるメソッド
+
+          def FractionCalcFromConcentration(self):
+              FlowSum = np.sum(self.Concentration)
+              self.Fraction = self.Concentration/FlowSum
+
+          # decanterでTolと水の平衡状態の気体モル分率を求めるメソッド
+
+          def DecanterEquilibriumGasFractionCalc(self):
+              self.EquilibriumGasFraction[0] = (
+                  10 ** (self.antoineA[0] - self.antoineB[0] /
+                  (Tdec + self.antoineC[0])))/Prea
+              self.EquilibriumGasFraction[4] = (
+                  math.exp(self.antoineA[4] - self.antoineB[4] /
+                  (Tdec + self.antoineC[4])))/Prea
+
+          # CSTR(液相)の設計方程式から油分の液相濃度を求めさせるメソッド
+          def CSTRLiquidCalc(self):
+              # tol
+              Flow1.Concentration[0] = Flow0.Concentration[0] /
+                                        (1 + (k[0] + k[1]) * tau)
+              # Balc
+              Flow1.Concentration[1] = (Flow0.Concentration[1] + \
+                        k[0] * tau * Flow1.Concentration[0]) / (1 + k[2] * tau)
+              # Bald
+              Flow1.Concentration[2] = (Flow0.Concentration[2] + \
+                    (k[1] * Flow1.Concentration[0] + \
+                     k[2] * Flow1.Concentration[1]) * tau) / (1 + k[3] * tau)
+              # BzA
+              Flow1.Concentration[3] = Flow0.Concentration[3] + \
+                                      k[3] * tau * Flow1.Concentration[2]
+
+          # reactorで平衡状態の液モル分率を求めるメソッド
+          def EquilibriumLiquidFractionCalc(self):
+              self.EquilibriumLiquidFraction[0] = Prea * self.Fraction[0] /
+                                  10 ** (self.antoineA[0] - self.antoineB[0] /
+                                  (Trea + self.antoineC[0]))
+              self.EquilibriumLiquidFraction[1] = Flow1.Fraction[1]
+              self.EquilibriumLiquidFraction[2] = Flow1.Fraction[2]
+              self.EquilibriumLiquidFraction[3] = Flow1.Fraction[3]
+              self.EquilibriumLiquidFraction[4] = Prea * self.Fraction[4] /
+                                  math.exp(self.antoineA[4] - self.antoineB[4] /
+                                 (Trea + self.antoineC[4]))
+              self.EquilibriumLiquidFraction[5] = Prea * self.Fraction[5] /
+                                                  self.HenryN2
+              self.EquilibriumLiquidFraction[6] = Prea * self.Fraction[6] /
+                                                  self.HenryO2
+
+          # 気流が迅速に平衡に達すると仮定してほかの流量や濃度を求めるメソッド
+          def EquilibriumAssumptionCalc(self):
+
+              Flow1.FractionCalcFromConcentration()
+
+              # F2からF3の決定
+              Flow3.MolerFlow[4] = RR[4]
+              Flow3.MolerFlow[5] = Flow2.MolerFlow[5]
+              Flow3.MolerFlow[6] = Flow2.MolerFlow[6] + RR[6]
+
+              Flow3.Fraction[0] = Flow1.Fraction[0] /
+                                  Prea * 10. ** \
+                                  (self.antoineA[0] - self.antoineB[0] / \
+                                  (Trea + self.antoineC[0]))
+              sumF3 = np.sum(Flow3.MolerFlow)
+              Flow3.MolerFlow[0] = Flow3.Fraction[0] /
+                                  (1-Flow3.Fraction[0])*(sumF3)
+              Flow3.FractionCalc()
+
+              #迅速に平衡に達すると仮定してF1のH2O,N2,O2濃度を決定
+              Flow3.EquilibriumLiquidFractionCalc()
+              C1sum=np.sum(Flow1.Concentration)
+              Flow1.Fraction[4] = Flow3.EquilibriumLiquidFraction[4]
+              Flow1.Fraction[5] = Flow3.EquilibriumLiquidFraction[5]
+              Flow1.Fraction[6] = Flow3.EquilibriumLiquidFraction[6]
+              Flow1.Concentration[4] = Flow1.Fraction[4] /
+                                      (1-Flow1.Fraction[4]) * C1sum
+              Flow1.Concentration[5] = Flow1.Fraction[5] /
+                                      (1-Flow1.Fraction[5]) * C1sum
+              Flow1.Concentration[6] = Flow1.Fraction[6] /
+                                      (1-Flow1.Fraction[6]) * C1sum
+              Flow1.FractionCalcFromConcentration()
+              Flow1.MolerFlow = Flow1.Concentration * v0
+
+              # F5について，デカンターでTdecまで蒸気F3が冷やされ，
+              # 水とトルエンが飽和状態まで凝縮するとして決定
+              Flow5.MolerFlow = np.copy(Flow3.MolerFlow)
+              Flow5.DecanterEquilibriumGasFractionCalc()
+              Flow5.MolerFlow[0] = Flow5.EquilibriumGasFraction[0] /
+                                (1 - Flow5.EquilibriumGasFraction[0] - \
+                                Flow5.EquilibriumGasFraction[4]) * \
+                                (Flow5.MolerFlow[5] + Flow5.MolerFlow[6])
+              Flow5.MolerFlow[4] = Flow5.EquilibriumGasFraction[4] /
+                                (1 - Flow5.EquilibriumGasFraction[0] - \
+                                Flow5.EquilibriumGasFraction[4]) * \
+                                (Flow5.MolerFlow[5] + Flow5.MolerFlow[6])
+              Flow5.FractionCalc()
+
+              # 溶解度が低いため，デカンターにおける分離効率は近似的に100%としてF4を決定
+              Flow4.MolerFlow[0] = Flow3.MolerFlow[0] - Flow5.MolerFlow[0]
+              #F1に蒸発の寄与を取り込む
+              Flow1.MolerFlow[0] +=  -Flow5.MolerFlow[0]
+
+              # 冷却のため投入する水量F6を決定
+              #モルエンタルピーの計算
+              Flow1.LiquidEnthalpyCalc()
+              Flow2.GasEnthalpyCalc()
+              Flow3.GasEnthalpyCalc()
+              Flow4.LiquidEnthalpyCalc()
+              Flow5.GasEnthalpyCalc()
+              Flow6.LiquidEnthalpyCalc()
+              Flow7.LiquidEnthalpyCalc()
+
+              #連立方程式を解きF6とF7を求める
+              A1list=[1,-1]
+              A2list=[Flow6.MolerEnthalpy[4] , -Flow7.MolerEnthalpy[4]]
+              A_matrix = np.array([A1list, A2list])
+              b = np.array([Flow4.MolerFlow[4] + Flow5.MolerFlow[4] - \
+                  Flow3.MolerFlow[4] ,Flow4.EnthalpyTotal + \
+                  Flow5.EnthalpyTotal - Flow3.EnthalpyTotal ])
+              x_vec = np.linalg.solve(A_matrix, b)
+              Flow6.MolerFlow[4] = x_vec[0]
+              Flow7.MolerFlow[4] = x_vec[1]
+
+
+          # 気体のモルエンタルピーを求めるメソッド[J/mol]
+          def GasEnthalpyCalc(self):
+              self.MolerEnthalpy = self.GasDeltafEnthalpy*1000+
+              self.GasheatcapacityA*(self.Temp    -298.15    ) +       \
+              self.GasheatcapacityB*(self.Temp**2.-298.15**2.)/2. +   \
+              self.GasheatcapacityC*(self.Temp**3.-298.15**3.)/3. +  \
+              self.GasheatcapacityD*(self.Temp**4.-298.15**4.)/4.
+              self.Enthalpy = self.MolerFlow * self.MolerEnthalpy
+              self.EnthalpyTotal=np.sum(self.Enthalpy)
+
+          # 液体のモル当たりエンタルピーを求めるメソッド[J/mol]
+          def LiquidEnthalpyCalc(self):
+              self.MolerEnthalpy = self.LiquidDeltafEnthalpy*1000 + \
+                                   self.LiqheatcapacityA*(self.Temp-298.15)
+              self.Enthalpy = self.MolerFlow * self.MolerEnthalpy
+              self.EnthalpyTotal=np.sum(self.Enthalpy)
+
+      # インスタンスの定義
+      Flow0 = Flow()
+      Flow1 = Flow()
+      Flow2 = Flow()
+      Flow3 = Flow()
+      Flow4 = Flow()
+      Flow5 = Flow()
+      Flow6 = Flow()
+      Flow7 = Flow()
+
+      # ------------------外部入力値---------------------------------------------
+
+      #   0. 外部入力条件を受けとります
+      # 液相体積
+      VL = VL_input
+      # 流入液体積[m3/s]
+      v0 = v0_input  # [m3/hour]
+      v0 = v0 / 3600.
+      # 反応器体積
+      DHrate = 1.0
+      # 全圧[Pa]
+      Prea = P_input * 1.e+5
+      # 温度[℃]
+      Trea = T_input + 273.15
+      # 流入液モル流量[mol/s]
+      Flow0.MolerFlow = np.array(F0_input)  # kmol/hour
+      Flow0.MolerFlow = Flow0.MolerFlow / 3.6  # mol/s
+      # -----------------------------------------------------------------------
+
+      #   1   入力  ------------------------------------------------------------
+      #   1-1 計算に用いる物性パラメータを入力します
+      # 自然定数
+      pi = math.pi
+      Rgas = 8.314
+      gra = 9.81
+
+      # アレニウス型反応速度式のパラメータ
+      # 頻度因子[s-1]
+      A = np.array([math.exp(20.634), math.exp(17.928),
+                      math.exp(15.4), math.exp(19.698)])
+      A = A / 3600.
+      # 活性化エネルギー
+      E = np.array([81.389, 69.53, 56.987, 71.442])
+      E = E * 1000.
+      # 反応速度定数[s-1]
+      k = np.array([A[i] * math.exp(-E[i] / (Rgas * Trea)) for i in range(4)])
+
+      #   1-2 反応器の装置条件を決めます
+      Drea = (VL / (pi * DHrate)) ** (1 / 3)
+      hL = Drea * DHrate
+      Area = pi * (Drea ** 2)/4.
+      Dnoz = Drea / 10
+      Anoz = pi * (Dnoz ** 2)/4.
+
+      #   1-3 反応器の運転条件を決めます
+      tau = VL / v0
+      QG = (50. / 1000. / 3600.) * (VL / 0.00025)*0.6
+      Tdec = T_decanter + 273.15
+
+
+      #global宣言
+      kLa = 0.0
+      htot = 0.0
+      Rr = np.array([0.]*4)
+      RR = np.array([0.]*7)
+
+
+      #   1-4 マテリアルフローに必要な変数を入力します
+
+      Twater = 25.0
+
+      Flow2.Temp = 10. + 273.15
+      Flow3.Temp = Trea
+      Flow4.Temp = Tdec
+      Flow5.Temp = Tdec
+      Flow6.Temp = Twater + 273.15
+      Flow7.Temp = Tdec
+
+      # 各フローのモル分率
+      Flow0.FractionCalc()
+      Flow2.Fraction = np.array([0, 0, 0, 0, 0, 0.79, 0.21])
+      Flow4.Fraction = np.array([1., 0, 0, 0, 0, 0, 0])
+      Flow6.Fraction = np.array([0., 0., 0., 0., 1., 0., 0.])
+      Flow7.Fraction = np.array([0, 0, 0, 0, 1., 0, 0])
+
+      # 各フローのモル流量
+      Flow2.MolerFlow = np.array([0., 0., 0., 0., 0., ((Prea * 0.79) / \
+            (Rgas * Flow2.Temp)), ((Prea * 0.21) / (Rgas * Flow2.Temp))])
+      Flow2.MolerFlow = Flow2.MolerFlow * QG
+
+      # 各フローのモル濃度
+      Flow0.Concentration = Flow0.MolerFlow / v0
+
+      #   2   液相の油分について，蒸発の影響を無視小，
+      #    CSTRモデルと仮定して反応器内濃度を求めます ------------------------
+
+      Flow1.CSTRLiquidCalc()
+
+      # 各反応の反応量
+      Rr = np.array([k[0] * Flow1.Concentration[0], \
+                      k[1] * Flow1.Concentration[0], \
+                      k[2] * Flow1.Concentration[1], \
+                      k[3] * Flow1.Concentration[2]])
+      Rr = np.array(Rr * VL)
+      # 各成分の反応量
+      RR = np.array([-(Rr[0] + Rr[1]), \
+                  Rr[0] - Rr[2], \
+                  Rr[1] + Rr[2] - Rr[3], \
+                  Rr[3],Rr[1] + Rr[2], \
+                  0.,\
+                  -(0.5 * Rr[0] + Rr[1] + 0.5 * Rr[2] + 0.5 * Rr[3])])
+
+
+      #   3   気相について，平衡に達すると仮定してF3や他の流量をを推算します  -----------
+      Flow3.EquilibriumAssumptionCalc()
+
+
+      #--------------------------------出力-------------------------------------
+
+      H7_6_cooling = Flow6.MolerFlow[4] *
+                    (Flow7.MolerEnthalpy[4] - Flow6.MolerEnthalpy[4])
+                    /1000. /1000. *3600
+      H6_1000kmol_cooling = 1000.* 1000. / 3600.*
+                    (Flow7.MolerEnthalpy[4] - Flow6.MolerEnthalpy[4])
+                    /1000. /1000. *3600
+
+      if H7_6_cooling > H6_1000kmol_cooling:
+          Flow6.MolerFlow[4] = 1000. * 1000. / 3600.
+          Flow7.MolerFlow[4] = Flow6.MolerFlow[4] -
+                               Flow5.MolerFlow[4] +
+                               Flow3.MolerFlow[4]
+
+      Flow6.LiquidEnthalpyCalc()
+      Flow7.LiquidEnthalpyCalc()
+
+      Flow6.Temp += -273.15
+      Flow7.Temp += -273.15
+      F1_output = Flow1.MolerFlow * 3.6                   # 反応器出口成分別モル流量
+      F2_output = Flow2.MolerFlow * 3.6                   # 反応器出口成分別モル流量
+      F3_output = Flow3.MolerFlow * 3.6                   # 反応器出口成分別モル流量
+      F4_output = Flow4.MolerFlow * 3.6                   # 反応器出口成分別モル流量
+      F5_output = Flow5.MolerFlow * 3.6                   # 反応器出口成分別モル流量
+      F6_output = Flow6.MolerFlow * 3.6                   # 反応器出口成分別モル流量
+      F7_output = Flow7.MolerFlow * 3.6                   # 反応器出口成分別モル流量
+      Flow1.EnthalpyTotal = Flow1.EnthalpyTotal * 1.e-9
+      Flow2.EnthalpyTotal = Flow2.EnthalpyTotal * 1.e-9
+      Flow3.EnthalpyTotal = Flow3.EnthalpyTotal * 1.e-9
+      Flow4.EnthalpyTotal = Flow4.EnthalpyTotal * 1.e-9
+      Flow5.EnthalpyTotal = Flow5.EnthalpyTotal * 1.e-9
+      Flow6.EnthalpyTotal = Flow6.EnthalpyTotal * 1.e-9
+      Flow7.EnthalpyTotal = Flow7.EnthalpyTotal * 1.e-9
+
+      wb.sheets[0].range((44, 4), (44, 10)).value = F1_output        # 流出液流量
+      wb.sheets[0].range(44, 12).value = Flow1.EnthalpyTotal         # 流出液流量
+
+      wb.sheets[0].range((topRow + 0, 4), (topRow + 0, 10)).value = F2_output
+                                                    # 流入空気流量
+      wb.sheets[0].range((topRow + 1, 4), (topRow + 1, 10)).value = F3_output
+                                                    # 反応器からデカンターへの蒸気
+      wb.sheets[0].range((topRow + 2, 4), (topRow + 2, 10)).value = F4_output
+                                                    # 反応器へ還流される油分
+      wb.sheets[0].range((topRow + 3, 4), (topRow + 3, 10)).value = F5_output
+                                                    # 吸着装置へ運ばれるTol飽和蒸気
+      wb.sheets[0].range((topRow + 4, 4), (topRow + 4, 10)).value = F6_output
+                                                    # 冷却のため投入する水量
+      wb.sheets[0].range((topRow + 5, 4), (topRow + 5, 10)).value = F7_output
+                                                    # デカンターからパージする水量
+      wb.sheets[0].range((topRow + 6, 4), (topRow + 6, 10)).value
+                                                    = Flow1.Concentration
+                                                    # 流出液流量
+
+      wb.sheets[0].range(topRow + 0, 15).value = Flow2.EnthalpyTotal
+                                                    # 流入空気流量
+      wb.sheets[0].range(topRow + 1, 15).value = Flow3.EnthalpyTotal
+                                                    # 反応器からデカンターへの蒸気
+      wb.sheets[0].range(topRow + 2, 15).value = Flow4.EnthalpyTotal
+                                                    # 反応器へ還流される油分
+      wb.sheets[0].range(topRow + 3, 15).value = Flow5.EnthalpyTotal
+                                                    # 吸着装置へ運ばれるTol飽和蒸気
+      wb.sheets[0].range(topRow + 4, 15).value = Flow6.EnthalpyTotal
+                                                    # 冷却のため投入する水量
+      wb.sheets[0].range(topRow + 5, 15).value = Flow7.EnthalpyTotal
+                                                    # デカンターからパージする水量
+
+      wb.sheets[0].range(74,6).value = H7_6_cooling
+      wb.sheets[0].range(74,7).value = Flow6.Temp
+      wb.sheets[0].range(74,8).value = Flow7.Temp +0.001
+
+      wb.sheets[0].range(75,6).value = H6_1000kmol_cooling
+      wb.sheets[0].range(75,7).value = Twater
+      wb.sheets[0].range(75,8).value = T_decanter
+
+      wb.sheets[0].range(76,6).value = H6_1000kmol_cooling
+      wb.sheets[0].range(76,7).value = T_decanter
+      wb.sheets[0].range(76,8).value = Twater
+\end{lstlisting}
+
+\begin{lstlisting}[caption=グランドコンポジットカーブおよびTQ線図を書くコード]
+#   ===========================================================================
+#   プログラム: 熱交換の解析
+#
+#   ver010
+#   : グランドコンポジットカーブを描画します．
+#   ver020
+#   : 追加 TQ線図を描画します
+#   ver030
+#   : 追加 各流体の熱交換対応を解析します
+#   ver040
+#   : 追加 任意の等温外部熱媒の熱量計算を実装
+#
+#   使い方:
+#       xlwings をimport したエクセルファイルに，
+#           相状態 [気体，液体，凝縮ガス，蒸気液] = ["gas","liq","congas","vapliq"]
+#           を書き込む
+#           (一部データを入れていない総括伝熱係数の組み合わせがある)
+#           等温流体には"give","receive"を明示する．
+#           (エラーを吐くときは人為的に微小な温度勾配をつける)
+#           外部熱媒には"exgive","exreceive"と書く
+#           横の列に交換熱量，熱交換前温度，熱交換後の温度の順に書き込む．
+#           熱交換流体の総数を書き込む．(外部熱媒を含む)
+#           最小接近温度差を決める．
+#       vbaからRunpythonコマンドで実行 ．
+#
+#   ===========================================================================
+
+def main():
+
+#ライブラリ
+from scipy import interpolate
+from math import log
+import numpy as np
+import xlwings as xw
+import copy
+import sys
+from matplotlib import pyplot as plt
+from matplotlib.font_manager import FontProperties
+from matplotlib import rcParams
+
+
+wb = xw.Book.caller()
+
+#==================================外部入力値====================================
+readsheet               = 0                   #読み込みたいシートNO(0始まり)
+writesheet              = 1                   #書きこみたいシートNO(0始まり)
+row_readstart           = 64                  #読み込みたい表の左上の行
+column_readstart        = 3                   #読み込みたい表の左上の列
+row_writestart          = 2                   #書き込みたい表の左上の行
+column_writestart       = 2                   #書き込みたい表の左上の列
+#==============================================================================
+
+sn_input = wb.sheets[readsheet].range((row_readstart-1, column_readstart-1 ))
+              .value
+mdt_input = wb.sheets[readsheet].range((row_readstart, column_readstart-1 ))
+              .value
+
+streamnumber            = int(sn_input)                   #熱交換流体の総数
+minimumdeltaTemperture  = float(mdt_input)                #最小接近温度差
+
+sig                     = 1                               #切り捨てる少数点以下桁数
+
+#識別用
+#授受関係
+give            = "give"        #与熱流体
+receive         = "receive"     #受熱流体
+externalgive    = "exgive"      #外部熱媒
+externalreceive = "exreceive"   #外部冷媒
+gives           = [give   ,externalgive   ]
+receives        = [receive,externalreceive]
+
+#相状態関係
+gas           = "gas"
+liquid        = "liq"
+condensategas = "congas"
+vaporliquid   = "vapliq"
+phaselist     = [gas, liquid, condensategas, vaporliquid]
+
+twophaselist = []
+for i in range (len(phaselist)):
+    for j in range (len(phaselist)):
+        if i <= j:
+            twophaselist.append([phaselist[i], phaselist[j]])
+    next
+next
+
+#overall_heattransfer_coefficient = 総括伝熱係数U[W/m2 K]
+#       [gasgas],[gas liq],[gas congas],[gas vapgas],[liqliq],
+#      [liq congas],[liq vapliq],[congascongas],[congas vapliq][vapliqvapliq]
+Ulist = [150., 200., 500., 500., 300., 1000., 1000., "none", 1500.,"none" ]
+
+#float判定用
+eps = 10.**( - float(sig))
+
+#熱媒検索用
+streamindex_give               =[]
+streamindex_receive            =[]
+streamindex_externalgive       =[]
+streamindex_externalreceive    =[]
+streamindex_externalheat       =[]
+
+class Heatstream():
+
+    def __init__(self, number):
+        self.name                 =""         #ストリーム名
+        self.property             =""
+                                    #(give or receive) or (exgive or exreceive)
+        self.phase                =""         #状態
+        self.number               = number    #ストリーム番号
+        self.deltaheat            = 0.0       #交換熱量
+        self.deltaheat_section    = 0.0       #区間交換熱量
+        self.heatcapacity         = 0.0       #熱容量
+        self.temperatureMAX       = 0.0       #高温
+        self.temperatureMIN       = 0.0       #低温
+        self.temperatureindexMAX  = 0         #高温検索用
+        self.temperatureindexMIN  = 0         #低温検索用
+        self.rebcon               =""         #reboier判別用
+
+        self.leftend_externalheat_GCC =0.0    #外部熱媒用
+
+    def read(self):
+        # excel 連携用
+        self.name            = wb.sheets[readsheet]
+          .range((row_readstart + self.number + 1 ,column_readstart + 0 )).value
+        self.phase           = wb.sheets[readsheet]
+          .range((row_readstart + self.number + 1 ,column_readstart + 1 )).value
+        self.property        = wb.sheets[readsheet]
+          .range((row_readstart + self.number + 1 ,column_readstart + 2 )).value
+        self.deltaheat       = wb.sheets[readsheet]
+          .range((row_readstart + self.number + 1 ,column_readstart + 3 )).value
+        self.temperatureMAX  = wb.sheets[readsheet]
+          .range((row_readstart + self.number + 1 ,column_readstart + 4 )).value
+        self.temperatureMIN  = wb.sheets[readsheet]
+          .range((row_readstart + self.number + 1 ,column_readstart + 5 )).value
+        self.rebcon          = wb.sheets[readsheet]
+          .range((row_readstart + self.number + 1 ,column_readstart + 6 )).value
+
+
+        #ねんのため
+        self.name            = str(self.name)
+        self.phase           = str(self.phase)
+        self.property        = str(self.property)
+        self.deltaheat       = float(self.deltaheat)
+        self.temperatureMAX  = float(self.temperatureMAX)
+        self.temperatureMIN  = float(self.temperatureMIN)
+
+        ddmax = np.random.rand() * 0.0001 + 0.0001             #等温熱媒調整用微小項
+        ddmin = np.random.rand() * 0.0001 + 0.0001             #等温熱媒調整用微小項
+
+        if (self.temperatureMAX - self.temperatureMIN) > 0 :#与熱流体
+            self.property = give
+            streamindex_give.append(self.number)
+
+        elif (self.temperatureMAX - self.temperatureMIN) < 0 :#受熱流体
+            self.property = receive
+            self.temperatureMAX, self.temperatureMIN
+                                = self.temperatureMIN, self.temperatureMAX
+            streamindex_receive.append(self.number)
+
+        self.temperatureMAX += ddmax  #傾きがないとエラーなので微小勾配をつける
+        self.temperatureMIN += -ddmin
+
+        if self.property == externalgive :#外部与熱流体
+            self.deltaheat = 0.0
+            streamindex_externalgive.append(self.number)
+
+            streamindex_externalheat.append(self.number)
+
+        elif self.property == externalreceive :#外部受熱流体
+            self.deltaheat = 0.0
+            streamindex_externalreceive.append(self.number)
+
+            streamindex_externalheat.append(self.number)
+
+        self.heatcapacity_calc()
+
+    def heatcapacity_calc(self):
+        self.heatcapacity = self.deltaheat
+                      / (self.temperatureMAX - self.temperatureMIN)
+
+
+streams=[]                  #熱流体の情報読み込み
+for i in range (streamnumber):
+    dummy = Heatstream(i)
+    streams.append(dummy)
+    streams[i].read()
+
+ascendingtemperature_TQ=[]     #温度の昇順ソート
+ascendingtemperature_GCC=[]
+for i in range (len(streams)):
+    ascendingtemperature_TQ.append(streams[i].temperatureMAX)  #TQ線図用
+    ascendingtemperature_TQ.append(streams[i].temperatureMIN)
+    if streams[i].property == give:                         #GCC用
+        ascendingtemperature_GCC.append(streams[i].temperatureMAX)
+        ascendingtemperature_GCC.append(streams[i].temperatureMIN)
+    elif streams[i].property == receive:
+        ascendingtemperature_GCC
+            .append(streams[i].temperatureMAX + minimumdeltaTemperture)
+        ascendingtemperature_GCC
+            .append(streams[i].temperatureMIN + minimumdeltaTemperture)
+next
+
+ascendingtemperature_TQ.sort()
+ascendingtemperature_GCC.sort()
+
+#整理した温度のindexを取得
+for i in range (len(streams)):
+    streams[i].temperatureindexMAX = ascendingtemperature_TQ
+                      .index(streams[i].temperatureMAX)
+    streams[i].temperatureindexMIN = ascendingtemperature_TQ
+                      .index(streams[i].temperatureMIN)
+
+heatbalance_section_GCC  =np.array([0.]*(len(ascendingtemperature_GCC)))
+                                                        #各温度範囲での熱バランス
+heatbalance_sum_GCC      =np.array([0.]*(len(ascendingtemperature_GCC)))
+                                                        #GCCグラフ用の熱量
+
+for i in range (len(ascendingtemperature_GCC) - 1):   #GCCカーブデータの作成
+    dT = (ascendingtemperature_GCC[i+1] - ascendingtemperature_GCC[i])
+    for j in range (len(streamindex_give)):
+        x = streams[streamindex_give[j]]
+        if  x.temperatureMIN <= ascendingtemperature_GCC[i] < x.temperatureMAX:
+            heatbalance_section_GCC[i] += + x.heatcapacity * dT
+    for j in range (len(streamindex_receive)):
+        x = streams[streamindex_receive[j]]
+        if (x.temperatureMIN + minimumdeltaTemperture) \
+            <=ascendingtemperature_GCC[i] \
+            < (x.temperatureMAX + minimumdeltaTemperture):
+            heatbalance_section_GCC[i] += - x.heatcapacity * dT
+
+    heatbalance_sum_GCC[i+1] = heatbalance_sum_GCC[i] - \
+                               heatbalance_section_GCC[i]
+next
+
+GCCleft = np.min(heatbalance_sum_GCC)                       #カーブ左端の探索
+heatbalance_sum_GCC = heatbalance_sum_GCC - GCCleft             #GCCカーブをずらす
+
+#==============================================================================
+#外部熱媒使用量の計算
+
+GCCfunction = interpolate.interp1d(ascendingtemperature_GCC,heatbalance_sum_GCC)
+
+def ExternalHeatFromGCCfunction(EXheatstream):   #外部熱媒の使用可能量を計算する関数
+    EXHeat = 0.0
+
+    if EXheatstream.property == externalgive: #熱媒の場合
+        if EXheatstream.temperatureMIN >= ascendingtemperature_GCC[-1]:
+            EXHeat = heatbalance_sum_GCC[-1]
+        else :
+            EXHeat = GCCfunction(EXheatstream.temperatureMIN)
+            for i in range(len(ascendingtemperature_GCC)):
+                if ascendingtemperature_GCC[i] >= EXheatstream.temperatureMIN:
+                    EXHeat = np.min([EXHeat, heatbalance_sum_GCC[i]])
+        next
+
+    if EXheatstream.property == externalreceive: #冷媒の場合
+        if EXheatstream.temperatureMIN + minimumdeltaTemperture \
+            <= ascendingtemperature_GCC[0]:
+            EXHeat = heatbalance_sum_GCC[0]
+        else :
+            EXHeat = GCCfunction(EXheatstream.temperatureMIN + \
+                              minimumdeltaTemperture)
+            for i in range(len(ascendingtemperature_GCC)):
+                if ascendingtemperature_GCC[i]
+                   <=EXheatstream.temperatureMIN + minimumdeltaTemperture:
+                    EXHeat = np.min([EXHeat, heatbalance_sum_GCC[i]])
+        next
+
+    EXheatstream.deltaheat = EXHeat
+
+
+for i in range (len(streamindex_externalheat)):    #外部熱媒の使用可能量を計算
+    ExternalHeatFromGCCfunction(streams[streamindex_externalheat[i]])
+
+
+for i in range (len(streamindex_externalgive)):
+            #温度の異なる外部熱媒を用いている時，熱量を分割する処理
+    for j in range (len(streamindex_externalgive)):
+            #低コスト熱媒に代用可能な部分の検索
+        if (streams[streamindex_externalgive[i]].temperatureMIN \
+          > streams[streamindex_externalgive[j]].temperatureMIN):
+               streams[streamindex_externalgive[i]].leftend_externalheat_GCC = \
+                    np.max([streams[streamindex_externalgive[i]]
+                        .leftend_externalheat_GCC, \
+                        streams[streamindex_externalgive[j]].deltaheat])
+
+
+for i in range (len(streamindex_externalreceive)):
+            #温度の異なる外部冷媒を用いている時，熱量を分割する処理
+    for j in range (len(streamindex_externalreceive)):
+            #低コスト熱媒に代用可能な部分の検索
+        if streams[streamindex_externalreceive[i]].temperatureMIN
+            < streams[streamindex_externalreceive[j]].temperatureMIN:
+                streams[streamindex_externalreceive[i]] \
+                      .leftend_externalheat_GCC = \
+                     np.max([streams[streamindex_externalreceive[i]]
+                        .leftend_externalheat_GCC, \
+                          streams[streamindex_externalreceive[j]].deltaheat])
+
+
+#熱容量と実際の外部熱媒使用熱量の計算
+for i in range (len(streamindex_externalheat)):
+    streams[streamindex_externalheat[i]].deltaheat +=
+              - streams[streamindex_externalheat[i]].leftend_externalheat_GCC
+    streams[streamindex_externalheat[i]].heatcapacity_calc()
+
+#==============================================================================
+
+#TQdiagramのデータ制作===========================================================
+
+sectionheat_give            = np.array([0.]*(len(ascendingtemperature_TQ)))
+sectionheat_receive         = np.array([0.]*(len(ascendingtemperature_TQ)))
+heatsum_give                = np.array([0.]*(len(ascendingtemperature_TQ)))
+heatsum_receive             = np.array([0.]*(len(ascendingtemperature_TQ)))
+
+for i in range (len(ascendingtemperature_TQ)-1):
+    dT = (ascendingtemperature_TQ[i+1] - ascendingtemperature_TQ[i])
+    for j in range (len(streams)):
+        if streams[j].property in gives :
+            if streams[j].temperatureindexMIN \
+                <= i < streams[j].temperatureindexMAX:
+                sectionheat_give[i] += streams[j].heatcapacity * dT
+        elif streams[j].property in receives :
+            if streams[j].temperatureindexMIN \
+                <= i < streams[j].temperatureindexMAX:
+                sectionheat_receive[i] +=  streams[j].heatcapacity * dT
+
+    next
+    heatsum_give[i+1] = sectionheat_give[i] + heatsum_give[i]
+    heatsum_receive[i+1] = sectionheat_receive[i] + heatsum_receive[i]
+next
+
+# print("Draw TQ diagram Complete")
+#=========================================================================
+
+class HeatExchanger:
+    def __init__(self):
+        self.exchangeheat                   =0.0
+        self.streamname_give                =""
+        self.streamname_receive             =""
+        self.temperaturehigh_give           =0.0
+        self.temperaturelow_give            =0.0
+        self.temperaturehigh_receive        =0.0
+        self.temperaturelow_receive         =0.0
+        self.heatcapacity_give              =0.0
+        self.heatcapacity_receive           =0.0
+        self.deltatemperature_high          =0.0
+        self.deltatemperature_low           =0.0
+        self.LogMeantemperature             =0.0
+        self.phase_give                     =""
+        self.phase_receive                  =""
+        self.U                              =0.0
+        self.area                           =0.0
+        self.rebconfacter                   =1.
+        self.cost                           =0.0
+
+
+    def heatcapacity_calc(self):
+        self.heatcapacity_give    = self.exchangeheat /
+            (self.temperaturehigh_give - self.temperaturelow_give)
+        self.heatcapacity_receive = self.exchangeheat /
+            (self.temperaturehigh_receive - self.temperaturelow_receive)
+
+    def deltatemperature_LogMean_calc(self):
+        self.deltatemperature_high  = np.abs(self.temperaturehigh_give - \
+                                self.temperaturehigh_receive)
+        self.deltatemperature_low   = np.abs(self.temperaturelow_give  - \
+                                self.temperaturelow_receive)
+        if self.deltatemperature_high == self.deltatemperature_low:
+            self.LogMeantemperature = self.deltatemperature_high
+        else:
+            self.LogMeantemperature = (self.deltatemperature_high - \
+                  self.deltatemperature_low)/ \
+                  log(abs(self.deltatemperature_high/self.deltatemperature_low))
+
+
+    def Rounddata(self):
+        self.exchangeheat         = np.round(self.exchangeheat,sig)
+        self.LogMeantemperature   = np.round(self.LogMeantemperature,sig)
+        self.heatcapacity_give    = np.round(self.heatcapacity_give)
+        self.heatcapacity_receive = np.round(self.heatcapacity_receive)
+
+
+#複合線図を分解して熱交換器の対応を考える
+#TQ関数の作成
+temperature_GCCgiveinter    = interpolate.interp1d(heatsum_give, \
+              ascendingtemperature_TQ ,fill_value='extrapolate', \
+              bounds_error=False)
+temperature_GCCreceiveinter = interpolate.interp1d(heatsum_receive, \
+              ascendingtemperature_TQ ,fill_value='extrapolate', \
+              bounds_error=False)
+
+heatsum_give    = list(heatsum_give)
+heatsum_receive = list(heatsum_receive)
+
+def temperature_TQgive(Q):     #引数はascendingtemperature_TQ参照
+    if Q[1] == give:
+        T = ascendingtemperature_TQ[Q[2]]
+    else:
+        T = temperature_GCCgiveinter(Q[0])
+    return(T)
+
+def temperature_TQreceive(Q):
+    if Q[1] == receive:
+        T = ascendingtemperature_TQ[Q[2]]
+    else:
+        T = temperature_GCCreceiveinter(Q[0])
+    return(T)
+
+
+#熱量で区間分割
+ascendingheat_TQ = []
+for i in range (len(ascendingtemperature_TQ)):
+    ascendingheat_TQ.append([heatsum_give[i]   ,give    ,i])
+                  #Qの座標，g,rどちらの区切り点か，どの昇順温度と対応しているかを保存
+    ascendingheat_TQ.append([heatsum_receive[i],receive ,i])
+next
+ascendingheat_TQ.sort(key=lambda x:x[0])
+
+#各区間での熱交換リストの作成
+streamlistTQsection_give    = []
+streamlistTQsection_receive = []
+datalist_heatexchanger      = []
+
+countgive    = -1
+countreceive = -1
+
+#熱交換データの作成
+for i in range (len(ascendingheat_TQ)-1):
+
+    if ascendingheat_TQ[i][1]   == give: #give ,receiveの昇順温度との対応を記録
+        countgive += 1
+    elif ascendingheat_TQ[i][1] == receive:
+        countreceive += 1
+
+    temperaturelow_give      = temperature_TQgive(ascendingheat_TQ[i])
+    temperaturelow_receive   = temperature_TQreceive(ascendingheat_TQ[i])
+    temperaturehigh_give     = temperature_TQgive(ascendingheat_TQ[i+1])
+    temperaturehigh_receive  = temperature_TQreceive(ascendingheat_TQ[i+1])
+    deltaT_give              = temperaturehigh_give    - temperaturelow_give
+    deltaT_receive           = temperaturehigh_receive - temperaturelow_receive
+
+    #区間中に存在する熱流体のリストを作成
+    for j in range (len(streams)):
+
+        x = copy.deepcopy(streams[j])
+
+        if x.property in gives:
+            if x.temperatureindexMIN <= countgive < x.temperatureindexMAX:
+                x.deltaheat_section = x.heatcapacity * deltaT_give
+                streamlistTQsection_give.append(x)
+        if x.property in receives:
+            if x.temperatureindexMIN <= countreceive < x.temperatureindexMAX:
+                x.deltaheat_section = x.heatcapacity * deltaT_receive
+                streamlistTQsection_receive.append(x)
+    next
+
+    #与熱流体と受熱流体のマッチング
+    while len(streamlistTQsection_give) > 0
+        and len(streamlistTQsection_receive) > 0:
+
+        #データクラス作成
+        dummy = HeatExchanger()
+        datalist_heatexchanger.append(dummy)
+
+        heatlist_give_receive = [streamlistTQsection_give[0].deltaheat_section,\
+                              streamlistTQsection_receive[0].deltaheat_section]
+
+        #熱交換データの構成
+        dlhe                           = datalist_heatexchanger[-1]
+        dlhe.exchangeheat              = np.min(heatlist_give_receive)
+        dlhe.streamname_give           = streamlistTQsection_give[0].name
+        dlhe.streamname_receive        = streamlistTQsection_receive[0].name
+        dlhe.temperaturehigh_give      = temperaturehigh_give
+        dlhe.temperaturelow_give       = temperaturelow_give
+        dlhe.temperaturehigh_receive   = temperaturehigh_receive
+        dlhe.temperaturelow_receive    = temperaturelow_receive
+        dlhe.heatcapacity_calc()
+        dlhe.phase_give                = streamlistTQsection_give[0].phase
+        dlhe.phase_receive             = streamlistTQsection_receive[0].phase
+
+        if streamlistTQsection_give[0].rebcon == "reb"
+            or streamlistTQsection_receive[0].rebcon == "reb":
+            dlhe.rebcon_facter = 2.
+
+        #熱交換反映
+        streamlistTQsection_give[0].deltaheat_section    += - dlhe.exchangeheat
+        streamlistTQsection_receive[0].deltaheat_section += - dlhe.exchangeheat
+
+        #交換済流体の削除
+        deleteindex = heatlist_give_receive.index(min(heatlist_give_receive))
+        if deleteindex == 0:
+            del streamlistTQsection_give[0]
+        else:
+            del streamlistTQsection_receive[0]
+next
+
+deletecounter = 0   #無視小交換を取り除く処理
+for i in range(len(datalist_heatexchanger)):
+    datalist_heatexchanger[i].Rounddata()
+    if datalist_heatexchanger[i].exchangeheat < eps:
+        datalist_heatexchanger.insert(0, datalist_heatexchanger[i])
+        del datalist_heatexchanger[i+1]
+        deletecounter += 1
+for i in range(deletecounter):
+    del datalist_heatexchanger[0]
+
+
+#熱交換データの整理
+sorted_datalist_heatexchanger =[]
+datanumberbeforesort = len(datalist_heatexchanger)
+while len(datalist_heatexchanger) > 0:
+    mixcounter = 1
+    sorted_datalist_heatexchanger
+            .append(copy.deepcopy(datalist_heatexchanger[0]))
+    for i in range(len(datalist_heatexchanger) -1):
+        #交換流体と各熱容量が一致したら熱交換器をまとめる
+        if      datalist_heatexchanger[i+1].streamname_give \
+            == datalist_heatexchanger[0].streamname_give \
+            and datalist_heatexchanger[i+1].streamname_receive \
+            == datalist_heatexchanger[0].streamname_receive \
+            and np.abs(datalist_heatexchanger[i+1].heatcapacity_give \
+                - datalist_heatexchanger[0].heatcapacity_give) < eps   \
+            and np.abs(datalist_heatexchanger[i+1].heatcapacity_receive \
+                - datalist_heatexchanger[0].heatcapacity_receive) < eps   :
+
+            sorted_datalist_heatexchanger[-1].exchangeheat
+                += datalist_heatexchanger[i+1].exchangeheat        #熱量の加算
+            sorted_datalist_heatexchanger[-1].temperaturehigh_give
+                = datalist_heatexchanger[i+1].temperaturehigh_give #温度範囲の拡張
+            sorted_datalist_heatexchanger[-1].temperaturehigh_receive
+                = datalist_heatexchanger[i+1].temperaturehigh_receive
+
+            datalist_heatexchanger.insert(0, datalist_heatexchanger[i+1])
+            del datalist_heatexchanger[i+2]
+            mixcounter += 1
+    next
+    for i in range(mixcounter):
+        del datalist_heatexchanger[0]
+    next
+datanumberaftersort = len(sorted_datalist_heatexchanger)
+
+totalcost=0.0
+totalheat=0.0
+
+#対数平均温度差dT，総括伝熱係数U，熱交換器面積Aの計算
+for i in range(len(sorted_datalist_heatexchanger)):
+
+    sorted_datalist_heatexchanger[i].deltatemperature_LogMean_calc()
+    sorted_datalist_heatexchanger[i].Rounddata()
+
+    for j in range (len(twophaselist)):
+        if [sorted_datalist_heatexchanger[i].phase_give, \
+            sorted_datalist_heatexchanger[i].phase_receive] == twophaselist[j] \
+            or [sorted_datalist_heatexchanger[i].phase_receive , \
+            sorted_datalist_heatexchanger[i].phase_give] == twophaselist[j]:
+            sorted_datalist_heatexchanger[i].U = Ulist[j]
+    next
+
+    sorted_datalist_heatexchanger[i].area \
+          = (1.e+6/3600.)*sorted_datalist_heatexchanger[i].exchangeheat \
+          /(sorted_datalist_heatexchanger[i].U * \
+            sorted_datalist_heatexchanger[i].LogMeantemperature)
+
+    sorted_datalist_heatexchanger[i].cost = 0.015 * \
+            sorted_datalist_heatexchanger[i].rebconfacter * \
+            sorted_datalist_heatexchanger[i].area ** 0.62
+    totalcost += sorted_datalist_heatexchanger[i].cost
+    totalheat += sorted_datalist_heatexchanger[i].exchangeheat
+next
+
+#出力
+wb.sheets[writesheet].clear_contents()
+for i in range (len(streams)):
+    wb.sheets[readsheet].range((row_readstart + streams[i].number + 1, \
+                column_readstart + 2 )).value = streams[i].property
+    wb.sheets[readsheet].range((row_readstart + streams[i].number + 1, \
+                column_readstart + 3 )).value = streams[i].deltaheat
+
+wb.sheets[writesheet].range((row_writestart, column_writestart +0 )).value
+      = "熱交換器番号"
+wb.sheets[writesheet].range((row_writestart, column_writestart +1 )).value
+      = "与熱流体"
+wb.sheets[writesheet].range((row_writestart, column_writestart +2 )).value
+      = "受熱流体"
+wb.sheets[writesheet].range((row_writestart, column_writestart +3 )).value
+      = "対数平均温度差[K]"
+wb.sheets[writesheet].range((row_writestart, column_writestart +4 )).value
+      = "交換熱量[MJ/h]"
+wb.sheets[writesheet].range((row_writestart, column_writestart +5 )).value
+      = "伝熱面積[m2]"
+wb.sheets[writesheet].range((row_writestart, column_writestart +6 )).value
+      = "価格[億円]"
+wb.sheets[writesheet].range((row_writestart, column_writestart +7 )).value
+      = "総コスト[億円/year]"
+wb.sheets[writesheet].range((row_writestart, column_writestart +8 )).value
+      = "総交換熱量[MJ/h]"
+wb.sheets[writesheet].range((row_writestart, column_writestart +10 )).value
+      = "温度差1"
+wb.sheets[writesheet].range((row_writestart, column_writestart +11 )).value
+      = "温度差2"
+
+wb.sheets[writesheet].range((row_writestart+1  ,column_writestart +7 )).value
+    = totalcost/7.
+wb.sheets[writesheet].range((row_writestart+1  ,column_writestart +8 )).value
+    = totalheat
+
+for i in range (len(sorted_datalist_heatexchanger)):
+    wb.sheets[writesheet].range((row_writestart +i+1 ,column_writestart +0 ))
+              .value = i+1
+    wb.sheets[writesheet].range((row_writestart +i+1 ,column_writestart +1 ))
+              .value = sorted_datalist_heatexchanger[i].streamname_give
+    wb.sheets[writesheet].range((row_writestart +i+1 ,column_writestart +2 ))
+              .value = sorted_datalist_heatexchanger[i].streamname_receive
+    wb.sheets[writesheet].range((row_writestart +i+1 ,column_writestart +3 ))
+              .value = sorted_datalist_heatexchanger[i].LogMeantemperature
+    wb.sheets[writesheet].range((row_writestart +i+1 ,column_writestart +4 ))
+              .value = sorted_datalist_heatexchanger[i].exchangeheat
+    wb.sheets[writesheet].range((row_writestart +i+1 ,column_writestart +5 ))
+              .value = sorted_datalist_heatexchanger[i].area
+    wb.sheets[writesheet].range((row_writestart +i+1 ,column_writestart +6 ))
+              .value = sorted_datalist_heatexchanger[i].cost
+
+    wb.sheets[writesheet].range((row_writestart +i+1  ,column_writestart+10 ))
+              .value = sorted_datalist_heatexchanger[i].deltatemperature_high
+    wb.sheets[writesheet].range((row_writestart +i+1 ,column_writestart +11 ))
+              .value = sorted_datalist_heatexchanger[i].deltatemperature_low
+next
+
+
+#==============================================================================
+# #グランドコンポジットカーブのデータ出力
+
+rcParams['font.family'] = 'sans-serif'
+rcParams['font.sans-serif'] = ['Hiragino Maru Gothic Pro', 'Yu Gothic', \
+                              'Meirio', 'Takao', 'IPAexGothic', 'IPAPGothic', \
+                              'VL PGothic', 'Noto Sans CJK JP']
+rcParams['font.size'] = 22
+
+# fig1=plt.figure()
+# ax1 = fig1.add_subplot()
+# ax1.plot(heatbalance_sum_GCC, \
+    ascendingtemperature_GCC,label="グランドコンポジットカーブ")
+# # plt.xlim(0,40)
+# # plt.ylim(0,250)
+# # ax1.set_xlabel(xlabel="熱量 [MJ/h]")
+# # ax1.set_ylabel(ylabel="温度 [℃]")
+# plt.gca().xaxis.set_tick_params(which='both',direction='in', \
+      bottom=True ,top=True ,left=True ,right=True)
+# plt.gca().yaxis.set_tick_params(which='both',direction='in', \
+      bottom=True ,top=True ,left=True ,right=True)
+# # plt.rcParams["legend.fancybox"] = False # 丸角
+# # plt.rcParams["legend.framealpha"] = 1 # 透明度の指定，0で塗りつぶしなし
+# # plt.rcParams["legend.edgecolor"] = 'black' # edgeの色を変更
+# # plt.legend()
+# plt.show()
+
+
+
+# print("Draw GCC diagram Complete")
+
+#TQ線図出力
+fig2 = plt.figure()
+ax_give = fig2.add_subplot()
+ax_receive = fig2.add_subplot()
+heatsum_give = list(heatsum_give)
+heatsum_receive = list(heatsum_receive)
+ascendingtemperature_TQ = list(ascendingtemperature_TQ)
+
+ax_give.plot(heatsum_give, ascendingtemperature_TQ ,color ="r")
+ax_receive.plot(heatsum_receive, ascendingtemperature_TQ ,color ="b")
+plt.xlim(0,heatsum_receive[-1])
+plt.ylim(-10,ascendingtemperature_TQ[-1]+10)
+# ax_give.set_xlabel(xlabel="熱量 [MJ/h]")
+# ax_give.set_ylabel(ylabel="温度 [℃]")
+plt.gca().xaxis.set_tick_params(which='both',direction='in',bottom=True ,\
+      top=True ,left=True ,right=True)
+plt.gca().yaxis.set_tick_params(which='both',direction='in',bottom=True ,\
+      top=True ,left=True ,right=True)
+# plt.rcParams["legend.fancybox"] = False # 丸角
+# plt.rcParams["legend.framealpha"] = 1 # 透明度の指定，0で塗りつぶしなし
+# plt.rcParams["legend.edgecolor"] = 'black' # edgeの色を変更
+# plt.legend()
+plt.tick_params(axis = 'x', colors ='k')
+plt.tick_params(axis = 'y', colors = 'k')
+plt.show()
+\end{lstlisting}
+
+\section{VBA}
+\begin{lstlisting}[caption=変数宣言]
+Option Explicit
+
+Public Const TolMolarMass = 92.141    'トルエンモル質量      [kg/kmol]
+Public Const BzAMolarMass = 122.124   '安息香酸モル質量      [kg/kmol]
+Public Const WaterMolarMass = 18.015  '水モル質量            [kg/kmol]
+
+Public Const OxygenFraction = 0.2
+Public Const NytrogenFraction = 0.8
+
+Public hycase As Object
+
+Public AdditionalAirHYSYS As ProcessStream
+Public AdopterHYSYS As ProcessStream
+Public BoilerBottomOutHYSYS As ProcessStream
+Public BoilerTopOutHYSYS As ProcessStream
+Public CrystallizationInHYSYS As ProcessStream
+Public CrystallizedRecycleHYSYS As ProcessStream
+Public DecanterOutHYSYS As ProcessStream
+Public DistillationInHYSYS As ProcessStream
+Public DistillationLiqOutHYSYS As ProcessStream
+Public DistillationVapOutHYSYS As ProcessStream
+Public DistVapOutXHYSYS As ProcessStream
+Public ExternalOutHYSYS As ProcessStream
+Public ExtractedBzAHYSYS As ProcessStream
+Public ExtractedOthersHYSYS As ProcessStream
+Public ExtractedWaterHYSYS As ProcessStream
+Public FeedHYSYS As ProcessStream
+Public MixerInHYSYS As ProcessStream
+Public PostDistillationVapOutHYSYS As ProcessStream
+Public PostDistVapOutXHYSYS As ProcessStream
+Public PostReactorOutHYSYS As ProcessStream
+Public PreAdopterHYSYS As ProcessStream
+Public PreCrystallizedRecycleHYSYS As ProcessStream
+Public PreReactorInHYSYS As ProcessStream
+Public ProductHYSYS As ProcessStream
+Public PumpInHYSYS As ProcessStream
+Public ReactorInHYSYS As ProcessStream
+Public ReactorOutHYSYS As ProcessStream
+Public ValveOutHYSYS As ProcessStream
+
+Public PreReactorInHeaterHYSYS As ProcessStream
+Public ReactorOutPumpHYSYS As ProcessStream
+Public CondenserHYSYS As ProcessStream
+Public ReboilerHYSYS As ProcessStream
+Public ExternalOutCoolerHYSYS As ProcessStream
+Public PreCrystallizedRecycleHeaterHYSYS As ProcessStream
+Public ValveOutCoolerHYSYS As ProcessStream
+Public PowerOfPumpHYSYS As ProcessStream
+Public DistVapOutCoolerHYSYS As ProcessStream
+Public DistVapOutExpandHYSYS As ProcessStream
+\end{lstlisting}
+
+\begin{lstlisting}[caption=HYSYSとpythonを繋ぐコード]
+Option Explicit
+
+Sub main()
+
+Dim topRow As Integer
+topRow = 18
+
+Dim resultSheet As Worksheet
+Set resultSheet = ThisWorkbook.Sheets(1)
+
+With resultSheet
+    .Cells(10, 4) = ""
+    .Cells(11, 4) = ""
+    .Range(.Cells(18, 4), .Cells(48, 12)) = ""
+    .Range(.Cells(18, 11), .Cells(50, 12)) = 0
+End With
+
+
+Dim i As Integer
+Dim j As Integer
+Dim m As Integer
+Dim n As Integer
+Dim h As Integer
+Dim p As Integer
+Dim q As Integer
+
+Dim flowRange  As Variant     'excelシートからarrayへのadopter
+Dim reactorErr As Double      '反応器収束用誤差
+Dim reactorEps As Double      '反応器収束用
+Dim crystallizerErr As Double '晶析器収束用誤差
+Dim crystallizerEps As Double '晶析器収束用
+
+reactorErr = 1
+crystallizerErr = 1
+reactorEps = 0.001
+crystallizerEps = 0.001
+
+'------------------------------------------------------------------------------
+Dim k As Variant                      '[h-1]     反応速度定数
+Dim reactorPres As Double             '[bar]     反応器圧力
+Dim reactorVol As Double              '[m3]      反応器体積
+Dim reactorTemp As Double             '[℃]      反応器温度
+Dim F0 As Double                      '[kmol/h]  feedトルエン流量
+Dim extractorTemp As Double           '[℃]      抽出温度
+Dim crystallizerVolume As Double      '[℃]      晶析器体積
+Dim crystallizerTemp As Double        '[℃]      晶析器温度
+
+With resultSheet
+    reactorPres = .Cells(3, 4)
+    reactorVol = .Cells(4, 4)
+    reactorTemp = .Cells(5, 4) + 273.15
+    F0 = .Cells(6, 4)
+    extractorTemp = 40
+    crystallizerVolume = .Cells(8, 4)
+    crystallizerTemp = .Cells(9, 4)
+End With
+Call Utils.solve_k(reactorTemp, k)
+'------------------------------------------------------------------------------
+
+'------------------------------------------------------------------------------
+Set hycase = GetObject(ThisWorkbook.Path & "¥main.hsc")
+
+With hycase.Flowsheet.MaterialStreams
+    Set AdditionalAirHYSYS = .Item("AdditionalAir")
+    Set AdopterHYSYS = .Item("Adopter")
+    Set BoilerBottomOutHYSYS = .Item("BoilerBottomOut")
+    Set BoilerTopOutHYSYS = .Item("BoilerTopOut")
+    Set CrystallizationInHYSYS = .Item("CrystallizationIn")
+    Set CrystallizedRecycleHYSYS = .Item("CrystallizedRecycle")
+    Set DecanterOutHYSYS = .Item("DecanterOut")
+    Set DistillationInHYSYS = .Item("DistillationIn")
+    Set DistillationLiqOutHYSYS = .Item("DistillationLiqOut")
+    Set DistillationVapOutHYSYS = .Item("DistillationVapOut")
+    Set DistVapOutXHYSYS = .Item("DistVapOutX")
+    Set ExternalOutHYSYS = .Item("ExternalOut")
+    Set ExtractedBzAHYSYS = .Item("ExtractedBzA")
+    Set ExtractedOthersHYSYS = .Item("ExtractedOthers")
+    Set ExtractedWaterHYSYS = .Item("ExtractedWater")
+    Set FeedHYSYS = .Item("Feed")
+    Set MixerInHYSYS = .Item("MixerIn")
+    Set PostDistillationVapOutHYSYS = .Item("PostDistillationVapOut")
+    Set PostDistVapOutXHYSYS = .Item("PostDistVapOutX")
+    Set PostReactorOutHYSYS = .Item("PostReactorOut")
+    Set PreAdopterHYSYS = .Item("PreAdopter")
+    Set PreCrystallizedRecycleHYSYS = .Item("PreCrystallizedRecycle")
+    Set PreReactorInHYSYS = .Item("PreReactorIn")
+    Set ProductHYSYS = .Item("Product")
+    Set PumpInHYSYS = .Item("PumpIn")
+    Set ReactorInHYSYS = .Item("ReactorIn")
+    Set ReactorOutHYSYS = .Item("ReactorOut")
+    Set ValveOutHYSYS = .Item("ValveOut")
+End With
+
+With hycase.Flowsheet.EnergyStreams
+    Set PreReactorInHeaterHYSYS = .Item("PreReactorInHeater")
+    Set ReactorOutPumpHYSYS = .Item("ReactorOutPump")
+    Set CondenserHYSYS = .Item("Condenser")
+    Set ReboilerHYSYS = .Item("Reboiler")
+    Set ExternalOutCoolerHYSYS = .Item("ExternalOutCooler")
+    Set PreCrystallizedRecycleHeaterHYSYS =  _
+        .Item("PreCrystallizedRecycleHeater")
+    Set ValveOutCoolerHYSYS = .Item("ValveOutCooler")
+    Set PowerOfPumpHYSYS = .Item("PowerOfPump")
+    Set DistVapOutCoolerHYSYS = .Item("DistVapOutCooler")
+    Set DistVapOutExpandHYSYS = .Item("DistVapOutExpand")
+End With
+
+Dim DistillationHYSYS As ColumnOp
+
+Dim ToReb As ProcessStream
+Dim BoilUp As ProcessStream
+Dim ToCond As ProcessStream
+Dim Reflux As ProcessStream
+
+Set DistillationHYSYS = hycase.Flowsheet.Operations.Item("T-100")
+With DistillationHYSYS.ColumnFlowsheet.MaterialStreams
+    Set ToReb = .Item("To Reboiler")
+    Set BoilUp = .Item("Boilup")
+    Set ToCond = .Item("To Condenser")
+    Set Reflux = .Item("Reflux")
+End With
+'------------------------------------------------------------------------------
+
+'------------------------------------------------------------------------------
+With resultSheet
+    AdditionalAirHYSYS.Pressure.SetValue .Cells(topRow + 0, 1), "bar"
+    AdopterHYSYS.Pressure.SetValue .Cells(topRow + 1, 1), "bar"
+    CrystallizedRecycleHYSYS.Pressure.SetValue .Cells(topRow + 5, 1), "bar"
+    DecanterOutHYSYS.Pressure.SetValue .Cells(topRow + 6, 1), "bar"
+    DistillationInHYSYS.Pressure.SetValue .Cells(topRow + 7, 1), "bar"
+    DistVapOutXHYSYS.Pressure.SetValue .Cells(topRow + 10, 1), "bar"
+    ExternalOutHYSYS.Pressure.SetValue .Cells(topRow + 11, 1), "bar"
+    ExtractedBzAHYSYS.Pressure.SetValue .Cells(topRow + 12, 1), "bar"
+    ExtractedOthersHYSYS.Pressure.SetValue .Cells(topRow + 13, 1), "bar"
+    ExtractedWaterHYSYS.Pressure.SetValue .Cells(topRow + 14, 1), "bar"
+    FeedHYSYS.Pressure.SetValue .Cells(topRow + 15, 1), "bar"
+    PostDistillationVapOutHYSYS.Pressure.SetValue .Cells(topRow + 17, 1), "bar"
+    PostDistVapOutXHYSYS.Pressure.SetValue .Cells(topRow + 18, 1), "bar"
+    PostReactorOutHYSYS.Pressure.SetValue .Cells(topRow + 19, 1), "bar"
+    PreAdopterHYSYS.Pressure.SetValue .Cells(topRow + 20, 1), "bar"
+    PreCrystallizedRecycleHYSYS.Pressure.SetValue .Cells(topRow + 21, 1), "bar"
+    PreReactorInHYSYS.Pressure.SetValue .Cells(topRow + 22, 1), "bar"
+    ProductHYSYS.Pressure.SetValue .Cells(topRow + 23, 1), "bar"
+    ReactorInHYSYS.Pressure.SetValue .Cells(topRow + 25, 1), "bar"
+    ReactorOutHYSYS.Pressure.SetValue .Cells(topRow + 26, 1), "bar"
+    ValveOutHYSYS.Pressure.SetValue .Cells(topRow + 27, 1), "bar"
+
+
+    AdditionalAirHYSYS.Temperature.SetValue .Cells(topRow + 0, 2), "C"
+    AdopterHYSYS.Temperature.SetValue .Cells(topRow + 1, 2), "C"
+    CrystallizedRecycleHYSYS.Temperature.SetValue .Cells(topRow + 5, 2), "C"
+    DecanterOutHYSYS.Temperature.SetValue .Cells(topRow + 6, 2), "C"
+    ExternalOutHYSYS.Temperature.SetValue .Cells(topRow + 11, 2), "C"
+    ExtractedBzAHYSYS.Temperature.SetValue .Cells(topRow + 12, 2), "C"
+    ExtractedOthersHYSYS.Temperature.SetValue .Cells(topRow + 13, 2), "C"
+    ExtractedWaterHYSYS.Temperature.SetValue .Cells(topRow + 14, 2), "C"
+    FeedHYSYS.Temperature.SetValue .Cells(topRow + 15, 2), "C"
+    PreAdopterHYSYS.Temperature.SetValue .Cells(topRow + 20, 2), "C"
+    PreCrystallizedRecycleHYSYS.Temperature.SetValue .Cells(topRow + 21, 2), "C"
+    ProductHYSYS.Temperature.SetValue .Cells(topRow + 23, 2), "C"
+    ReactorInHYSYS.Temperature.SetValue .Cells(topRow + 25, 2), "C"
+    ReactorOutHYSYS.Temperature.SetValue .Cells(topRow + 26, 2), "C"
+End With
+'------------------------------------------------------------------------------
+
+'------------------------------------------------------------------------------
+Dim feedMolarFlow As Double 'feedモル流量           [kmol/h]
+Dim feedVolumeFlow As Double 'feed体積流量           [m3/h]
+Dim feedComponentMolarFlow As Variant 'feed成分別モル流量     [kmol/h]
+Dim feedComponentVolumeFlow As Variant 'feed成分別体積流量     [m3/h]
+Dim feedComponentMolarFractin As Variant 'feedモル分率           [-]
+
+Dim reactorInMolarFlow As Double 'CSTR入口モル流量       [kmol/h]
+Dim reactorInVolumeFlow As Double 'CSTR入口体積流量       [m3/h]
+Dim reactorInComponentMolarFlow As Variant 'CSTR入口成分別モル流量 [kmol/h]
+Dim reactorInComponentVolumeFlow As Variant 'CSTR入口成分別体積流量 [m3/h]
+Dim reactorInComponentMolarFraction As Variant 'CSTR入口モル分率       [-]
+
+Dim reactorOutMolarFlow As Double 'CSTR出口モル流量       [kmol/h]
+Dim reactorOutVolumeFlow As Double 'CSTR出口体積流量       [m3/h]
+Dim reactorOutComponentMolarFlow As Variant 'CSTR出口成分別モル流量 [kmol/h]
+Dim reactorOutComponentVolumeFlow As Variant 'CSTR出口成分別体積流量 [m3/h]
+Dim reactorOutComponentMolarFraction As Variant 'CSTR出口モル分率       [-]
+
+Dim decanterOutComponentMolarFlow As Variant 'デカンタ気体出口成分別モル流量   [kmol/h]
+
+Dim boilerInComponentMolarFlow As Variant 'ボイラー入口成分別モル流量   [kmol/h]
+Dim distillationLiqOutComponentMolarFlow As Variant
+                                          '蒸留塔缶出液成分別モル流量   [kmol/h]
+
+Dim extractedWaterMolarFlow As Double '抽出器出口水モル流量
+Dim extractedWaterComponentMolarFlow As Variant '抽出器出口水成分別モル流量
+
+Dim extractedBzAMolarFlow As Double '抽出器出口安息香酸モル流量
+Dim extractedBzAComponentMolarFlow As Variant '抽出器出口安息香酸成分別モル流量
+
+Dim extractedOthersMolarFlow As Double '抽出器出口不純物モル流量
+Dim extractedOthersComponentMolarFlow As Variant '抽出器出口不純物成分別モル流量
+
+Dim adopterComponentMolarFlow As Variant 'リサイクル計算用蒸留塔缶出液流量 [kmol/h]
+
+Dim ToCrystallizationMolarFlow As Double '晶析器入口モル流量         [kmol/h]
+Dim ToCrystallizationVolumeFlow As Double '晶析器入口体積流量         [m3/h]
+Dim ToCrystallizationBzAMolarFraction As Double '晶析器入口安息香酸モル分率 [-]
+Dim ToCrystallizationBzAMolarFlow As Double '晶析器入口安息香酸モル流量 [kmol/h]
+Dim ToCrystallizationWaterMolarFlow As Double '晶析器入口水モル流量       [kmol/h]
+
+Dim BzAConcentration As Double '晶析器入口安息香酸濃度     [kg/m3]
+Dim CrystallizedBzA As Double '晶析した安息香酸モル流量   [kmole/h]
+Dim products As Variant '晶析した安息香酸
+Dim restOfProducts As Variant '晶析しなかった残り
+Dim RestOfBzA As Double '晶析しなかった安息香酸
+Dim RestOfWater As Double '晶析器から流出する水
+
+Dim necessaryOxygen As Double 'トルエン完全燃焼に必要な酸素 [kmol/h]
+Dim lackingOxygen As Double '不足している酸素             [kmol/h]
+Dim additionalOxygen As Double '追加する酸素                 [kmol/h]
+Dim additionalNytrogen As Double '追加する窒素                 [kmol/h]
+Dim additionalAir As Variant '追加する空気                 [kmol/h]
+Dim isAirNeed As Boolean 'whether additional air is needed
+isAirNeed = False
+
+Dim distillationVapOutTmp As Double '蒸留塔留出液の温度
+Dim distillationVapOutComponentMolarFlow As Variant
+                                    '蒸留塔留出液の成分別モル流量 [kmol/h]
+'------------------------------------------------------------------------------
+
+'------------------------------------------------------------------------------
+feedComponentMolarFlow = Array(F0, 0, 0, 0, 0, 0, 0, 0, 0)
+feedComponentVolumeFlow = Array(0, 0, 0, 0, 0, 0, 0, 0, 0)
+feedComponentMolarFractin = Array(1, 0, 0, 0, 0, 0, 0, 0, 0)
+
+reactorInComponentMolarFlow = Array(F0, 0, 0, 0, 0, 0, 0, 0, 0)
+reactorInComponentVolumeFlow = Array(0, 0, 0, 0, 0, 0, 0, 0, 0)
+reactorInComponentMolarFraction = Array(1, 0, 0, 0, 0, 0, 0, 0, 0)
+Call Utils.solveComponentVolumeFlow(reactorInComponentMolarFlow, _
+              reactorInComponentVolumeFlow)
+reactorInMolarFlow = Utils.sumOfFlow(reactorInComponentMolarFlow)
+reactorInVolumeFlow = Utils.sumOfFlow(reactorInComponentVolumeFlow)
+
+reactorOutComponentMolarFlow = Array(0, 0, 0, 0, 0, 0, 0, 0, 0)
+reactorOutComponentVolumeFlow = Array(0, 0, 0, 0, 0, 0, 0, 0, 0)
+reactorOutComponentMolarFraction = Array(0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+
+boilerInComponentMolarFlow = Array(0, 0, 0, 0, 0, 0, 0, 0, 0)
+decanterOutComponentMolarFlow = Array(0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+distillationLiqOutComponentMolarFlow = Array(0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+extractedBzAComponentMolarFlow = Array(0, 0, 0, 0, 0, 0, 0, 0, 0)
+extractedOthersComponentMolarFlow = Array(0, 0, 0, 0, 0, 0, 0, 0, 0)
+extractedWaterComponentMolarFlow = Array(0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+adopterComponentMolarFlow = Array(0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+distillationVapOutComponentMolarFlow = Array(0, 0, 0, 0, 0, 0, 0, 0, 0)
+'------------------------------------------------------------------------------
+
+
+'------------------------------------------------------------------------------
+FeedHYSYS.ComponentMolarFlow.SetValues feedComponentMolarFlow, "kgmole/h"
+i = 0
+Do While (reactorErr > reactorEps And i < 600)
+    With resultSheet
+        .Range(.Cells(topRow + 25, 4), .Cells(topRow + 25, 12)) = _
+              reactorInComponentMolarFlow
+        .Cells(topRow + 25, 14) = reactorInVolumeFlow
+        ' 単通反応率
+        .Cells(12, 4) = (reactorInComponentMolarFlow(0) - _
+                        reactorOutComponentMolarFlow(0)) / _
+                        reactorInComponentMolarFlow(0)
+    End With
+
+    Call RunPython("import analyzer_nowrite; analyzer_nowrite.main()")
+
+    ' 反応器出口のモル流量をシートから取得する．
+    resultSheet.Cells(topRow + 26, 9) = 0
+    resultSheet.Cells(topRow + 26, 10) = 0
+    flowRange = resultSheet.Range(resultSheet.Cells(topRow + 26, 4), _
+                resultSheet.Cells(topRow + 26, 12))
+    For j = 1 To 9
+        reactorOutComponentMolarFlow(j - 1) = flowRange(1, j)
+    Next j
+    reactorOutComponentMolarFlow(5) = 0
+    reactorOutComponentMolarFlow(6) = 0
+
+    ' デカンタから蒸発するモル流量をシートから取得する．
+    flowRange = resultSheet.Range(resultSheet.Cells(topRow + 31, 4), _
+                resultSheet.Cells(topRow + 31, 12))
+    For j = 1 To 9
+        decanterOutComponentMolarFlow(j - 1) = flowRange(1, j)
+    Next j
+
+    ' HYSYSに反応器出口とデカンタ出口のモル流量を渡す．
+    ReactorOutHYSYS.ComponentMolarFlow.SetValues _
+                reactorOutComponentMolarFlow, "kgmole/h"
+    DecanterOutHYSYS.ComponentMolarFlow.SetValues _
+                decanterOutComponentMolarFlow, "kgmole/h"
+
+    ' 蒸留塔留出液のつじつま合わせ．
+    distillationVapOutTmp = PostDistillationVapOutHYSYS. _
+                  Temperature.GetValue("C")
+    distillationVapOutComponentMolarFlow = PostDistillationVapOutHYSYS. _
+                  ComponentMolarFlow.GetValues("kgmole/h")
+    distillationVapOutComponentMolarFlow(5) = 0
+    distillationVapOutComponentMolarFlow(6) = 0
+
+    DistVapOutXHYSYS.Temperature.SetValue distillationVapOutTmp, "C"
+    DistVapOutXHYSYS.ComponentMolarFlow.SetValues _
+                distillationVapOutComponentMolarFlow, "kgmole/h"
+
+
+    ' 蒸留塔缶出液のモル流量をHYSYSから取得し，疑似抽出を行う．
+    distillationLiqOutComponentMolarFlow = DistillationLiqOutHYSYS. _
+                ComponentMolarFlow.GetValues("kgmole/h")
+
+    Call pseudo_extractor.main(distillationLiqOutComponentMolarFlow, _
+                                extractedBzAComponentMolarFlow, _
+                                extractedOthersComponentMolarFlow, _
+                                extractedWaterComponentMolarFlow, _
+                                extractorTemp)
+
+    ExtractedBzAHYSYS.ComponentMolarFlow.SetValues _
+              extractedBzAComponentMolarFlow, "kgmole/h"
+    ExtractedOthersHYSYS.ComponentMolarFlow.SetValues _
+              extractedOthersComponentMolarFlow, "kgmole/h"
+    ExtractedWaterHYSYS.ComponentMolarFlow.SetValues _
+              extractedWaterComponentMolarFlow, "kgmole/h"
+
+    ' 疑似抽出の結果を晶析器に渡す．
+    ToCrystallizationBzAMolarFlow = extractedBzAComponentMolarFlow(3)
+    ToCrystallizationWaterMolarFlow = extractedWaterComponentMolarFlow(4)
+    ToCrystallizationVolumeFlow = CrystallizationInHYSYS. _
+                                  StdLiqVolFlow.GetValue("m3/h")
+
+    BzAConcentration = (ToCrystallizationBzAMolarFlow * BzAMolarMass) / _
+                        (ToCrystallizationWaterMolarFlow * WaterMolarMass)
+
+    CrystallizedBzA = crystallization.MSMPR(crystallizerTemp, _
+                                            BzAConcentration, _
+                                            ToCrystallizationVolumeFlow, _
+                                            crystallizerVolume, _
+                                            ToCrystallizationBzAMolarFlow)
+
+    RestOfBzA = ToCrystallizationBzAMolarFlow - CrystallizedBzA
+    RestOfWater = ToCrystallizationWaterMolarFlow
+    products = Array(0, 0, 0, CrystallizedBzA, 0, 0, 0, 0, 0)
+    restOfProducts = Array(0, 0, 0, RestOfBzA, RestOfWater, 0, 0, 0, 0)
+    ProductHYSYS.ComponentMolarFlow.SetValues products, "kgmole/h"
+    PreCrystallizedRecycleHYSYS.ComponentMolarFlow.SetValues _
+              restOfProducts, "kgmole/h"
+
+    ' 収束判定を行う．
+    reactorErr = Abs((distillationLiqOutComponentMolarFlow(3) + _
+                      decanterOutComponentMolarFlow(0) - F0)) / F0
+
+    reactorInComponentMolarFlow = ReactorInHYSYS. _
+                    ComponentMolarFlow.GetValues("kgmole/h")
+    reactorInVolumeFlow = ReactorInHYSYS.StdLiqVolFlow.GetValue("m3/h")
+
+
+    i = i + 1
+Loop
+
+'----------反応器収束後，シートに計算結果を書き込むバージョンのpythonを実行する．--------
+Call RunPython("import analyzer_final; analyzer_final.main()")
+resultSheet.Cells(topRow + 26, 9) = 0
+resultSheet.Cells(topRow + 26, 10) = 0
+flowRange = resultSheet.Range(resultSheet.Cells(topRow + 26, 4), _
+            resultSheet.Cells(topRow + 26, 12))
+For j = 1 To 9
+    reactorOutComponentMolarFlow(j - 1) = flowRange(1, j)
+Next j
+flowRange = resultSheet.Range(resultSheet.Cells(topRow + 31, 4), _
+            resultSheet.Cells(topRow + 31, 12))
+For j = 1 To 9
+    decanterOutComponentMolarFlow(j - 1) = flowRange(1, j)
+Next j
+reactorOutComponentMolarFlow(8) = 0
+ReactorOutHYSYS.ComponentMolarFlow.SetValues _
+          reactorOutComponentMolarFlow, "kgmole/h"
+DecanterOutHYSYS.ComponentMolarFlow.SetValues _
+          decanterOutComponentMolarFlow, "kgmole/h"
+
+distillationLiqOutComponentMolarFlow = _
+          DistillationLiqOutHYSYS.ComponentMolarFlow.GetValues("kgmole/h")
+
+Call pseudo_extractor.main(distillationLiqOutComponentMolarFlow, _
+                            extractedBzAComponentMolarFlow, _
+                            extractedOthersComponentMolarFlow, _
+                            extractedWaterComponentMolarFlow, _
+                            extractorTemp)
+
+ExtractedWaterHYSYS.ComponentMolarFlow.SetValues _
+              extractedWaterComponentMolarFlow, "kgmole/h"
+ExtractedBzAHYSYS.ComponentMolarFlow.SetValues _
+              extractedBzAComponentMolarFlow, "kgmole/h"
+ExtractedOthersHYSYS.ComponentMolarFlow.SetValues _
+              extractedOthersComponentMolarFlow, "kgmole/h"
+
+ToCrystallizationBzAMolarFlow = extractedBzAComponentMolarFlow(3)
+ToCrystallizationWaterMolarFlow = extractedWaterComponentMolarFlow(4)
+ToCrystallizationVolumeFlow = CrystallizationInHYSYS. _
+                StdLiqVolFlow.GetValue("m3/h")
+
+BzAConcentration = (ToCrystallizationBzAMolarFlow * BzAMolarMass) / _
+                    (ToCrystallizationWaterMolarFlow * WaterMolarMass)
+
+CrystallizedBzA = crystallization.MSMPR(crystallizerTemp, _
+                                        BzAConcentration, _
+                                        ToCrystallizationVolumeFlow, _
+                                        crystallizerVolume, _
+                                        ToCrystallizationBzAMolarFlow)
+
+RestOfBzA = ToCrystallizationBzAMolarFlow - CrystallizedBzA
+RestOfWater = ToCrystallizationWaterMolarFlow
+products = Array(0, 0, 0, CrystallizedBzA, 0, 0, 0, 0, 0)
+restOfProducts = Array(0, 0, 0, RestOfBzA, RestOfWater, 0, 0, 0, 0)
+ProductHYSYS.ComponentMolarFlow.SetValues products, "kgmole/h"
+PreCrystallizedRecycleHYSYS.ComponentMolarFlow.SetValues _
+                      restOfProducts, "kgmole/h"
+
+'--------------------------------------------------------------------------
+
+
+
+'--------------------抽出器の収束計算を行う--------------------
+' 蒸留塔出口のモル流量は操作できないので，晶析のリサイクルを行うために，
+' Adopterを設置し，そこにで流量を操作する．
+' まず，preAdopterの成分別モル流量を設定する．
+AdopterHYSYS.ComponentMolarFlow.SetValues _
+        PreAdopterHYSYS.ComponentMolarFlow.GetValues("kgmole/h"), "kgmole/h"
+
+i = 0
+Do While (crystallizerErr > crystallizerEps And i < 100)
+    adopterComponentMolarFlow = AdopterHYSYS. _
+              ComponentMolarFlow.GetValues("kgmole/h")
+
+    Call pseudo_extractor.main(adopterComponentMolarFlow, _
+                                extractedBzAComponentMolarFlow, _
+                                extractedOthersComponentMolarFlow, _
+                                extractedWaterComponentMolarFlow, _
+                                extractorTemp)
+
+    ExtractedWaterHYSYS.ComponentMolarFlow.SetValues _
+                extractedWaterComponentMolarFlow, "kgmole/h"
+    ExtractedBzAHYSYS.ComponentMolarFlow.SetValues _
+                extractedBzAComponentMolarFlow, "kgmole/h"
+    ExtractedOthersHYSYS.ComponentMolarFlow.SetValues _
+                extractedOthersComponentMolarFlow, "kgmole/h"
+
+    ToCrystallizationBzAMolarFlow = extractedBzAComponentMolarFlow(3)
+    ToCrystallizationWaterMolarFlow = extractedWaterComponentMolarFlow(4)
+    ToCrystallizationVolumeFlow = CrystallizationInHYSYS. _
+                StdLiqVolFlow.GetValue("m3/h")
+
+    BzAConcentration = (ToCrystallizationBzAMolarFlow * BzAMolarMass) / _
+                        (ToCrystallizationWaterMolarFlow * WaterMolarMass)
+
+    CrystallizedBzA = crystallization.MSMPR(crystallizerTemp, _
+                                            BzAConcentration, _
+                                            ToCrystallizationVolumeFlow, _
+                                            crystallizerVolume, _
+                                            ToCrystallizationBzAMolarFlow)
+
+    RestOfBzA = ToCrystallizationBzAMolarFlow - CrystallizedBzA
+    RestOfWater = ToCrystallizationWaterMolarFlow
+    products = Array(0, 0, 0, CrystallizedBzA, 0, 0, 0, 0, 0)
+    restOfProducts = Array(0, 0, 0, RestOfBzA, RestOfWater, 0, 0, 0, 0)
+    ProductHYSYS.ComponentMolarFlow.SetValues products, "kgmole/h"
+    PreCrystallizedRecycleHYSYS.ComponentMolarFlow.SetValues _
+                  restOfProducts, "kgmole/h"
+
+    adopterComponentMolarFlow(3) = distillationLiqOutComponentMolarFlow(3) + _
+                                    restOfProducts(3)
+    AdopterHYSYS.ComponentMolarFlow.SetValues _
+                            adopterComponentMolarFlow, "kgmole/h"
+
+    crystallizerErr = Abs((distillationLiqOutComponentMolarFlow(3) + _
+                      restOfProducts(3)) - (products(3) + restOfProducts(3)))
+    i = i + 1
+Loop
+'------------------------------------------------------------------------------
+
+'------------------------------------------------------------------------------
+decanterOutComponentMolarFlow = _
+        DecanterOutHYSYS.ComponentMolarFlow.GetValues("kgmole/h")
+
+' 量論関係から，トルエンを全量燃焼させるのに必要な酸素量を求める．
+' Tol + 9 O2 -> 4 H2O + 7 CO2
+necessaryOxygen = decanterOutComponentMolarFlow(0) * 9
+lackingOxygen = necessaryOxygen - decanterOutComponentMolarFlow(6)
+additionalOxygen = lackingOxygen
+additionalNytrogen = lackingOxygen * (NytrogenFraction / OxygenFraction)
+
+
+If (additionalOxygen < 0) Then
+    additionalOxygen = 0
+    additionalNytrogen = 0
+    isAirNeed = True
+End If
+
+additionalAir = Array(0, 0, 0, 0, 0, additionalNytrogen, additionalOxygen, 0, 0)
+AdditionalAirHYSYS.ComponentMolarFlow.SetValues additionalAir, "kgmole/h"
+'--------------------------------------------------------------------------------
+
+'--------------------------------------------------------------------------------
+With resultSheet
+    For i = 0 To 8
+        .Cells(topRow + 0, i + 4) = _
+              AdditionalAirHYSYS.ComponentMolarFlow(i) * 3600
+        .Cells(topRow + 1, i + 4) = _
+              AdopterHYSYS.ComponentMolarFlow(i) * 3600
+        .Cells(topRow + 2, i + 4) = _
+              BoilerBottomOutHYSYS.ComponentMolarFlow(i) * 3600
+        .Cells(topRow + 3, i + 4) = _
+              BoilerTopOutHYSYS.ComponentMolarFlow(i) * 3600
+        .Cells(topRow + 4, i + 4) = _
+              CrystallizationInHYSYS.ComponentMolarFlow(i) * 3600
+        .Cells(topRow + 5, i + 4) = _
+              CrystallizedRecycleHYSYS.ComponentMolarFlow(i) * 3600
+        .Cells(topRow + 6, i + 4) = _
+              DecanterOutHYSYS.ComponentMolarFlow(i) * 3600
+        .Cells(topRow + 7, i + 4) = _
+              DistillationInHYSYS.ComponentMolarFlow(i) * 3600
+        .Cells(topRow + 8, i + 4) = _
+              DistillationLiqOutHYSYS.ComponentMolarFlow(i) * 3600
+        .Cells(topRow + 9, i + 4) = _
+              DistillationVapOutHYSYS.ComponentMolarFlow(i) * 3600
+        .Cells(topRow + 10, i + 4) = _
+              DistVapOutXHYSYS.ComponentMolarFlow(i) * 3600
+        .Cells(topRow + 11, i + 4) = _
+              ExternalOutHYSYS.ComponentMolarFlow(i) * 3600
+        .Cells(topRow + 12, i + 4) = _
+              ExtractedBzAHYSYS.ComponentMolarFlow(i) * 3600
+        .Cells(topRow + 13, i + 4) = _
+              ExtractedOthersHYSYS.ComponentMolarFlow(i) * 3600
+        .Cells(topRow + 14, i + 4) = _
+              ExtractedWaterHYSYS.ComponentMolarFlow(i) * 3600
+        .Cells(topRow + 15, i + 4) = _
+              FeedHYSYS.ComponentMolarFlow(i) * 3600
+        .Cells(topRow + 16, i + 4) = _
+              MixerInHYSYS.ComponentMolarFlow(i) * 3600
+        .Cells(topRow + 17, i + 4) = _
+              PostDistillationVapOutHYSYS.ComponentMolarFlow(i) * 3600
+        .Cells(topRow + 18, i + 4) = _
+              PostDistVapOutXHYSYS.ComponentMolarFlow(i) * 3600
+        .Cells(topRow + 19, i + 4) = _
+              PostReactorOutHYSYS.ComponentMolarFlow(i) * 3600
+        .Cells(topRow + 20, i + 4) = _
+              PreAdopterHYSYS.ComponentMolarFlow(i) * 3600
+        .Cells(topRow + 21, i + 4) = _
+              PreCrystallizedRecycleHYSYS.ComponentMolarFlow(i) * 3600
+        .Cells(topRow + 22, i + 4) = _
+              PreReactorInHYSYS.ComponentMolarFlow(i) * 3600
+        .Cells(topRow + 23, i + 4) = _
+              ProductHYSYS.ComponentMolarFlow(i) * 3600
+        .Cells(topRow + 24, i + 4) = _
+              PumpInHYSYS.ComponentMolarFlow(i) * 3600
+        .Cells(topRow + 25, i + 4) = _
+              ReactorInHYSYS.ComponentMolarFlow(i) * 3600
+        .Cells(topRow + 26, i + 4) = _
+              ReactorOutHYSYS.ComponentMolarFlow(i) * 3600
+        .Cells(topRow + 27, i + 4) = _
+              ValveOutHYSYS.ComponentMolarFlow(i) * 3600
+    Next
+
+    .Cells(topRow + 0, 13) = _
+        AdditionalAirHYSYS.molarFlow.GetValue("kgmole/h")
+    .Cells(topRow + 1, 13) = _
+        AdopterHYSYS.molarFlow.GetValue("kgmole/h")
+    .Cells(topRow + 2, 13) = _
+        BoilerBottomOutHYSYS.molarFlow.GetValue("kgmole/h")
+    .Cells(topRow + 3, 13) = _
+        BoilerTopOutHYSYS.molarFlow.GetValue("kgmole/h")
+    .Cells(topRow + 4, 13) = _
+        CrystallizationInHYSYS.molarFlow.GetValue("kgmole/h")
+    .Cells(topRow + 5, 13) = _
+        CrystallizedRecycleHYSYS.molarFlow.GetValue("kgmole/h")
+    .Cells(topRow + 6, 13) = _
+        DecanterOutHYSYS.molarFlow.GetValue("kgmole/h")
+    .Cells(topRow + 7, 13) = _
+        DistillationInHYSYS.molarFlow.GetValue("kgmole/h")
+    .Cells(topRow + 8, 13) = _
+        DistillationLiqOutHYSYS.molarFlow.GetValue("kgmole/h")
+    .Cells(topRow + 9, 13) = _
+        DistillationVapOutHYSYS.molarFlow.GetValue("kgmole/h")
+    .Cells(topRow + 10, 13) = _
+        DistVapOutXHYSYS.molarFlow.GetValue("kgmole/h")
+    .Cells(topRow + 11, 13) = _
+        ExternalOutHYSYS.molarFlow.GetValue("kgmole/h")
+    .Cells(topRow + 12, 13) = _
+        ExtractedBzAHYSYS.molarFlow.GetValue("kgmole/h")
+    .Cells(topRow + 13, 13) = _
+        ExtractedOthersHYSYS.molarFlow.GetValue("kgmole/h")
+    .Cells(topRow + 14, 13) = _
+        ExtractedWaterHYSYS.molarFlow.GetValue("kgmole/h")
+    .Cells(topRow + 15, 13) = _
+        FeedHYSYS.molarFlow.GetValue("kgmole/h")
+    .Cells(topRow + 16, 13) = _
+        MixerInHYSYS.molarFlow.GetValue("kgmole/h")
+    .Cells(topRow + 17, 13) = _
+        PostDistillationVapOutHYSYS.molarFlow.GetValue("kgmole/h")
+    .Cells(topRow + 18, 13) = _
+        PostDistVapOutXHYSYS.molarFlow.GetValue("kgmole/h")
+    .Cells(topRow + 19, 13) = _
+        PostReactorOutHYSYS.molarFlow.GetValue("kgmole/h")
+    .Cells(topRow + 20, 13) = _
+        PreAdopterHYSYS.molarFlow.GetValue("kgmole/h")
+    .Cells(topRow + 21, 13) = _
+        PreCrystallizedRecycleHYSYS.molarFlow.GetValue("kgmole/h")
+    .Cells(topRow + 22, 13) = _
+        PreReactorInHYSYS.molarFlow.GetValue("kgmole/h")
+    .Cells(topRow + 23, 13) = _
+        ProductHYSYS.molarFlow.GetValue("kgmole/h")
+    .Cells(topRow + 24, 13) = _
+        PumpInHYSYS.molarFlow.GetValue("kgmole/h")
+    .Cells(topRow + 25, 13) = _
+        ReactorInHYSYS.molarFlow.GetValue("kgmole/h")
+    .Cells(topRow + 26, 13) = _
+        ReactorOutHYSYS.molarFlow.GetValue("kgmole/h")
+    .Cells(topRow + 27, 13) = _
+        ValveOutHYSYS.molarFlow.GetValue("kgmole/h")
+
+    .Cells(topRow + 0, 14) = _
+      AdditionalAirHYSYS.StdLiqVolFlow.GetValue("m3/h")
+    .Cells(topRow + 1, 14) = _
+      AdopterHYSYS.StdLiqVolFlow.GetValue("m3/h")
+    .Cells(topRow + 2, 14) = _
+      BoilerBottomOutHYSYS.StdLiqVolFlow.GetValue("m3/h")
+    .Cells(topRow + 3, 14) = _
+      BoilerTopOutHYSYS.StdLiqVolFlow.GetValue("m3/h")
+    .Cells(topRow + 4, 14) = _
+      CrystallizationInHYSYS.StdLiqVolFlow.GetValue("m3/h")
+    .Cells(topRow + 5, 14) = _
+      CrystallizedRecycleHYSYS.StdLiqVolFlow.GetValue("m3/h")
+    .Cells(topRow + 6, 14) = _
+      DecanterOutHYSYS.StdLiqVolFlow.GetValue("m3/h")
+    .Cells(topRow + 7, 14) = _
+      DistillationInHYSYS.StdLiqVolFlow.GetValue("m3/h")
+    .Cells(topRow + 8, 14) = _
+      DistillationLiqOutHYSYS.StdLiqVolFlow.GetValue("m3/h")
+    .Cells(topRow + 9, 14) = _
+      DistillationVapOutHYSYS.StdLiqVolFlow.GetValue("m3/h")
+    .Cells(topRow + 10, 14) = _
+      DistVapOutXHYSYS.StdLiqVolFlow.GetValue("m3/h")
+    .Cells(topRow + 11, 14) = _
+      ExternalOutHYSYS.StdLiqVolFlow.GetValue("m3/h")
+    .Cells(topRow + 12, 14) = _
+      ExtractedBzAHYSYS.StdLiqVolFlow.GetValue("m3/h")
+    .Cells(topRow + 13, 14) = _
+      ExtractedOthersHYSYS.StdLiqVolFlow.GetValue("m3/h")
+    .Cells(topRow + 14, 14) = _
+      ExtractedWaterHYSYS.StdLiqVolFlow.GetValue("m3/h")
+    .Cells(topRow + 15, 14) = _
+      FeedHYSYS.StdLiqVolFlow.GetValue("m3/h")
+    .Cells(topRow + 16, 14) = _
+      MixerInHYSYS.StdLiqVolFlow.GetValue("m3/h")
+    .Cells(topRow + 17, 14) = _
+      PostDistillationVapOutHYSYS.StdLiqVolFlow.GetValue("m3/h")
+    .Cells(topRow + 18, 14) = _
+      PostDistVapOutXHYSYS.StdLiqVolFlow.GetValue("m3/h")
+    .Cells(topRow + 19, 14) = _
+      PostReactorOutHYSYS.StdLiqVolFlow.GetValue("m3/h")
+    .Cells(topRow + 20, 14) = _
+      PreAdopterHYSYS.StdLiqVolFlow.GetValue("m3/h")
+    .Cells(topRow + 21, 14) = _
+      PreCrystallizedRecycleHYSYS.StdLiqVolFlow.GetValue("m3/h")
+    .Cells(topRow + 22, 14) = _
+      PreReactorInHYSYS.StdLiqVolFlow.GetValue("m3/h")
+    .Cells(topRow + 23, 14) = _
+      ProductHYSYS.StdLiqVolFlow.GetValue("m3/h")
+    .Cells(topRow + 24, 14) = _
+      PumpInHYSYS.StdLiqVolFlow.GetValue("m3/h")
+    .Cells(topRow + 25, 14) = _
+      ReactorInHYSYS.StdLiqVolFlow.GetValue("m3/h")
+    .Cells(topRow + 26, 14) = _
+      ReactorOutHYSYS.StdLiqVolFlow.GetValue("m3/h")
+    .Cells(topRow + 27, 14) = _
+      ValveOutHYSYS.StdLiqVolFlow.GetValue("m3/h")
+
+    .Cells(topRow + 0, 15) = _
+      AdditionalAirHYSYS.HeatFlow.GetValue("GJ/h")
+    .Cells(topRow + 1, 15) = _
+      AdopterHYSYS.HeatFlow.GetValue("GJ/h")
+    .Cells(topRow + 2, 15) = _
+      BoilerBottomOutHYSYS.HeatFlow.GetValue("GJ/h")
+    .Cells(topRow + 3, 15) = _
+      BoilerTopOutHYSYS.HeatFlow.GetValue("GJ/h")
+    .Cells(topRow + 4, 15) = _
+      CrystallizationInHYSYS.HeatFlow.GetValue("GJ/h")
+    .Cells(topRow + 5, 15) = _
+      CrystallizedRecycleHYSYS.HeatFlow.GetValue("GJ/h")
+    .Cells(topRow + 6, 15) = _
+      DecanterOutHYSYS.HeatFlow.GetValue("GJ/h")
+    .Cells(topRow + 7, 15) = _
+      DistillationInHYSYS.HeatFlow.GetValue("GJ/h")
+    .Cells(topRow + 8, 15) = _
+      DistillationLiqOutHYSYS.HeatFlow.GetValue("GJ/h")
+    .Cells(topRow + 9, 15) = _
+      DistillationVapOutHYSYS.HeatFlow.GetValue("GJ/h")
+    .Cells(topRow + 10, 15) = _
+      DistVapOutXHYSYS.HeatFlow.GetValue("GJ/h")
+    .Cells(topRow + 11, 15) = _
+      ExternalOutHYSYS.HeatFlow.GetValue("GJ/h")
+    .Cells(topRow + 12, 15) = _
+      ExtractedBzAHYSYS.HeatFlow.GetValue("GJ/h")
+    .Cells(topRow + 13, 15) = _
+      ExtractedOthersHYSYS.HeatFlow.GetValue("GJ/h")
+    .Cells(topRow + 14, 15) = _
+      ExtractedWaterHYSYS.HeatFlow.GetValue("GJ/h")
+    .Cells(topRow + 15, 15) = _
+      FeedHYSYS.HeatFlow.GetValue("GJ/h")
+    .Cells(topRow + 16, 15) = _
+      MixerInHYSYS.HeatFlow.GetValue("GJ/h")
+    .Cells(topRow + 17, 15) = _
+      PostDistillationVapOutHYSYS.HeatFlow.GetValue("GJ/h")
+    .Cells(topRow + 18, 15) = _
+      PostDistVapOutXHYSYS.HeatFlow.GetValue("GJ/h")
+    .Cells(topRow + 19, 15) = _
+      PostReactorOutHYSYS.HeatFlow.GetValue("GJ/h")
+    .Cells(topRow + 20, 15) = _
+      PreAdopterHYSYS.HeatFlow.GetValue("GJ/h")
+    .Cells(topRow + 21, 15) = _
+      PreCrystallizedRecycleHYSYS.HeatFlow.GetValue("GJ/h")
+    .Cells(topRow + 22, 15) = _
+      PreReactorInHYSYS.HeatFlow.GetValue("GJ/h")
+    .Cells(topRow + 23, 15) = _
+      ProductHYSYS.HeatFlow.GetValue("GJ/h")
+    .Cells(topRow + 24, 15) = _
+      PumpInHYSYS.HeatFlow.GetValue("GJ/h")
+    .Cells(topRow + 25, 15) = _
+      ReactorInHYSYS.HeatFlow.GetValue("GJ/h")
+    .Cells(topRow + 26, 15) = _
+      ReactorOutHYSYS.HeatFlow.GetValue("GJ/h")
+    .Cells(topRow + 27, 15) = _
+      ValveOutHYSYS.HeatFlow.GetValue("GJ/h")
+
+
+    .Cells(10, 4) = reactorErr
+    .Cells(11, 4) = crystallizerErr
+
+
+    .Cells(topRow + 47, 6) = CondenserHYSYS.HeatFlow.GetValue("MJ/h")
+    .Cells(topRow + 47, 7) = ToCond.Temperature.GetValue("C")
+    .Cells(topRow + 47, 8) = Reflux.Temperature.GetValue("C")
+
+    .Cells(topRow + 48, 6) = _
+      DistVapOutExpandHYSYS.HeatFlow.GetValue("MJ/h")
+    .Cells(topRow + 48, 7) = _
+      DistillationVapOutHYSYS.Temperature.GetValue("C")
+    .Cells(topRow + 48, 8) = _
+      PostDistillationVapOutHYSYS.Temperature.GetValue("C")
+
+    .Cells(topRow + 49, 6) = PowerOfPumpHYSYS.HeatFlow.GetValue("MJ/h")
+    .Cells(topRow + 49, 7) = PumpInHYSYS.Temperature.GetValue("C")
+    .Cells(topRow + 49, 8) = PreReactorInHYSYS.Temperature.GetValue("C")
+
+    .Cells(topRow + 50, 6) = _
+        PreCrystallizedRecycleHeaterHYSYS.HeatFlow.GetValue("MJ/h")
+    .Cells(topRow + 50, 7) = _
+        PreCrystallizedRecycleHYSYS.Temperature.GetValue("C")
+    .Cells(topRow + 50, 8) = _
+        CrystallizedRecycleHYSYS.Temperature.GetValue("C")
+
+    .Cells(topRow + 51, 6) = PreReactorInHeaterHYSYS.HeatFlow.GetValue("MJ/h")
+    .Cells(topRow + 51, 7) = PreReactorInHYSYS.Temperature.GetValue("C")
+    .Cells(topRow + 51, 8) = ReactorInHYSYS.Temperature.GetValue("C")
+
+    .Cells(topRow + 52, 6) = ValveOutCoolerHYSYS.HeatFlow.GetValue("MJ/h")
+    .Cells(topRow + 52, 7) = DistillationLiqOutHYSYS.Temperature.GetValue("C")
+    .Cells(topRow + 52, 8) = ValveOutHYSYS.Temperature.GetValue("C")
+
+'    .Cells(topRow + 53, 6) = ReactorOutCoolerHYSYS.HeatFlow.GetValue("MJ/h")
+'    .Cells(topRow + 53, 7) = ReactorOutHYSYS.Temperature.GetValue("C")
+'    .Cells(topRow + 53, 8) = DistillationInHYSYS.Temperature.GetValue("C")
+
+    .Cells(topRow + 54, 6) = ReboilerHYSYS.HeatFlow.GetValue("MJ/h")
+    .Cells(topRow + 54, 8) = BoilUp.Temperature.GetValue("C")
+    .Cells(topRow + 54, 7) = ToReb.Temperature.GetValue("C")
+
+    .Cells(topRow + 55, 6) = -((.Cells(topRow + 25, 15).Value + _
+                .Cells(topRow + 28, 15).Value + .Cells(topRow + 30, 15).Value) _
+                - (.Cells(topRow + 26).Value + .Cells(topRow + 29, 15).Value)) _
+                * 1000
+    .Cells(topRow + 55, 7) = reactorTemp - 273.15
+    .Cells(topRow + 55, 8) = reactorTemp - 273.15 + 0.1
+
+'    .Cells(topRow + 60, 6) = ReactorOutPumpHYSYS.HeatFlow.GetValue("MJ/h")
+    .Cells(topRow + 60, 6) = 0
+    .Cells(topRow + 60, 7) = PostReactorOutHYSYS.Temperature.GetValue("C")
+    .Cells(topRow + 60, 8) = DistillationInHYSYS.Temperature.GetValue("C")
+
+    .Cells(topRow + 61, 6) = DistVapOutCoolerHYSYS.HeatFlow.GetValue("MJ/h")
+    .Cells(topRow + 61, 7) = DistVapOutXHYSYS.Temperature.GetValue("C")
+    .Cells(topRow + 61, 8) = PostDistVapOutXHYSYS.Temperature.GetValue("C")
+
+    .Cells(topRow + 70, 6) = ExternalOutCoolerHYSYS.HeatFlow.GetValue("MJ/h")
+
+End With
+'------------------------------------------------------------------------------
+
+'------------------------------------------------------------------------------
+Dim CrystallizationInEnthalpy As Double         '[MJ/h]
+Dim ProductEnthalpy As Double                   '[MJ/h]
+Dim PreCrystallizedRecycleEnthalpy As Double    '[MJ/h]
+
+CrystallizationInEnthalpy = CrystallizationInHYSYS. _
+                  EnthalpyEstimate.GetValue("MJ/kgmole") * _
+                  CrystallizationInHYSYS.molarFlow.GetValue("kgmole/h") / 1000
+ProductEnthalpy = ProductHYSYS.EnthalpyEstimate.GetValue("MJ/kgmole") * _
+                  ProductHYSYS.molarFlow.GetValue("kgmole/h") / 1000
+PreCrystallizedRecycleEnthalpy = PreCrystallizedRecycleHYSYS. _
+                  EnthalpyEstimate.GetValue("MJ/kgmole") * _
+                  PreCrystallizedRecycleHYSYS.molarFlow.GetValue("kgmole/h") _
+                  / 1000
+
+
+With resultSheet
+    .Cells(55, 27) = PowerOfPumpHYSYS.Power.GetValue("kW")
+    .Cells(55, 25) = ExternalOutCoolerHYSYS.HeatFlow.GetValue("MJ/h")
+    .Cells(55, 35) = DistVapOutExpandHYSYS.Power.GetValue("kW")
+
+    .Cells(topRow + 59, 6).Value = -(ProductEnthalpy + _
+                          PreCrystallizedRecycleEnthalpy - _
+                          CrystallizationInEnthalpy) * 1000
+    .Cells(topRow + 59, 8).Value = crystallizerTemp
+End With
+
+
+Call RunPython("import heatexchange; heatexchange.main()") '
+ThisWorkbook.Save
+'------------------------------------------------------------------------------
+
+Debug.Print "completed"
+End Sub
+\end{lstlisting}
+
+\begin{lstlisting}[caption=抽出塔]
+Option Explicit
+
+Sub main(outletFlow As Variant, _
+        BzAFlow As Variant, _
+        OthersFlow As Variant, _
+        WaterFlow As Variant, _
+        T As Double)
+
+Dim toluene As Double   '[kmol/h]
+Dim balc As Double      '[kmol/h]
+Dim bald As Double      '[kmol/h]
+Dim bza As Double       '[kmol/h]
+Dim h2o As Double       '[kmol/h]
+Dim Nitrogen As Double  '[kmol/h]
+Dim Oxygen As Double    '[kmol/h]
+Dim co As Double        '[kmol/h]
+Dim co2 As Double       '[kmol/h]
+Dim HotWater As Double  '[kmol/h]
+
+Dim Csat As Double      '水単位質量当たりの安息香酸の溶解度 [BzA-g/ H2O-g]
+
+
+' 蒸留塔出口の成分別モル数を求める．
+toluene = outletFlow(0)
+balc = outletFlow(1)
+bald = outletFlow(2)
+bza = outletFlow(3)
+h2o = outletFlow(4)
+Nitrogen = outletFlow(5)
+Oxygen = outletFlow(6)
+co = outletFlow(7)
+co2 = outletFlow(8)
+
+' 安息香酸のモル量すべてが溶ける水の量を溶解度と温度から求める．
+Csat = _
+  (0.0000203 * T ^ 4 + 0.000297 * T ^ 3 + 0.047 * T ^ 2 + 1.43 * T + 24.71) / _
+  1000
+HotWater = ((bza * BzAMolarMass * 1000) / Csat) / WaterMolarMass / 1000
+
+
+' 抽出器で，100%分離できたと考え，成分別モル流量を求める．
+BzAFlow(3) = bza
+
+OthersFlow(0) = toluene
+OthersFlow(1) = balc
+OthersFlow(2) = bald
+OthersFlow(4) = h2o
+OthersFlow(5) = Nitrogen
+OthersFlow(6) = Oxygen
+OthersFlow(7) = co
+OthersFlow(8) = co2
+
+WaterFlow(4) = HotWater
+
+End Sub
+\end{lstlisting}
+
+\begin{lstlisting}[caption=晶析器]
+Option Explicit
+
+'--------------変数定義-------------------------------------------------
+
+Private Const j_pow = 1.78
+Private Const b_pow = 1.2
+Private Const g_pow = 0.44
+Private Const R = 8.314
+Private Const kv = 0.1          '結晶体積形状係数
+
+Private kb As Double            '核発生速度
+Private kg As Double            '結晶成長速度
+Private kg0 As Double           '結晶成長頻度因子
+Private Eg As Double            '結晶成長活性化エネルギー
+Private rhoc As Double          '結晶密度
+Private GrowthRate As Double    '結晶成長速度定数
+Private T_MSMPR As Double       '連続晶析器内温度
+Private T_MSMPR_K As Double     '連続晶析器内温度
+Private C_Feed As Double        'Feed液Bac濃度
+Private Csat As Double          'Bac飽和濃度
+Private delta_C As Double       '過飽和度
+Private Mt As Double            '懸濁密度(体積当たり結晶生産速度)
+Private B0 As Double            '一次核発生速度
+Private rhoL As Double          '液溶媒密度
+Private tau_MSMPR As Double     '平均滞留時間
+Private n0 As Double            '個数密度
+Private Vol_MSMPR  As Double    '晶析装置液体積
+Private v0_MSMPR As Double      'Feed液体積流量
+Private Yc As Double            '全体結晶転化率
+Private Ycmax As Double         '可能結晶転化率
+
+Function MSMPR(T_input As Double, _
+                C_Feed_input As Double, _
+                v0_input As Double, _
+                Vol_input As Double, _
+                BzAMolarFlow As Double) As Double
+
+'諸条件から結晶生産量を求めます．
+
+'--------------操作条件入力--------------------------------------------------
+T_MSMPR = T_input     '[℃]
+C_Feed = C_Feed_input '[g/g]
+v0_MSMPR = v0_input   '[m3/h]
+Vol_MSMPR = Vol_input '[m3]
+
+'--------------パラメータ入力----------------------------------------------
+Eg = 40.05            '[kJ/mol]
+kg0 = 10600000#       '[μm/s]
+kb = 9160000000000#   '[(#/m3 s)(g/mL)^j(BzA-g/H2O-g)^b]
+rhoc = 1.32           '[g/cm3]
+rhoL = 0.998          '[g/mL]
+
+'--------------諸量計算-------------------------------------------------------
+tau_MSMPR = Vol_MSMPR / v0_MSMPR * 60 '[min]
+Csat = (0.0000203 * T_MSMPR ^ 4 + 0.000297 * T_MSMPR ^ 3 + _
+    0.047 * T_MSMPR ^ 2 + 1.43 * T_MSMPR + 24.71) / 1000 '[g/g]
+T_MSMPR_K = T_MSMPR + 273.15          '[K]
+kg = kg0 * Exp(-(Eg * 1000) / (R * T_MSMPR_K)) '[μm/s]
+
+
+'----------晶析器内濃度Cの決定(濃度誤差の二分法)-------------------------------------
+
+Dim C1 As Double, C2 As Double, C3 As Double           '仮定晶析器内濃度
+Dim Cnew1 As Double, Cnew2 As Double, Cnew3 As Double  '更新濃度
+Dim err1 As Double, err2 As Double, err3 As Double     '誤差
+Dim counter As Integer                                 '計算回数
+Dim eps As Double                                      '収束半径
+
+eps = 0.0000001
+counter = 0
+C1 = Csat * 1.00000001   '下限
+C2 = C_Feed * 0.99999999 '上限
+
+Call calc(C1, Cnew1, err1) '小さい濃度C1での誤差検出
+Call calc(C2, Cnew2, err2) '大きい濃度C2での誤差検出
+
+Do While (Abs((C1 - C2) / C1) > eps)
+
+    C3 = (C1 + C2) / 2
+    Call calc(C3, Cnew3, err3) '中間濃度C3での誤差検出
+    '更新
+    If err1 * err3 >= 0 Then
+        C1 = C3
+        err1 = err3
+    Else
+        C2 = C3
+        err2 = err3
+    End If
+    counter = counter + 1
+Loop
+
+'---------------出力部----------------------------------------------------------
+Yc = (C_Feed - C3) / C_Feed * 100             '[wt%]
+Ycmax = (C_Feed - C3) / (C_Feed - Csat) * 100 '[wt%]
+
+MSMPR = BzAMolarFlow * Yc * Ycmax / 10000
+'MSMPR = (C_Feed - C3) * rhoL * v0_MSMPR * 1000 '[kg/h]
+End Function
+
+Sub calc(ByRef C As Double, ByRef Cnew As Double, ByRef err As Double)
+'計算ユニットです
+
+Dim Mtnew As Double
+
+Mt = (C_Feed - C) * rhoL                                   '定義式[g/mL]
+delta_C = C - Csat                                         '定義式[g/g]
+GrowthRate = kg * delta_C ^ g_pow                          '実験式[μm/s]
+B0 = kb * Mt ^ j_pow * delta_C ^ b_pow                     '実験式[#/m3 s]
+n0 = B0 / GrowthRate                                       '定義式[m3 μm]
+Mtnew = 6 * kv * rhoc * (n0 * 1000000) * _
+        ((GrowthRate * 0.000001) * (tau_MSMPR * 60)) ^ 4   '個数収支式[g/mL]
+Cnew = C_Feed - Mtnew / rhoL                               '個数収支式[g/g]
+err = C - Cnew                                             '誤差
+
+End Sub
+\end{lstlisting}
+
+\begin{lstlisting}[caption=関数群]
+Option Explicit
+
+Sub solve_k(Temp As Double, k As Variant)
+
+Dim i As Integer
+
+Dim a As Variant
+Dim E As Variant
+Dim R As Double
+
+a = Array(Exp(20.634), Exp(17.928), Exp(15.4), Exp(19.698))
+E = Array(81.389, 69.53, 56.987, 71.442)
+k = Array(0, 0, 0, 0)
+R = 8.314
+
+For i = 0 To 3
+    k(i) = a(i) * Exp(-E(i) * 1000 / R / Temp)
+Next i
+
+End Sub
+
+Sub solveX(ByRef F As Variant, ByRef x As Variant)
+
+Dim i As Integer
+Dim sum As Long
+
+sum = sumOfFlow(F)
+
+For i = 0 To 8
+    x(i) = F(i) / sum
+Next i
+
+End Sub
+
+Function sumOfFlow(F As Variant) As Double
+
+Dim i As Integer
+
+sumOfFlow = 0
+
+For i = 0 To 8
+    sumOfFlow = sumOfFlow + F(i)
+Next i
+
+End Function
+
+Sub solveComponentVolumeFlow(molarFlow As Variant, volumeFlow As Variant)
+
+Dim i As Integer
+Dim param As Variant
+
+' [m3/mol]
+param = Array(0.10550147646805, 0.10002241059429, 0.101176788713442, _
+    0.112399721649694, 1.77522405788194E-02, 0, 0, 0, 5.32284437764362E-02)
+
+For i = 0 To 8
+    volumeFlow(i) = molarFlow(i) * param(i)
+Next
+
+End Sub
+\end{lstlisting}
+
+\begin{lstlisting}[caption=最適化を行うコード]
+Option Explicit
+
+Sub gridrun()
+
+Dim topRow1 As Integer
+Dim topRow2 As Integer
+
+Dim leftColumn1 As Integer
+Dim leftColumn2 As Integer
+
+Dim resultSheet As Worksheet
+Dim writeSheet As Worksheet
+Dim saveSheet As Worksheet
+Set resultSheet = ThisWorkbook.Sheets(1)
+Set writeSheet = ThisWorkbook.Sheets(4)
+Set saveSheet = ThisWorkbook.Sheets(5)
+
+Dim crVolume As Double
+Dim reVolume As Double
+
+
+
+Dim i As Integer
+Dim j As Integer
+Dim p As Integer
+Dim l As Integer
+
+topRow1 = 8
+leftColumn1 = 4
+
+topRow2 = 3
+leftColumn2 = 2
+
+For i = 1 To 1
+    j = 0
+
+    Call process_all.main
+
+    With writeSheet
+        .Cells(topRow1 + j, leftColumn1 + i) = resultSheet.Cells(28, 22)
+
+        If (resultSheet.Cells(10, 4) > 0.001) Then
+            If (resultSheet.Cells(11, 4) > 0.001) Then
+                .Cells(topRow1 + j, leftColumn1 + i).Interior.Color = _
+                        RGB(255, 0, 0)
+            Else
+                .Cells(topRow1 + j, leftColumn1 + i).Interior.Color = _
+                        RGB(0, 255, 0)
+            End If
+        Else
+            If (resultSheet.Cells(11, 4) > 0.001) Then
+                .Cells(topRow1 + j, leftColumn1 + i).Interior.Color = _
+                        RGB(0, 0, 255)
+            End If
+        End If
+    End With
+Next i
+
+End Sub
+\end{lstlisting}
 
 \end{document}
