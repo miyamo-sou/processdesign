@@ -12,4 +12,4 @@
 [宮本 奏汰 (Kanata Miyamoto)](https://github.com/miyamo-sou)
 
 ## Output
-<img alt="animation" src="animation.gif">
+<img height="300" alt="animation" src="animation.gif">
