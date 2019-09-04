@@ -1,4 +1,4 @@
-\documentclass[a4j]{jsreport}
+\documentclass[truesize=10.5pt,a4j]{jsreport}
 
 \usepackage[dvipdfmx]{graphicx}
 \usepackage{multicol}
@@ -135,15 +135,17 @@
 \end{tabular}
 \end{center}
 
-ただし，トルエンをTol，ベンジルアルコールをBalc，ベンズアルデヒドをBald，安息香酸をBzAと表記している．これらの反応は全て酸化反応であり，触媒にはモリブデン酸マンガン\ce{MnMoO4}を用いることとした．これらの反応の反応速度定数を，表\ref{反応速度定数}に示す\cite{HOORN2005187}．
-反応速度定数
+ただし，トルエンをTol，ベンジルアルコールをBalc，ベンズアルデヒドをBald，安息香酸をBzAと表記している．これらの反応は全て酸化反応であり，触媒にはモリブデン酸マンガン\ce{MnMoO4}を用いることとした．これらの反応の反応速度定数はアレニウス式に従い，パラメータを表\ref{反応速度定数}に示す\cite{HOORN2005187}．
+\begin{equation}
+  k_j = A_j\exp(-\frac{E_j}{RT})
+\end{equation}
 \begin{table}[htbp]
   \centering
   \label{反応速度定数}
   \caption{各反応式の反応速度定数}
   \begin{tabular}{ccccc}
     \hline
-    & $k_1$ & $k_2$ & $k_3$ & $k_4$ \\
+    $k_j$ [s$^{-1}$] & $k_1$ & $k_2$ & $k_3$ & $k_4$ \\
     \hline
     $\ln A_j \, [\si{-}]$ & 17.93 & 20.63 & 15.40 & 19.70 \\
     $E_j \, [\si{\kilo \joule \per \mole}]$ & 69.53 & 81.39 & 56.99 & 71.44 \\
@@ -408,7 +410,7 @@ L/D比は2とした．
 各パラメータは以下の通りである．
 \begin{align*}
     &k_\mathrm{g0} = 1.06\times10^7 \, \si{(\micro \meter)(\gram / \solventgram)^{\textit{-g}}} \\
-    &E^{\mathrm{g}} = 40.05 \, \si{\kilo \joule \per \mole} \\
+    &E_{\mathrm{g}} = 40.05 \, \si{\kilo \joule \per \mole} \\
     &k_\mathrm{b} = 9.16 \times 10^{12} \, \si{(\# / \cubic \meter \second) (\gram / \milli \liter)^{\textit{-j}} (\gram / \solventgram)^{\textit{-b}}} \\
     &g = 0.44 \\
     &j = 1.78 \\
@@ -684,7 +686,7 @@ L/D比は2とした．
   \caption{TQ線図}
   \label{TQ線図}
 \end{figure}
-
+熱交換器の必要な総伝熱面積は\,853\,m$^2$\,である.
 ヒートインテグレーションを行うことで，必要な外部熱煤の費用は3.6億円から1.2億円にまで削減することができた．
 
 \clearpage
@@ -699,9 +701,9 @@ L/D比は2とした．
       \hline
       収入 & 製品 & 安息香酸 & 23.7 & 23.7 \\
       \hline
-      \multirow{14}{*}{支出} & 原料コスト & トルエン & 10.4 & 10.4 \\
+      \multirow{15}{*}{支出} & 原料コスト & トルエン & 10.4 & 10.4 \\
       \cline{2-5}
-      & \multirow{10}{*}{装置コスト} & 晶析器 & 0.39 & \multirow{10}{*}{18.31} \\
+      & \multirow{10}{*}{装置コスト} & 晶析器 & 0.39 & \multirow{10}{*}{1.42} \\
       & & 反応器 & 0.34 & \\
       & & 熱交換器 & 0.33 & \\
       & & 抽出塔 & 0.14 & \\
@@ -715,6 +717,10 @@ L/D比は2とした．
       & \multirow{3}{*}{運転コスト} & 用役コスト & 1.24 & \multirow{3}{*}{6.60} \\
       & & 触媒 & 0.36 & \\
       & & 人件費 & 5 & \\
+      \cline{2-5}
+      &総コスト & &  & 18.42\\
+      \hline
+      \multicolumn{4}{c|}{収益} & 5.28 \\
       \hline
     \end{tabular}
 \end{table}
